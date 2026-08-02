@@ -1,0 +1,298 @@
+/* Variables */
+:root {
+    --bg-color: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #334155;
+    --text-muted: #64748b;
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --border-color: #e2e8f0;
+    --correct: #22c55e;
+    --incorrect: #ef4444;
+}
+
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-main);
+}
+
+.hidden {
+    display: none !important;
+}
+
+.app-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Home View */
+#home-view h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 30px;
+}
+.subject-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.subject-btn {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+}
+.subject-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+/* Study View Header */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.mode-selector {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    background: #e2e8f0;
+    padding: 5px;
+    border-radius: 8px;
+}
+.mode-selector button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background: transparent;
+    border-radius: 6px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: 0.2s;
+}
+.mode-selector button.active {
+    background: var(--card-bg);
+    color: var(--primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+/* Common Controls */
+.progress-container {
+    text-align: center;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 30px;
+}
+.btn-control {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    color: var(--text-main);
+    cursor: pointer;
+    transition: 0.2s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+.btn-control:hover {
+    background-color: #f1f5f9;
+}
+
+/* Flashcard 3D */
+.scene {
+    width: 100%;
+    height: 400px;
+    perspective: 1000px;
+}
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    cursor: pointer;
+}
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+.card__face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    box-sizing: border-box;
+    border: 1px solid var(--border-color);
+}
+.card__face--back {
+    transform: rotateY(180deg);
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+}
+.label {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--primary);
+    font-weight: 800;
+    margin-bottom: 15px;
+}
+.card-content p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+}
+.fc-options-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.fc-option {
+    background: #f8fafc;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    border: 1px solid var(--border-color);
+}
+.card-hint {
+    margin-top: auto;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Flashcard Reveal */
+.card-reveal-container {
+    background: var(--card-bg);
+    border-radius: 16px;
+    box-shadow: 0 10px 25px -5px rgba(0,0,0,0.1);
+    border: 1px solid var(--border-color);
+    overflow: hidden;
+}
+.card-reveal-question {
+    padding: 30px;
+}
+.card-reveal-question p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin: 0;
+}
+.card-reveal-hint {
+    text-align: center;
+    padding: 15px;
+    background: #f1f5f9;
+    color: var(--text-muted);
+    font-weight: 600;
+    border-top: 1px solid var(--border-color);
+}
+.card-reveal-answer {
+    padding: 30px;
+    background-color: #f0fdf4;
+    border-top: 1px dashed #bbf7d0;
+}
+.card-reveal-answer p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #166534;
+    margin: 0;
+}
+
+/* Quiz Section */
+.quiz-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--text-muted);
+}
+.quiz-question-container {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
+    border: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+.quiz-question-container h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    line-height: 1.5;
+}
+.quiz-options {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+.quiz-option-btn {
+    background: var(--card-bg);
+    border: 2px solid var(--border-color);
+    padding: 20px;
+    border-radius: 12px;
+    font-size: 1.05rem;
+    cursor: pointer;
+    transition: 0.2s;
+    text-align: left;
+    color: var(--text-main);
+    font-weight: 500;
+}
+.quiz-option-btn:hover:not(:disabled) {
+    border-color: var(--primary);
+    background: #eff6ff;
+}
+.quiz-option-btn.correct {
+    background: var(--correct);
+    border-color: var(--correct);
+    color: white;
+}
+.quiz-option-btn.incorrect {
+    background: var(--incorrect);
+    border-color: var(--incorrect);
+    color: white;
+}
+.quiz-option-btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.quiz-reveal-answer {
+    background: #f0fdf4;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #bbf7d0;
+    margin-bottom: 20px;
+}
+.quiz-reveal-answer p {
+    margin: 0;
+    color: #166534;
+    line-height: 1.5;
+    font-size: 1.1rem;
+}
+.quiz-actions {
+    text-align: center;
+}

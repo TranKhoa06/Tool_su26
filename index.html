@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hệ Thống Ôn Tập Đa Môn</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Trang chọn môn -->
+        <div id="home-view">
+            <h1>📚 Chọn Môn Học</h1>
+            <div id="subject-list" class="subject-grid">
+                <button class="subject-btn" onclick="loadSubject('dic201', 'DIC201 (Lý Thuyết)')">DIC201 (Lý Thuyết)</button>
+                <button class="subject-btn" onclick="loadSubject('mcp201', 'MCP201 (Lý Thuyết)')">MCP201 (Lý Thuyết)</button>
+            </div>
+        </div>
+
+        <!-- Giao diện Học -->
+        <div id="study-view" class="hidden">
+            <header>
+                <div class="header-top">
+                    <button id="btn-back-home" class="btn-control" onclick="goHome()">🏠 Quay lại</button>
+                    <h2 id="current-subject-title">Môn Học</h2>
+                </div>
+                <nav class="mode-selector">
+                    <button id="btn-flashcard-3d" class="active" onclick="switchTab('flashcard-3d')">Flashcard (3D)</button>
+                    <button id="btn-flashcard-reveal" onclick="switchTab('flashcard-reveal')">Flashcard (Hiện Đáp Án)</button>
+                    <button id="btn-quiz" onclick="switchTab('quiz')">Trắc Nghiệm</button>
+                </nav>
+            </header>
+
+            <main>
+                <!-- Flashcard 3D Section -->
+                <section id="section-flashcard-3d" class="active">
+                    <div class="progress-container"><span id="fc3d-counter">1 / 10</span></div>
+                    <div class="scene scene--card">
+                        <div class="card" id="flashcard-3d">
+                            <div class="card__face card__face--front">
+                                <div class="card-content">
+                                    <span class="label">Câu hỏi</span>
+                                    <p id="fc3d-term">Loading...</p>
+                                    <div id="fc3d-options" class="fc-options-list"></div>
+                                </div>
+                                <div class="card-hint">Nhấn Space để lật</div>
+                            </div>
+                            <div class="card__face card__face--back">
+                                <div class="card-content">
+                                    <span class="label">Đáp án & Giải thích</span>
+                                    <p id="fc3d-definition">Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="controls">
+                        <button onclick="prevCard('fc3d')" class="btn-control">← Trước (Phím ⬅)</button>
+                        <button onclick="nextCard('fc3d')" class="btn-control">Tiếp → (Phím ➡)</button>
+                    </div>
+                </section>
+
+                <!-- Flashcard Reveal Section -->
+                <section id="section-flashcard-reveal" class="hidden">
+                    <div class="progress-container"><span id="fcrev-counter">1 / 10</span></div>
+                    
+                    <div class="card-reveal-container">
+                        <div class="card-reveal-question">
+                            <span class="label">Câu hỏi</span>
+                            <p id="fcrev-term">Loading...</p>
+                            <div id="fcrev-options" class="fc-options-list"></div>
+                        </div>
+                        <div class="card-reveal-hint" id="fcrev-hint">Nhấn Space để hiện đáp án ↓</div>
+                        <div class="card-reveal-answer hidden" id="fcrev-answer">
+                            <span class="label">Đáp án & Giải thích</span>
+                            <p id="fcrev-definition">Loading...</p>
+                        </div>
+                    </div>
+
+                    <div class="controls">
+                        <button onclick="prevCard('fcrev')" class="btn-control">← Trước (Phím ⬅)</button>
+                        <button onclick="nextCard('fcrev')" class="btn-control">Tiếp → (Phím ➡)</button>
+                    </div>
+                </section>
+
+                <!-- Quiz Section -->
+                <section id="section-quiz" class="hidden">
+                    <div class="quiz-header">
+                        <span id="quiz-counter">Câu: 1/10</span>
+                        <span id="quiz-score">Điểm: 0</span>
+                    </div>
+                    
+                    <div class="quiz-question-container">
+                        <h2 id="quiz-question">Loading question...</h2>
+                    </div>
+                    
+                    <div class="quiz-options" id="quiz-options">
+                        <!-- Options will be generated here -->
+                    </div>
+                    
+                    <!-- Phần hiện giải thích khi chọn xong đáp án -->
+                    <div class="quiz-reveal-answer hidden" id="quiz-reveal-answer">
+                        <span class="label" style="color: #007bff;">Giải thích (Tự đối chiếu)</span>
+                        <p id="quiz-explanation"></p>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button id="btn-next-quiz" class="btn-control hidden" onclick="nextQuiz()">Câu tiếp theo →</button>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Script loading handler -->
+    <script src="script.js"></script>
+</body>
+</html>

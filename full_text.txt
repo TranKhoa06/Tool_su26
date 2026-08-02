@@ -1,0 +1,3796 @@
+DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+1. 
+
+A quantity having discrete numerical values is 
+
+(a) an analog quantity 
+
+(b) a digital quantity 
+
+(c) a binary quantity 
+
+(d) a natural quantity 
+
+Đáp án đúng là B: a digital 
+
+quantity 
+
+2. 
+
+The term bit means 
+
+(a) a small amount of data 
+
+(b) a 1 or a 0 
+
+(c) binary digit 
+
+(d) both answers (b) and (c) 
+
+Đáp án đúng là D: both 
+
+answers (b) and (c) 
+
+3. 
+
+The time interval between the 50% points on the rising 
+
+and falling edges is 
+
+(a) rise time 
+
+(b) fall time 
+
+(c) pulse width 
+
+(d) period 
+
+Đáp án đúng là C: pulse 
+
+width 
+
+4. 
+
+A pulse in a certain waveform has a frequency of 50 
+
+Hz. It repeats itself every 
+
+(a) 1 ms 
+
+(b) 20 ms 
+
+(c) 50 ms 
+
+(d) 100 ms 
+
+Đáp án đúng là B: 20 ms 
+
+5. 
+
+In a certain digital waveform, the period is four times 
+
+the pulse width. The duty cycle is 
+
+(a) 25% 
+
+(b) 50% 
+
+(c) 75% 
+
+(d) 100% 
+
+Đáp án đúng là A: 25% 
+
+1 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+6. 
+
+An inverter 
+
+(a) performs the NOT operation 
+
+(b) changes a HIGH to a LOW 
+
+(c) changes a LOW to a HIGH 
+
+(d) does all of the above 
+
+Đáp án đúng là D: does all 
+
+of the above 
+
+7. 
+
+The output of an OR gate is LOW when 
+
+(a) any input is HIGH 
+
+(b) all inputs are HIGH 
+
+(c) no inputs are HIGH 
+
+(d) both (a) and (b) 
+
+(c) no inputs are HIGH 
+
+8. 
+
+The output of an AND gate is LOW when 
+
+(a) any input is LOW 
+
+(b) all inputs are HIGH 
+
+(c) no inputs are HIGH 
+
+(d) both (a) and (c) 
+
+Đáp án đúng là A: any in
+
+put is LOW 
+
+9. 
+
+The device used to convert a binary number to a 7-seg
+
+ment display format is the 
+
+(a) multiplexer 
+
+(b) encoder 
+
+(c) decoder 
+
+(d) register 
+
+(c) decoder 
+
+10. An example of a data storage device is 
+
+(a) the logic gate 
+
+(b) the flip-flop 
+
+(c) the comparator 
+
+(d) the register 
+
+(e) both answers (b) and (d) 
+
+Đáp án đúng là E: both an
+
+swers (b) and (d) 
+
+11. 
+
+2 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+VHDL is a 
+
+(a) logic device 
+
+(b) PLD programming language 
+
+(c) computer language 
+
+(d) very high density logic 
+
+(b) PLD programming 
+
+language 
+
+12. A CPLD is a 
+
+(a) controlled program logic device 
+
+(b) complex programmable logic driver 
+
+(c) complex programmable logic device 
+
+(d) central processing logic device 
+
+(c) complex programma
+
+ble logic device 
+
+13. An FPGA is a 
+
+(a) field-programmable gate array 
+
+(b) fast programmable gate array 
+
+(c) field-programmable generic array 
+
+(d) flash process gate application 
+
+(a) field-programmable 
+
+gate array 
+
+14. A fixed-function IC package containing four AND 
+
+gates is an example of 
+
+(a) MSI 
+
+(b) SMT 
+
+(c) SOIC 
+
+(d) SSI 
+
+Đáp án đúng là D: SSI 
+
+15. An LSI device has a circuit complexity of from 
+
+(a) 10 to 100 equivalent gates 
+
+(b) more than 100 to 10,000 equivalent gates 
+
+(c) 2000 to 5000 equivalent gates 
+
+(d) more than 10,000 to 100,000 equivalent gates 
+
+Đáp án đúng là B: more 
+
+than 100 to 10,000 equiv
+
+alent gates 
+
+16. 3 * 101 + 4 * 100 is 
+
+(a) 0.34 
+
+Đáp án đúng là (c) 34 
+
+3 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) 3.4 
+
+(c) 34 
+
+(d) 340 
+
+17. The decimal equivalent of 1000 is 
+
+(a) 2 
+
+(b) 4 
+
+(c) 6 
+
+(d) 8 
+
+Đáp án đúng là (d) 8 
+
+18. The binary number 11011101 is equal to the decimal 
+
+number 
+
+(a) 121 
+
+(b) 221 
+
+(c) 441 
+
+(d) 256 
+
+Đáp án đúng là (b) 221 
+
+19. The decimal number 21 is equivalent to the binary 
+
+number 
+
+(a) 10101 
+
+(b) 10001 
+
+(c) 10000 
+
+(d) 11111 
+
+Đáp án đúng là (a) 10101 
+
+20. The decimal number 250 is equivalent to the binary 
+
+number 
+
+(a) 11111010 
+
+(b) 11110110 
+
+(c) 11111000 
+
+(d) 11111011 
+
+Đáp án đúng là (a) 
+
+11111010 
+
+21. The sum of 1111 + 1111 in binary equals 
+
+(a) 0000 
+
+Đáp án đúng là (c) 11110 
+
+4 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) 2222 
+
+(c) 11110 
+
+(d) 11111 
+
+22. The difference of 1000 − 100 equals 
+
+(a) 100 
+
+(b) 101 
+
+(c) 110 
+
+(d) 111 
+
+Đáp án đúng là (a) 100 
+
+23. 8. 
+
+The 1's complement of 11110000 is 
+
+(a) 11111111 
+
+(b) 11111110 
+
+(c) 00001111 
+
+(d) 10000001 
+
+Đáp án đúng là (c) 
+
+00001111 
+
+24. The 2's complement of 11001100 is 
+
+(a) 00110011 
+
+(b) 00110100 
+
+(c) 00110101 
+
+(d) 00110110 
+
+Đáp án đúng là (b) 
+
+00110100 
+
+25. The decimal number 1122 is expressed in the 2's com
+
+plement form as 
+
+(a) 01111010 
+
+(b) 11111010 
+
+(c) 01000101 
+
+(d) 10000101 
+
+Đáp án đúng là (a) 
+
+01111010 
+
+26. The decimal number 234 is expressed in the 2's com
+
+plement form as 
+
+(a) 01011110 
+
+Đáp án đúng là (c) 
+
+11011110 
+
+5 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) 10100010 
+
+(c) 11011110 
+
+(d) 01011101 
+
+27. A single-precision floating-point binary number has a 
+
+total of 
+
+(a) 8 bits 
+
+(b) 16 bits 
+
+(c) 24 bits 
+
+(d) 32 bits 
+
+Đáp án đúng là (d) 32 bits 
+
+28. In the 2's complement form, the binary number 
+
+10010011 is equal to the decimal number 
+
+(a) 219 
+
+(b) +109 
+
+(c) +91 
+
+(d) 2109 
+
+Đáp án đúng là (d) 2109 
+
+29. The binary number 101100111001010100001 can be 
+
+written in octal as 
+
+(a) 54712308 
+
+(b) 54712418 
+
+(c) 26345218 
+
+(d) 231625018 
+
+Đáp án đúng là (b) 
+
+54712418 
+
+30. The binary number 10001101010001101111 can be 
+
+written in hexadecimal as 
+
+(a) AD46716 
+
+(b) 8C46F16 
+
+(c) 8D46F16 
+
+(d) AE46F16 
+
+Đáp án đúng là (c) 
+
+8D46F16 
+
+31. 
+
+6 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+The binary number for F7A916 is 
+
+(a) 1111011110101001 
+
+(b) 1110111110101001 
+
+(c) 1111111010110001 
+
+(d) 1111011010101001 
+
+Đáp án đúng là (a) 
+
+1111011110101001 
+
+32. The BCD number for decimal 473 is 
+
+(a) 111011010 
+
+(b) 110001110011 
+
+(c) 010001110011 
+
+(d) 010011110011 
+
+Đáp án đúng là (c) 
+
+010001110011 
+
+33. Refer to Table 2-7. The command STOP in ASCII is 
+
+(a) 1010011101010010011111010000 
+
+(b) 1010010100110010011101010000 
+
+(c) 1001010110110110011101010001 
+
+(d) 1010011101010010011101100100 
+
+Đáp án đúng là (a) 
+
+1010011101010010011111010000 
+
+34. The code that has an even-parity error is 
+
+(a) 1010011 
+
+(b) 1101000 
+
+(c) 1001000 
+
+(d) 1110111 
+
+Đáp án đúng là (b) 
+
+1101000 
+
+35. In the cyclic redundancy check, the absence of errors 
+
+is indicated by 
+
+(a) Remainder = generator code 
+
+(b) Remainder = 0 
+
+(c) Remainder = 1 
+
+(d) Quotient = 0 
+
+Đáp án đúng là (b) Re
+
+mainder = 0 
+
+36. When the input to an inverter is LOW (0), the output is 
+
+(a) HIGH or 0 
+
+Đáp án đúng là (c) HIGH 
+
+or 1 
+
+7 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) LOW or 0 
+
+(c) HIGH or 1 
+
+(d) LOW or 1 
+
+37. An inverter performs an operation known as 
+
+(a) complementation 
+
+(b) assertion 
+
+(c) inversion 
+
+(d) both answers (a) and (c) 
+
+Đáp án đúng là (d) both 
+
+answers (a) and (c) 
+
+38. The output of an AND gate with inputs A, B and C is 0 
+
+(LOW) when 
+
+(a) A = 0, B = 0, C = 0 
+
+(b) A = 0, B = 1, C = 1 
+
+(c) both answers (a) and (b) 
+
+Đáp án đúng là (c) both 
+
+answers (a) and (b) 
+
+39. The output of an OR gate with inputs A, B and C is 0 
+
+(LOW) when 
+
+(a) A = 0, B = 0, C = 0 
+
+(b) A = 0, B = 1, C = 1 
+
+(c) both answers (a) and (b) 
+
+Đáp án đúng là (a) A = 0, 
+
+B = 0, C = 0 
+
+40. A pulse is applied to each input of a 2-input NAND 
+
+gate. One pulse goes HIGH at t = 0 and goes back LOW 
+
+at t = 1 ms. The other pulse goes HIGH at t = 0.8 ms 
+
+and goes back LOW at t = 3 ms. The output pulse can 
+
+be described as follows: 
+
+(a) It goes LOW at t = 0 and back HIGH at t = 3 ms. 
+
+(b) It goes LOW at t = 0.8 ms and back HIGH at t = 3 ms. 
+
+(c) It goes LOW at t = 0.8 ms and back HIGH at t = 1 ms. 
+
+(d) It goes LOW at t = 0.8 ms and back LOW at t = 1 ms. 
+
+Đáp án đúng là (c) It goes 
+
+LOW at t = 0.8 ms and back 
+
+HIGH at t = 1 ms. 
+
+41. 
+
+8 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+A pulse is applied to each input of a 2-input NOR gate. 
+
+One pulse goes HIGH at t = 0 and goes back LOW at t 
+
+= 1 ms. The other pulse goes HIGH at t = 0.8 ms and 
+
+goes back LOW at t = 3 ms. The output pulse can be 
+
+described as follows: 
+
+(a) It goes LOW at t = 0 and back HIGH at t = 3 ms. 
+
+(b) It goes LOW at t = 0.8 ms and back HIGH at t = 3 ms. 
+
+(c) It goes LOW at t = 0.8 ms and back HIGH at t = 1 ms. 
+
+(d) It goes HIGH at t = 0.8 ms and back LOW at t = 1 ms. 
+
+Đáp án đúng là (b) It goes 
+
+LOW at t = 0.8 ms and back 
+
+HIGH at t = 3 ms. 
+
+42. A pulse is applied to each input of an exclusive-OR 
+
+gate. One pulse goes HIGH at t = 0 and goes back LOW 
+
+at t = 1 ms. The other pulse goes HIGH at t = 0.8 ms 
+
+and goes back LOW at t = 3 ms. The output pulse can 
+
+be described as follows: 
+
+(a) It goes HIGH at t = 0 and back LOW at t = 3 ms. 
+
+(b) It goes HIGH at t = 0 and back LOW at t = 0.8 ms. 
+
+(c) It goes HIGH at t = 1 ms and back LOW at t = 3 ms. 
+
+(d) both answers (b) and (c) 
+
+Đáp án đúng là (d) both 
+
+answers (b) and (c) 
+
+43. A positive-going pulse is applied to an inverter. The 
+
+time interval from the leading edge of the input to the 
+
+leading edge of the output is 7 ns. This parameter is 
+
+(a) speed-power product 
+
+(b) propagation delay, tPHL 
+
+(c) propagation delay, tPLH 
+
+(d) pulse width 
+
+Đáp án đúng là (c) propa
+
+gation delay, tPLH 
+
+44. Most PLDs utilize an array of 
+
+(a) NOT gates 
+
+(b) NOR gates 
+
+Đáp án đúng là (d) AND 
+
+gates 
+
+9 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) OR gates 
+
+(d) AND gates 
+
+45. The rows and columns of the interconnection matrix 
+
+in an SPLD are connected using 
+
+(a) fuses 
+
+(b) switches 
+
+(c) gates 
+
+(d) transistors 
+
+Đáp án đúng là (a) fuses 
+
+46. An antifuse is formed using 
+
+(a) two insulators separated by a conductor 
+
+(b) two conductors separated by an insulator 
+
+(c) an insulator packed beside a conductor 
+
+(d) two conductors connected in a series 
+
+Đáp án đúng là (b) two 
+
+conductors separated by 
+
+an insulator 
+
+47. An EPROM can be programmed using 
+
+(a) transistors 
+
+(b) diodes 
+
+(c) a multiprogrammer 
+
+(d) a device programmer 
+
+Đáp án đúng là (d) a de
+
+vice programmer 
+
+48. Two ways to enter a logic design using PLD develop
+
+ment software are 
+
+(a) text and numeric 
+
+(b) text and graphic 
+
+(c) graphic and coded 
+
+(d) compile and sort 
+
+Đáp án đúng là (b) text 
+
+and graphic 
+
+49. JTAG stands for 
+
+(a) Joint Test Action Group 
+
+(b) Java Top Array Group 
+
+Đáp án đúng là (a) Joint 
+
+Test Action Group 
+
+10 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) Joint Test Array Group 
+
+(d) Joint Time Analysis Group 
+
+50. In-system programming of a PLD typically utilizes 
+
+(a) an embedded clock generator 
+
+(b) an embedded processor 
+
+(c) an embedded PROM 
+
+(d) both (a) and (b) 
+
+(e) both (b) and (c) 
+
+Đáp án đúng là (e) both 
+
+(b) and (c) 
+
+51. To measure the period of a pulse waveform, you must 
+
+use 
+
+(a) a DMM 
+
+(b) a logic probe 
+
+(c) an oscilloscope 
+
+(d) a logic pulser 
+
+Đáp án đúng là (c) an os
+
+cilloscope 
+
+52. Once you measure the period of a pulse waveform, 
+
+the frequency is found by 
+
+(a) using another setting 
+
+(b) measuring the duty cycle 
+
+(c) finding the reciprocal of the period 
+
+(d) using another type of instrument 
+
+Đáp án đúng là (c) finding 
+
+the reciprocal of the peri
+
+od 
+
+53. A variable is a symbol in Boolean algebra used to 
+
+represent 
+
+(a) data 
+
+(b) a condition 
+
+(c) an action 
+
+(d) answers (a), (b), and (c) 
+
+Đáp án đúng là (d) an
+
+swers (a), (b), and (c) 
+
+54. The Boolean expression A + B + C is 
+
+(a) a sum term 
+
+Đáp án đúng là (a) a sum 
+
+term 
+
+11 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) a literal term 
+
+(c) an inverse term 
+
+(d) a product term 
+
+55. The Boolean expression ABCD is 
+
+(a) a sum term 
+
+(b) a literal term 
+
+(c) an inverse term 
+
+(d) a product term 
+
+Đáp án đúng là (d) a 
+
+product term 
+
+56. The domain of the expression ĀBCD + AḂ + ĆD + B is 
+
+(a) A and D 
+
+(b) B only 
+
+(c) A, B, C, and D 
+
+(d) none of these 
+
+Đáp án đúng là (c) A, B, C, 
+
+and D 
+
+57. According to the associative law of addition, 
+
+(a) A + B = B + A 
+
+(b) A = A + A 
+
+(c) (A + B) + C = A + (B + C) 
+
+(d) A + 0 = A 
+
+Đáp án đúng là (c) (A + B) 
+
++ C = A + (B + C) 
+
+58. According to commutative law of multiplication, 
+
+(a) AB = BA 
+
+(b) A = AA 
+
+(c) (ABC) = (A/BC) 
+
+(d) A0 = A 
+
+Đáp án đúng là (a) AB = BA 
+
+59. According to the distributive law, 
+
+(a) A(B + C) = AB + AC 
+
+(b) A(BC) = ABC 
+
+(c) A(A + 1) = A 
+
+(d) A + AB = A 
+
+Đáp án đúng là (a) A(B + 
+
+C) = AB + AC 
+
+12 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+60. Which one of the following is not a valid rule of 
+
+Boolean algebra? 
+
+(a) A + 1 = 1 
+
+(b) A = Ā 
+
+(c) AA = A 
+
+(d) A + 0 = A 
+
+Đáp án đúng là (b) A = Ā 
+
+61. Which of the following rules states that if one input 
+
+of an AND gate is always 1, the output is equal to the 
+
+other input? 
+
+(a) A + 1 = 1 
+
+(b) A + A = A 
+
+(c) A · A = A 
+
+(d) A · 1 = A 
+
+Đáp án đúng là (d) A · 1 = 
+
+A 
+
+62. According to DeMorgan's theorems, the complement 
+
+of a product of variables is equal to 
+
+(a) the complement of the sum 
+
+(b) the sum of the complements 
+
+(c) the product of the complements 
+
+(d) answers (a), (b), and (c) 
+
+Đáp án đúng là (b) the 
+
+sum of the complements 
+
+63. The Boolean expression X = (A + B)(C + D) represents 
+
+(a) two ORs ANDed together 
+
+(b) two ANDs ORed together 
+
+(c) A 4-input AND gate 
+
+(d) A 4-input OR gate 
+
+Đáp án đúng là (a) two 
+
+ORs ANDed together 
+
+64. An example of a sum-of-products expression is 
+
+(a) A + BC + D 
+
+(b) ĀB + ĀC + ĀBC 
+
+Đáp án đúng là (b) ĀB + ĀC 
+
++ ĀBC 
+
+13 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) (Ā + B + C)(A + B + Ć) 
+
+(d) both answers (a) and (b) 
+
+65. An example of a product-of-sums expression is 
+
+(a) A(B + C) + AC̅ 
+
+(b) (A + B)(Ā + B + Ć) 
+
+(c) Ā + B + BC 
+
+(d) both answers (a) and (b) 
+
+Đáp án đúng là (b) (A + 
+
+B)(Ā + B + Ć) 
+
+66. An example of a standard SOP expression is 
+
+(a) ĀB + ĀBC + ĀBD 
+
+(b) ĀBC + ĀC̅D 
+
+(c) ĀB + ĀB + AB 
+
+(d) ĀBCD + ĀB + Ā 
+
+Đáp án đúng là (c) ĀB + ĀB 
+
++ AB 
+
+67. A 4-variable Karnaugh map has 
+
+(a) four cells 
+
+(b) eight cells 
+
+(c) sixteen cells 
+
+(d) thirty-two cells 
+
+Đáp án đúng là (c) sixteen 
+
+cells 
+
+68. In a 4-variable Karnaugh map, a 2-variable product 
+
+term is produced by 
+
+(a) a 2-cell group of 1s 
+
+(b) an 8-cell group of 1s 
+
+(c) a 4-cell group of 1s 
+
+(d) a 4-cell group of 0s 
+
+Đáp án đúng là (c) a 4-cell 
+
+group of 1s 
+
+69. The Quine-McCluskey method can be used to 
+
+(a) replace the Karnaugh map method 
+
+(b) simplify expressions with 5 or more variables 
+
+(c) both (a) and (b) 
+
+(d) none of the above 
+
+Đáp án đúng là (c) both 
+
+(a) and (b) 
+
+14 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+70. VHDL is a type of 
+
+(a) programmable logic 
+
+(b) hardware description language 
+
+(c) programmable array 
+
+(d) logical mathematics 
+
+Đáp án đúng là (b) 
+
+hardware description lan
+
+guage 
+
+71. In VHDL, a port is 
+
+(a) a type of entity 
+
+(b) a type of architecture 
+
+(c) an input or output 
+
+(d) a type of variable 
+
+Đáp án đúng là (c) an in
+
+put or output 
+
+72. Using VHDL, a logic circuit's inputs and outputs are 
+
+described in the 
+
+(a) architecture 
+
+(b) component 
+
+(c) entity 
+
+(d) data flow 
+
+Đáp án đúng là (c) entity 
+
+73. The output expression for an AND-OR circuit having 
+
+one AND gate with inputs A, B, C and one AND gate 
+
+with inputs D, E, and F is 
+
+(a) ABCDEF 
+
+(b) (A + B + C)(D + E + F) 
+
+(c) ABC + DEF 
+
+(d) (A + B + C)D + (D + E + F) 
+
+(c) ABC + DEF 
+
+74. A logic circuit with an output X = A''B + A'BC consists of 
+
+(a) two AND gates and one OR gate 
+
+(b) two AND gates, one OR gate and an inverter 
+
+(c) two AND gates, two OR gates and two inverters 
+
+(d) two AND gates, one OR gate and two inverters 
+
+(d) two AND gates, one OR 
+
+gate and two inverters 
+
+15 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+75. To implement the expression XYZ + X'Y'Z' + XY'Z, it 
+
+takes 
+
+(a) five AND gates, one OR gate, and eight inverters 
+
+(b) four AND gates, two OR gates, and six inverters 
+
+(c) five AND gates, three OR gates, and seven invert
+
+ers 
+
+(d) five AND gates, one OR gate, and seven inverters 
+
+(d) five AND gates, one OR 
+
+gate, and seven inverters 
+
+76. The expression ABCD + AB'CD + A'BCD 
+
+(a) cannot be simplified 
+
+(b) can be simplified to A'BC + A'B 
+
+(c) can be simplified to AB'C + A'BC 
+
+(d) None of these answers is correct 
+
+(a) cannot be simplified 
+
+77. The output expression for an AND-OR-Invert circuit 
+
+having one AND gate with inputs A, B, C and another 
+
+AND gate with inputs D, E, F is 
+
+(a) ABC + DEF 
+
+(b) (A + B + C)(D + E + F) 
+
+(c) (A + B + C)(D + E + F)' 
+
+(d) (A + B + C)' + (D + E + F)' 
+
+(d) (A + B + C)' + (D + E + 
+
+F)' 
+
+78. An exclusive NOR function is expressed as 
+
+(a) A'B' + AB 
+
+(b) A'B + AB' 
+
+(c) (A + B)(A' + B') 
+
+(d) (A' + B')A + (A' + B')B 
+
+(a) A'B' + AB 
+
+79. The AND operation can be produced with 
+
+(a) two NAND gates 
+
+(b) three NAND gates 
+
+(a) two NAND gates 
+
+16 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) one NOR gate 
+
+(d) three NOR gates 
+
+80. The OR operation can be produced with 
+
+(a) two NOR gates 
+
+(b) three NAND gates 
+
+(c) four NAND gates 
+
+(d) both answers (a) and (b) 
+
+(d) both answers (a) and 
+
+(b) 
+
+81. When using bubble outputs on a logic diagram, 
+
+(a) bubble outputs are connected to bubble inputs 
+
+(b) the NAND symbols produce the AND operations 
+
+(c) the negative-OR symbols produce the OR opera
+
+tions 
+
+(d) All of these answers are true 
+
+(e) None of these answers is true 
+
+(d) All of these answers 
+
+are true 
+
+82. All Boolean expressions can be implemented with 
+
+(a) NAND gates only 
+
+(b) NOR gates only 
+
+(c) combinations of NAND and NOR gates 
+
+(d) combinations of AND gates, OR gates, and invert
+
+ers 
+
+(e) any of these 
+
+(e) any of these 
+
+83. A VHDL component 
+
+(a) can be used once in each program 
+
+(b) is a predefined description of a logic function 
+
+(c) can be used multiple times in a program 
+
+(d) is part of a data flow description 
+
+(e) answers (b) and (c) 
+
+(e) answers (b) and (c) 
+
+84. 
+
+17 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+A VHDL component is called for use in a program by 
+
+using a 
+
+(a) signal 
+
+(b) variable 
+
+(c) component instantiation 
+
+(d) architecture declaration 
+
+(c) component instantia
+
+tion 
+
+85. A half-adder is characterized by 
+
+(a) two inputs and two outputs 
+
+(b) three inputs and two outputs 
+
+(c) two inputs and one output 
+
+(d) two inputs and one output 
+
+(a) two inputs and two 
+
+outputs 
+
+86. A full-adder is characterized by 
+
+(a) two inputs and two outputs 
+
+(b) three inputs and two outputs 
+
+(c) two inputs and one output 
+
+(d) two inputs and one output 
+
+(b) three inputs and two 
+
+outputs 
+
+87. The inputs of a full-adder are A = 1, B = 1, Cin = 1. The 
+
+outputs are 
+
+(a) Σ = 1, Cout = 1 
+
+(b) Σ = 1, Cout = 0 
+
+(c) Σ = 0, Cout = 1 
+
+(d) Σ = 0, Cout = 0 
+
+(a) Σ = 1, Cout = 1 
+
+88. A 3-bit parallel adder can add 
+
+(a) two 2-bit binary numbers 
+
+(b) two 3-bit binary numbers 
+
+(c) three 2-bit bits at a time 
+
+(d) three bits in sequence 
+
+(b) two 3-bit binary num
+
+bers 
+
+89. 
+
+18 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+To expand a 2-bit parallel adder to a 4-bit parallel 
+
+adder, you must 
+
+(a) use two 2-bit adders with no interconnections 
+
+(b) use two 2-bit adders and connect the sum outputs 
+
+of one to the bit inputs of the other 
+
+(c) use four 2-bit adders with no interconnections 
+
+(d) use two 2-bit adders with the carry output of one 
+
+connected to the carry input of the other 
+
+(d) use two 2-bit adders 
+
+with the carry output of 
+
+one connected to the carry 
+
+input of the other 
+
+90. If a 74HC85 magnitude comparator has A = 1000 and 
+
+B = 1010, the outputs are 
+
+(a) A > B = 0, A < B = 0, A = B = 0 
+
+(b) A > B = 0, A < B = 0, A = B = 1 
+
+(c) A > B = 0, A < B = 1, A = B = 0 
+
+(d) A > B = 0, A < B = 1, A = B = 1 
+
+(c) A > B = 0, A < B = 1, A = 
+
+B = 0 
+
+91. If a 1-of-16 decoder with active-LOW outputs exhibits 
+
+a LOW on the decimal 12 output, what are the inputs? 
+
+(a) A3A2A1A0 = 1010 
+
+(b) A3A2A1A0 = 1110 
+
+(c) A3A2A1A0 = 1100 
+
+(d) A3A2A1A0 = 0100 
+
+(c) A3A2A1A0 = 1100 
+
+92. A BCD-to-7 segment decoder has 0100 on its inputs. 
+
+The active outputs are 
+
+(a) a, c, f, g 
+
+(b) b, c, f, g 
+
+(c) a, b, c, d 
+
+(d) b, d, e, g 
+
+(b) b, c, f, g 
+
+93. If an octal-to-binary priority encoder has its 0, 2, 5, 
+
+and 6 inputs at the active level, the active-HIGH binary 
+
+output is 
+
+(a) 110 
+
+19 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(a) 110 
+
+(b) 010 
+
+(c) 101 
+
+(d) 000 
+
+94. In general, a multiplexer has 
+
+(a) one data input, several data outputs, and selection 
+
+inputs 
+
+(b) one data input, one data output, and one selection 
+
+input 
+
+(c) several data inputs, several data outputs, and se
+
+lection inputs 
+
+(d) several data inputs, one data output, and selection 
+
+inputs 
+
+(d) several data inputs, 
+
+one data output, and se
+
+lection inputs 
+
+95. Data distributors are basically the same as 
+
+(a) decoders 
+
+(b) demultiplexers 
+
+(c) multiplexers 
+
+(d) encoders 
+
+(b) demultiplexers 
+
+96. Which of the following codes exhibit even parity? 
+
+(a) 10011000 
+
+(b) 01111000 
+
+(c) 11111111 
+
+(d) 11010101 
+
+(e) all 
+
+(f) both answers (b) and (c) 
+
+(f) both answers (b) and 
+
+(c) 
+
+97. An active HIGH input S-R latch is formed by the 
+
+cross-coupling of 
+
+(a) two NOR gates 
+
+(b) two NAND gates 
+
+(a) two NOR gates 
+
+20 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) two OR gates 
+
+(d) two AND gates 
+
+98. Which of the following is not true for an active LOW 
+
+input S̅-R̅ latch? 
+
+(a) S̅=0, R̅=1, Q=1, Q̅=0 
+
+(b) S̅=1, R̅=0, Q=0, Q̅=1 
+
+(c) S̅=1, R̅=1, Q=NC, Q̅=NC 
+
+(d) S̅=0, R̅=0, Q=1, Q̅=1 
+
+(d) S̅=0, R̅=0, Q=1, Q̅=1 
+
+99. For what combinations of the inputs D and EN will a D 
+
+latch reset? 
+
+(a) D=LOW, EN=LOW 
+
+(b) D=LOW, EN=HIGH 
+
+(c) D=HIGH, EN=LOW 
+
+(d) D=HIGH, EN=HIGH 
+
+(b) D=LOW, EN=HIGH 
+
+100. A flip-flop changes its state during the 
+
+(a) complete operational cycle 
+
+(b) falling edge of the clock pulse 
+
+(c) rising edge of the clock pulse 
+
+(d) both answers (b) and (c) 
+
+(d) both answers (b) and 
+
+(c) 
+
+101. The purpose of the clock input to a flip-flop is to 
+
+(a) clear the device 
+
+(b) set the device 
+
+(c) always cause the output to change states 
+
+(d) cause the output to assume a state dependent on 
+
+the controlling (J-K or D) inputs 
+
+(d) cause the output to as
+
+sume a state dependent 
+
+on the controlling (J-K or 
+
+D) inputs 
+
+102. For an edge-triggered D flip-flop: 
+
+(a) a change in the state of the flip-flop can occur only 
+
+at a clock pulse edge 
+
+(d) all of these answers 
+
+21 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) the state that the flip-flop goes to depends on the 
+
+D input 
+
+(c) the output follows the input at each clock pulse 
+
+(d) all of these answers 
+
+103. A feature that distinguishes the J-K flip-flop from the 
+
+D flip-flop is the (a) toggle condition 
+
+(b) preset input 
+
+(c) type of clock 
+
+(d) clear input 
+
+(a) toggle condition 
+
+104. A flip-flop is SET when 
+
+(a) J=0, K=0 
+
+(b) J=0, K=1 
+
+(c) J=1, K=0 
+
+(d) J=1, K=1 
+
+(c) J=1, K=0 
+
+105. A J-K flip-flop with J=1 and K=1 has a 10 kHz clock input. 
+
+The Q output is (a) constantly HIGH 
+
+(b) constantly LOW 
+
+(c) a 10 kHz square wave 
+
+(d) a 5 kHz square wave 
+
+(d) a 5 kHz square wave 
+
+106. A one-shot is a type of 
+
+(a) monostable multivibrator 
+
+(b) astable multivibrator 
+
+(c) timer 
+
+(d) answers (a) and (c) 
+
+(d) answers (a) and (c) 
+
+107. The output pulse width of a nonretriggerable 
+
+one-shot depends on 
+
+(a) the trigger intervals 
+
+(b) the supply voltage 
+
+(c) a resistor and capacitor 
+
+22 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) a resistor and capacitor 
+
+(d) the threshold voltage 
+
+108. An astable multivibrator 
+
+(a) requires a periodic trigger input 
+
+(b) has no stable state 
+
+(c) is an oscillator 
+
+(d) produces a periodic pulse output 
+
+(e) answers (a), (b), (c), and (d) 
+
+(f) answers (b), (c), and (d) only 
+
+(f) answers (b), (c), and 
+
+(d) only 
+
+109. A register's functions include 
+
+(a) data storage 
+
+(b) data movement 
+
+(c) neither (a) nor (b) 
+
+(d) both (a) and (b) 
+
+(d) both (a) and (b) 
+
+110. To enter a byte of data serially into an 8-bit shift reg
+
+ister, there must be (a) one clock pulse 
+
+(b) two clock pulses 
+
+(c) four clock pulses 
+
+(d) eight clock pulses 
+
+(d) eight clock pulses 
+
+111. To parallel load a byte of data into a shift register with 
+
+a synchronous load, there must be 
+
+(a) one clock pulse 
+
+(b) one clock pulse for each 1 in the data 
+
+(c) eight clock pulses 
+
+(d) one clock pulse for each 0 in the data 
+
+(a) one clock pulse 
+
+112. The group of bits 10110101 is serially shifted 
+
+(right-most bit first) into an 8-bit parallel output shift 
+
+register with an initial state of 11100100. After two 
+
+(d) 00101101 
+
+23 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+clock pulses, the register contains 
+
+(a) 01011110 
+
+(b) 10110101 
+
+(c) 01111001 
+
+(d) 00101101 
+
+113. With a 100 kHz clock frequency, eight bits can be seri
+
+ally entered into a shift register in 
+
+(a) 80 µs 
+
+(b) 8 µs 
+
+(c) 80 ms 
+
+(d) 10 µs 
+
+(a) 80 µs 
+
+114. With a 1 MHz clock frequency, eight bits can be parallel 
+
+entered into a shift register 
+
+(a) in 8 µs 
+
+(b) in the propagation delay time of eight flip-flops 
+
+(c) in 1 µs 
+
+(d) in the propagation delay time of one flip-flop 
+
+(d) in the propagation de
+
+lay time of one flip-flop 
+
+115. A modulus-8 Johnson counter requires 
+
+(a) eight flip-flops 
+
+(b) four flip-flops 
+
+(c) five flip-flops 
+
+(d) twelve flip-flops 
+
+(b) four flip-flops 
+
+116. A modulus-8 ring counter requires 
+
+(a) eight flip-flops 
+
+(b) four flip-flops 
+
+(c) five flip-flops 
+
+(d) twelve flip-flops 
+
+(a) eight flip-flops 
+
+117. 
+
+(b) 333 kHz 
+
+24 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+When an 8-bit serial in/serial out shift register is used 
+
+for a 24 µs time delay, the clock frequency must be 
+
+(a) 41.67 kHz 
+
+(b) 333 kHz 
+
+(c) 125 kHz 
+
+(d) 8 MHz 
+
+118. The purpose of the ring counter in the keyboard en
+
+coding circuit of Figure 8-36 is 
+
+(a) to sequentially apply a HIGH to each row for detec
+
+tion of key closure 
+
+(b) to provide trigger pulses for the key code register 
+
+(c) to sequentially apply a LOW to each row for detec
+
+tion of key closure (d) to sequentially reverse bias the 
+
+diodes in each row 
+
+(a) to sequentially apply a 
+
+HIGH to each row for de
+
+tection of key closure 
+
+119. A Moore state machine consists of combinational log
+
+ic circuits that determine 
+
+(a) sequences 
+
+(b) memory 
+
+(c) both (a) and (b) 
+
+(d) neither (a) nor (b) 
+
+(c) both (a) and (b) 
+
+120. The output of a Mealy machine depends on 
+
+(a) inputs 
+
+(b) next state 
+
+(c) present state 
+
+(d) answers (a) and (c) 
+
+(d) answers (a) and (c) 
+
+121. The maximum cumulative delay of an asynchronous 
+
+counter must be 
+
+(a) more than the period of the clock waveform 
+
+(b) less than the period of the clock waveform 
+
+(b) less than the period of 
+
+the clock waveform 
+
+25 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) equal to the period of the clock waveform 
+
+(d) both (b) and (c) 
+
+122. A decade counter with a count of zero (0000) through 
+
+nine (1001) is known as 
+
+(a) an ASCII counter 
+
+(b) a binary counter 
+
+(c) a BCD counter 
+
+(d) a decimal counter 
+
+(c) a BCD counter 
+
+123. The modulus of a counter is 
+
+(a) the number of flip-flops 
+
+(b) the actual number of states in its sequence 
+
+(c) the number of times it recycles in a second 
+
+(d) the maximum possible number of states 
+
+(b) the actual number of 
+
+states in its sequence 
+
+124. A 3-bit binary counter has a maximum modulus of 
+
+(a) 3 
+
+(b) 6 
+
+(c) 8 
+
+(d) 16 
+
+(c) 8 
+
+125. A 5-bit binary counter has a maximum modulus of 
+
+(a) 4 
+
+(b) 8 
+
+(c) 16 
+
+(d) 32 
+
+(d) 32 
+
+126. A modulus-12 counter must have 
+
+(a) 12 flip-flops 
+
+(b) 3 flip-flops 
+
+(c) 4 flip-flops 
+
+(d) synchronous clocking 
+
+(c) 4 flip-flops 
+
+26 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+127. Which one of the following is an example of a counter 
+
+with a truncated modulus? 
+
+(a) Modulus 8 
+
+(b) Modulus 12 
+
+(c) Modulus 16 
+
+(d) Modulus 32 
+
+(b) Modulus 12 
+
+128. A 4-bit ripple counter consists of flip-flops that each 
+
+have a propagation delay from clock to Q output of 
+
+12 ns. For the counter to recycle from 1111 to 0000, it 
+
+takes a total of 
+
+(a) 12 ns 
+
+(b) 24 ns 
+
+(c) 48 ns 
+
+(d) 36 ns 
+
+(c) 48 ns 
+
+129. A BCD counter is an example of 
+
+(a) a full-modulus counter 
+
+(b) a decade counter 
+
+(c) a truncated-modulus counter 
+
+(d) answers (b) and (c) 
+
+(d) answers (b) and (c) 
+
+130. Which of the following is a valid state in an 8421 BCD 
+
+counter? 
+
+(a) 1001 
+
+(b) 1011 
+
+(c) 1111 
+
+(d) 1000 
+
+(a) 1001 
+
+131. Three cascaded modulus-10 counters have an overall 
+
+modulus of 
+
+(a) 30 
+
+(c) 1000 
+
+27 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) 100 
+
+(c) 1000 
+
+(d) 10,000 
+
+132. A 10 MHz clock frequency is applied to a cascaded 
+
+counter consisting of a modulus-5 counter, a modu
+
+lus-8 counter, and two modulus-10 counters. The low
+
+est output frequency possible is 
+
+(a) 10 kHz 
+
+(b) 2.5 kHz 
+
+(c) 5 kHz 
+
+(d) 25 kHz 
+
+(b) 2.5 kHz 
+
+133. A 4-bit binary up/down counter is in the binary state 
+
+of zero. The next state in the DOWN mode is 
+
+(a) 0001 
+
+(b) 1111 
+
+(c) 1000 
+
+(d) 1110 
+
+(b) 1111 
+
+134. The initial count of a modulus-13 binary counter is 
+
+(a) 0000 
+
+(b) 1111 
+
+(c) 1101 
+
+(d) 1100 
+
+(a) 0000 
+
+135. Two types of SPLDs are 
+
+(a) CPLD and PAL 
+
+(b) PAL and FPGA 
+
+(c) PAL and GAL 
+
+(d) PAL and SRAM 
+
+đáp án là (c) PAL and GAL 
+
+136. 
+
+28 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+A PAL is a logic device which is 
+
+(a) one-time programmable 
+
+(b) an erasable programmable 
+
+(c) a RAM-based programmable 
+
+(d) both (a) and (b) 
+
+đáp án là (a) one-time 
+
+programmable 
+
+137. Key factors that determine the adequacy of a GAL for 
+
+a logic design is 
+
+(a) the number of inputs and outputs 
+
+(b) the number of macrocells involved 
+
+(c) the number of inverters available 
+
+(d) both (a) and (b) 
+
+đáp án là (d) both (a) and 
+
+(b) 
+
+138. The macrocell in part of a 
+
+(a) PAL 
+
+(b) GAL 
+
+(c) CPLD 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (d) answers (a), 
+
+(b), and (c) 
+
+139. The LUT, used in the LUT-CPLD architecture, is basical
+
+ly a memory that can be programmed with 
+
+(a) logic equations 
+
+(b) a look-up table 
+
+(c) product of complements 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (b) a look-up 
+
+table 
+
+140. The basic CPLD unit is the 
+
+(a) logic AND block 
+
+(b) logic array block 
+
+(c) logic gate block 
+
+(d) logic assembly block 
+
+đáp án là (b) logic array 
+
+block 
+
+141. 
+
+29 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+Two modes of macrocell operation are 
+
+(a) input and output 
+
+(b) combinational and sequential 
+
+(c) combinational and registered 
+
+(d) parallel and shared 
+
+đáp án là (c) combination
+
+al and registered 
+
+142. The flip-flop used in a CPLD macrocell can be pro
+
+grammed as a 
+
+(a) D flip-flop 
+
+(b) T flip-flop 
+
+(c) both (a) and (b) 
+
+(d) neither (a) nor (b) 
+
+đáp án là (c) both (a) and 
+
+(b) 
+
+143. A CPLD macrocell consists of 
+
+(a) gates, multiplexers, and a flip-flop 
+
+(b) logic and an I/O register 
+
+(c) a Gray code counter 
+
+(d) none of the above 
+
+(a) gates, multiplexers, 
+
+and a flip-flop 
+
+144. The basic elements of an FPGA are 
+
+(a) configurable logic blocks 
+
+(b) I/O blocks 
+
+(c) interconnnect 
+
+(d) both (a) and (b) 
+
+đáp án là (d) both (a) and 
+
+(b) 
+
+145. Antifuse technologies are generally based on 
+
+(a) fuse technology 
+
+(b) antifuse technology 
+
+(c) EEPROM technology 
+
+(d) SRAM technology 
+
+đáp án là (b) antifuse 
+
+technology 
+
+146. When the configurable logic blocks in an FPGA are 
+
+relatively simple, the FPGA architecture is 
+
+đáp án là (a) fine-grained 
+
+30 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(a) fine-grained 
+
+(b) medium-grained 
+
+(c) hard core 
+
+(d) soft core 
+
+147. A logic module in an FPGA logic block can be config
+
+ured for 
+
+(a) combinational logic 
+
+(b) parallel mode logic 
+
+(c) sequential logic 
+
+(d) both (a) and (c) 
+
+đáp án là (d) both (a) and 
+
+(c) 
+
+148. A logic module can be programmed for the following 
+
+modes of operations: 
+
+(a) normal mode 
+
+(b) counter mode 
+
+(c) arithmetic and shared arithmetic mode 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (d) answers (a), 
+
+(b), and (c) 
+
+149. To implement a design, the user must specify the 
+
+(a) specific target device 
+
+(b) output waveform 
+
+(c) logic design file 
+
+(d) clock 
+
+(a) specific target device 
+
+150. The final output of the synthesis phase of a design 
+
+flow is the 
+
+(a) netlist 
+
+(b) bit file 
+
+(c) timing simulation 
+
+(d) device pin numbers 
+
+đáp án là (a) netlist 
+
+151. 
+
+31 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+JTAG stands for 
+
+(a) electronic device interchange format 
+
+(b) extended storage definition format 
+
+(c) electrically destructive input function 
+
+(d) Joint Test Action Group (or Group) 
+
+đáp án là (d) Joint Test Ac
+
+tion Group (or Group) 
+
+152. The boundary scan TAP stands for 
+
+(a) test action port 
+
+(b) test array port 
+
+(c) test access port 
+
+(d) terminal access path 
+
+đáp án là (c) test access 
+
+port 
+
+153. A simple boundary scan cell contains 
+
+(a) flip-flops only 
+
+(b) flip-flops and multiplexer logic 
+
+(c) latches and flip-flops 
+
+(d) latches and a decoder 
+
+đáp án là (b) flip-flops and 
+
+multiplexer logic 
+
+154. The JTAG standard includes the following inputs and 
+
+outputs 
+
+(a) TMS, TCK, TDI, TDO 
+
+(b) TRST, TDI, TDO, TCK 
+
+(c) ENT, CLK, SHF, CLR 
+
+(d) none of the above 
+
+(a) TMS, TCK, TDI, TDO 
+
+155. The acronym BSDL stands for 
+
+(a) basic standard design logic 
+
+(b) boundary scan down load 
+
+(c) bit shift data load 
+
+(d) boundary scan description language 
+
+đáp án là (d) boundary 
+
+scan description language 
+
+156. The bit capacity of a memory that has 512 addresses 
+
+and can store 8 bits at each address is 
+
+đáp án là (d) 4096 
+
+32 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(a) 512 
+
+(b) 1024 
+
+(c) 2048 
+
+(d) 4096 
+
+157. A 16-bit word consists of 
+
+(a) 8 bytes 
+
+(b) 4 nibbles 
+
+(c) 4 bytes 
+
+(d) 3 bytes and 1 nibble 
+
+đáp án là (b) 4 nibbles 
+
+158. Data are stored in a random-access memory (RAM) 
+
+during the 
+
+(a) read operation 
+
+(b) enable operation 
+
+(c) write operation 
+
+(d) addressing operation 
+
+đáp án là (c) write opera
+
+tion 
+
+159. Data that are stored at a given address in a ran
+
+dom-access memory (RAM) are lost when 
+
+(a) power goes off 
+
+(b) the data are read from the address 
+
+(c) new data are written at the address 
+
+(d) answers (a) and (c) 
+
+đáp án là (d) answers (a) 
+
+and (c) 
+
+160. A ROM is a 
+
+(a) nonvolatile memory 
+
+(b) volatile memory 
+
+(c) read/write memory 
+
+(d) byte-organized memory 
+
+đáp án là (a) nonvolatile 
+
+memory 
+
+161. A memory with 512 addresses has 
+
+(a) 512 address lines 
+
+đáp án là (d) 9 address 
+
+lines 
+
+33 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) 12 address lines 
+
+(c) 1 address line 
+
+(d) 9 address lines 
+
+162. A byte-organized memory has 
+
+(a) 1 data output line 
+
+(b) 4 data output lines 
+
+(c) 8 data output lines 
+
+(d) 16 data output lines 
+
+đáp án là (c) 8 data output 
+
+lines 
+
+163. The storage element of a DRAM is a 
+
+(a) resistor 
+
+(b) transistor 
+
+(c) capacitor 
+
+(d) diode 
+
+đáp án là (c) capacitor 
+
+164. ADDRESS-BURST is a feature of 
+
+(a) synchronous SRAM 
+
+(b) asynchronous SRAM 
+
+(c) fast page mode DRAM 
+
+(d) synchronous DRAM 
+
+(d) synchronous DRAM 
+
+165. In a computer, the BIOS programs are stored in the 
+
+(a) ROM 
+
+(b) RAM 
+
+(c) SRAM 
+
+(d) DRAM 
+
+đáp án là (a) ROM 
+
+166. SRAM, DRAM, flash, and EEPROM are all 
+
+(a) magneto-optical storage devices 
+
+(b) semiconductor storage devices 
+
+(c) magnetic storage devices 
+
+(d) optical storage devices 
+
+đáp án là (b) semiconduc
+
+tor storage devices 
+
+34 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+167. Optical storage devices employ 
+
+(a) ultraviolet light 
+
+(b) electromagnetic fields 
+
+(c) optical couplers 
+
+(d) lasers 
+
+đáp án là (d) lasers 
+
+168. SRAM, DRAM, flash, and EEPROM are all 
+
+(a) magneto-optical storage devices 
+
+(b) semiconductor storage devices 
+
+(c) magnetic storage devices 
+
+(d) optical storage devices 
+
+(b) semiconductor stor
+
+age devices 
+
+169. A facility that houses a cloud storage system is called 
+
+a 
+
+(a) server 
+
+(b) data center 
+
+(c) computer center 
+
+(d) cloud house 
+
+đáp án là (b) data center 
+
+170. Which of following is not a type of ADC? 
+
+(a) Flash ADC 
+
+(b) Dual-slope ADC 
+
+(c) digital-to-analog converter 
+
+(d) sigma-delta ADC 
+
+đáp án là (c) digi
+
+tal-to-analog converter 
+
+171. A DAC is a 
+
+(a) digital-to-analog computer 
+
+(b) digital analysis calculator 
+
+(c) data accumulation converter 
+
+(d) digital-to-analog converter 
+
+đáp án là (d) digi
+
+tal-to-analog converter 
+
+172. 
+
+35 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+Aliasing is a result of 
+
+(a) oversampling 
+
+(b) undersampling 
+
+(c) guard-band formation 
+
+(d) filtering 
+
+đáp án là (b) undersam
+
+pling 
+
+173. According to the sampling theorem, the sampling fre
+
+quency should be 
+
+(a) equal to the highest signal frequency 
+
+(b) greater than twice the highest signal frequency 
+
+(c) less than twice the highest signal frequency 
+
+(d) greater than the lowest signal frequency 
+
+đáp án là (b) greater than 
+
+twice the highest signal 
+
+frequency 
+
+174. An op-amp is a linear amplifier which has 
+
+(a) one input and one output 
+
+(b) one input and two outputs 
+
+(c) two inputs and one output 
+
+(d) two inputs and two outputs 
+
+đáp án là (c) two inputs 
+
+and one output 
+
+175. The "analog-to-digital" conversion process 
+
+(a) converts the sample-and-hold output to binary 
+
+code 
+
+(b) samples the quantized signal at a known... 
+
+(c) is used to reconstruct the original analog signal 
+
+(d) filters out unwanted frequencies before sampling 
+
+takes place 
+
+đáp án là (a) converts 
+
+the sample-and-hold out
+
+put to binary code 
+
+176. Generally, an analog signal can be reconstructed 
+
+more accurately with 
+
+(a) fewer quantization levels 
+
+(b) more quantization levels 
+
+(c) a higher sampling frequency 
+
+đáp án là (e) both (b) and 
+
+(c) 
+
+36 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(d) a lower sampling frequency 
+
+(e) both (b) and (c) 
+
+177. The throughput of a flash ADC is measured in 
+
+(a) operations per second 
+
+(b) distance per second 
+
+(c) samples per minute 
+
+(d) samples per second 
+
+đáp án là (d) samples per 
+
+second 
+
+178. A sigma-delta ADC is a 
+
+(a) flash ADC 
+
+(b) successive approximation ADC 
+
+(c) sigma-delta ADC 
+
+(d) oversampling ADC 
+
+đáp án là (d) oversam
+
+pling ADC 
+
+179. The most common ADC seen in telecommunications 
+
+based on audio signals is 
+
+(a) flash ADC 
+
+(b) successive approximation ADC 
+
+(c) sigma-delta ADC 
+
+(d) dual-slope ADC 
+
+đáp án là (c) sigma-delta 
+
+ADC 
+
+180. In an R/2R ladder DAC, the lowest-value resistor cor
+
+responds to 
+
+(a) the highest binary weighted input 
+
+(b) the lowest binary weighted input 
+
+(c) the first input 
+
+(d) the last input 
+
+(b) the lowest binary 
+
+weighted input 
+
+181. DSPs are typically programmed in 
+
+(a) assembly language 
+
+(b) the C programming language 
+
+đáp án là (d) both (a) and 
+
+(b) 
+
+37 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) VHDL 
+
+(d) both (a) and (b) 
+
+182. A digital processing system usually operates in 
+
+(a) real time 
+
+(b) imaginary time 
+
+(c) delayed time 
+
+(d) computer time 
+
+đáp án là (a) real time 
+
+183. The term Harvard architecture means 
+
+(a) a CPU 
+
+(b) a CISC 
+
+(c) a CPU and two data memories 
+
+(d) a CPU, program memory, and a data memory 
+
+(d) a CPU, program mem
+
+ory, and a data memory 
+
+184. The number of general-purpose registers in the 
+
+TMS320C6000 series DSPs is 
+
+(a) 32 
+
+(b) 16 
+
+(c) 8 
+
+(d) 64 
+
+đáp án là (a) 32 
+
+185. The two internal memories in the TMS320C6000 series 
+
+each have a capacity of 
+
+(a) 16 KB 
+
+(b) 8 KB 
+
+(c) 64 KB 
+
+(d) 32 KB 
+
+đáp án là (c) 64 KB 
+
+186. In a TMS320C6000 series pipeline operation, the num
+
+ber of instructions processed simultaneously is 
+
+(a) eight 
+
+(b) four 
+
+đáp án là (a) eight 
+
+38 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) two 
+
+(d) one 
+
+187. The stage of the pipeline operation in which instruc
+
+tions are retrieved from the memory is called 
+
+(a) execute 
+
+(b) emulate 
+
+(c) decode 
+
+(d) fetch 
+
+đáp án là (d) fetch 
+
+188. Crosstalk is minimized using 
+
+(a) shielded cables 
+
+(b) twisted pair cables 
+
+(c) insulated cables 
+
+(d) both (a) and (b) 
+
+(d) both (a) and (b) 
+
+189. UTP is designated according to 
+
+(a) a 10-pair color code 
+
+(b) a 25-pair color code 
+
+(c) a 100-pair color code 
+
+(d) a 1000-pair color code 
+
+đáp án là (b) a 25-pair col
+
+or code 
+
+190. Advantages that fiber-optic systems have over electri
+
+cal transmission media are 
+
+(a) higher data rate, less susceptible to noise, and 
+
+longer transmission distance 
+
+(b) lower data rate, higher EMI, less distortion 
+
+(c) higher data rate, higher EMI, less distortion 
+
+(d) lower data rate, less susceptibility to noise, and 
+
+longer transmission distance 
+
+đáp án là (a) higher data 
+
+rate, less susceptible to 
+
+noise, and longer trans
+
+mission distance 
+
+191. The modes of light propagation in optical fibers are 
+
+(a) single-mode 
+
+đáp án là (b) multimode 
+
+and single-mode 
+
+39 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) multimode and single-mode 
+
+(c) synchronous and asynchronous 
+
+(d) scatter and direct 
+
+192. The electromagnetic spectrum does not include 
+
+(a) IR-rays 
+
+(b) radio waves 
+
+(c) microwaves 
+
+(d) sonic waves 
+
+đáp án là (d) sonic waves 
+
+193. The ionosphere layers radio bounce off the 
+
+(a) troposphere 
+
+(b) ionosphere 
+
+(c) ionosphere 
+
+(d) stratosphere 
+
+đáp án là (c) ionosphere 
+
+194. Night vision uses 
+
+(a) radio waves 
+
+(b) IR-rays 
+
+(c) visible light 
+
+(d) X-rays 
+
+đáp án là (b) IR-rays 
+
+195. An asynchronous counter has 
+
+(a) all flip-flops with the same clock frequency 
+
+(b) one oscillator with a single clock frequency 
+
+(c) different oscillators with different clock frequen
+
+cies 
+
+(d) both (b) and (c) 
+
+(b) one oscillator with a 
+
+single clock frequency 
+
+196. All of the following are transmission modes except: 
+
+(a) simplex 
+
+(b) complex 
+
+đáp án là (b) complex 
+
+40 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) half-duplex 
+
+(d) full-duplex 
+
+197. The Manchester code format is 
+
+(a) NRZ 
+
+(b) biphase 
+
+(c) bipolar 
+
+(d) FSK 
+
+đáp án là (b) biphase 
+
+198. A synchronous data frame does not contain a(n) 
+
+(a) preamble 
+
+(b) data field 
+
+(c) address 
+
+(d) vector field 
+
+đáp án là (d) vector field 
+
+199. Three types of data channel connections in terms of 
+
+data flow are 
+
+(a) analog, digital, binary 
+
+(b) simplex, half-duplex, full-duplex 
+
+(c) unipolar, bipolar, polar 
+
+(d) simplex, duplex, biplex 
+
+đáp án là (b) simplex, 
+
+half-duplex, full-duplex 
+
+200. In ASK modulation, 
+
+(a) the frequency of a carrier signal is varied by a 
+
+digital signal. 
+
+(b) the phase of a carrier signal is varied by a digital 
+
+signal. 
+
+(c) the amplitude of a carrier signal is varied by a 
+
+digital signal. 
+
+(d) none of these. 
+
+(c) the amplitude of a car
+
+rier signal is varied by a 
+
+digital signal. 
+
+201. Type of modulation in which a parameter of a carrier 
+
+signal is varied by a digital signal are 
+
+đáp án là (d) FSK, ASK, PSK 
+
+41 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(a) FSK, PSK, PPM 
+
+(b) QAM, PAM, ASK 
+
+(c) FSK, PSK, PPM 
+
+(d) FSK, ASK, PSK 
+
+202. ASK, FSK, PSK are all forms of 
+
+(a) quadrature analysis method 
+
+(b) digital modulation 
+
+(c) analog modulation 
+
+(d) quasi-amplitude modulation 
+
+đáp án là (b) digital mod
+
+ulation 
+
+203. In QAM, the parameters that are varied are 
+
+(a) amplitude and frequency 
+
+(b) phase and frequency 
+
+(c) amplitude and phase 
+
+(d) phase and registration 
+
+đáp án là (c) amplitude 
+
+and phase 
+
+204. Three methods of modulating a digital signal with 
+
+analog data are 
+
+(a) ASK, FSK, PSK 
+
+(b) PAM, PWM, PPM 
+
+(c) FSK, QAM, PAM 
+
+(d) QAM, PAM, PWM 
+
+(b) PAM, PWM, PPM 
+
+205. The most likely type of modulation to be used in motor 
+
+speed control is 
+
+(a) PAM 
+
+(b) PPM 
+
+(c) PWM 
+
+(d) QAM 
+
+đáp án là (c) PWM 
+
+206. Pulse amplitude modulation makes use of 
+
+(a) a sample and hold circuit 
+
+đáp án là (a) a sample and 
+
+hold circuit 
+
+42 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(b) a successive approximator 
+
+(c) a slope ADC 
+
+(d) an R/2R setup 
+
+207. PAM stands for 
+
+(a) pulse axis modulator 
+
+(b) peripheral analog modulators 
+
+(c) pulse amplitude modulation 
+
+(d) protocol and modulation 
+
+đáp án là (c) pulse ampli
+
+tude modulation 
+
+208. A PMW uses 
+
+(a) differentiators 
+
+(b) rectifiers 
+
+(c) flip-flops 
+
+(d) both (a) and (b) 
+
+đáp án là (d) both (a) and 
+
+(b) 
+
+209. A certain number of data bits (D) are encoded by a 
+
+single pulse in one of 2^D possible positions during 
+
+a specified fixed period (T) in 
+
+(a) TDM 
+
+(b) PAM 
+
+(c) PPM 
+
+(d) PWM 
+
+đáp án là (c) PPM 
+
+210. Properties that define a bus include 
+
+(a) type of connectors 
+
+(b) length and type of cable or connection 
+
+(c) data rate and encoding 
+
+(d) all of these 
+
+đáp án là (d) all of these 
+
+211. Which of the following is an encoding technique? 
+
+(a) PAM 
+
+(b) ASK 
+
+đáp án là (a) PAM 
+
+43 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) FSK 
+
+(d) PSK 
+
+212. The method used to transmit digital data from mul
+
+tiple sources over a single communication channel is 
+
+called 
+
+(a) demultiplexing 
+
+(b) multiplexing 
+
+(c) encoding 
+
+(d) decoding 
+
+đáp án là (b) multiplexing 
+
+213. PCI is the acronym for 
+
+(a) peripheral controller interface 
+
+(b) peripheral computer interface 
+
+(c) protocol compatible interface 
+
+(d) peripheral component interconnect 
+
+đáp án là (d) peripheral 
+
+component interconnect 
+
+214. In a PCI system, the individual paths from switch to 
+
+peripherals are called 
+
+(a) pipes 
+
+(b) lanes 
+
+(c) highways 
+
+(d) channels 
+
+đáp án là (b) lanes 
+
+215. The following is not a classification of USB: 
+
+(a) low-speed 
+
+(b) full-speed 
+
+(c) high-speed 
+
+(d) intermediate speed 
+
+(d) intermediate speed 
+
+216. A 3.0 USB cable contains 
+
+(a) two twisted pairs 
+
+(b) one twisted pair 
+
+đáp án là (c) two twisted 
+
+pairs 
+
+44 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) three twisted pairs 
+
+(d) two straight wires 
+
+217. Four types of USB packets are 
+
+(a) token, data, handshake, and start-of-frame 
+
+(b) token, data, handshake, and control 
+
+(c) identification, address, synchronization, and data 
+
+(d) none of these 
+
+đáp án là (a) token, 
+
+data, handshake, and 
+
+start-of-frame 
+
+218. The RS-232 encoding method is 
+
+(a) RZ 
+
+(b) Manchester 
+
+(c) biphase 
+
+(d) NRZ 
+
+đáp án là (d) NRZ 
+
+219. The bus typically used to connect systems in an auto
+
+mobile is the 
+
+(a) SPI 
+
+(b) CAN 
+
+(c) I²C 
+
+(d) PCI 
+
+đáp án là (b) CAN 
+
+220. Which of the following is a peripheral unit of a com
+
+puter? 
+
+(a) Arithmetic and logic unit 
+
+(b) Control unit 
+
+(c) Memory unit 
+
+(d) Keyboard 
+
+đáp án là (d) Keyboard 
+
+221. Which operation of the timing and control unit in a 
+
+microprocessor is affected by 
+
+(a) the system clock 
+
+(b) the op-codes 
+
+đáp án là (a) the system 
+
+clock 
+
+45 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) the arithmetic logic unit 
+
+(d) the register array 
+
+222. A 10-bit address bus support 
+
+(a) 1,000,000 memory addresses 
+
+(b) 1024 memory addresses 
+
+(c) 100 memory addresses 
+
+(d) 1000 memory addresses 
+
+đáp án là (b) 1024 mem
+
+ory addresses 
+
+223. A bus that is used to transfer information both to and 
+
+from the microprocessor is the 
+
+(a) address bus 
+
+(b) data bus 
+
+(c) both of the above 
+
+(d) none of the above 
+
+đáp án là (b) data bus 
+
+224. A system bus is composed of 
+
+(a) address bus 
+
+(b) data bus 
+
+(c) system bus 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (d) answers (a), 
+
+(b), and (c) 
+
+225. The high-output state of a tri-state device is called 
+
+(a) logic 0 
+
+(b) logic 1 
+
+(c) high-Z state 
+
+(d) none of the above 
+
+(b) logic 1 
+
+226. During the fetch cycle of a processor 
+
+(a) instructions are read from the memory 
+
+(b) data is stored as a result 
+
+(c) data is processed in the ALU 
+
+(d) the instructions are executed in the processor 
+
+đáp án là (a) instructions 
+
+are read from the memory 
+
+46 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+227. The role of the CPU is to 
+
+(a) control computer hardware 
+
+(b) provide hardware support to the operating system 
+
+(c) execute application programs 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (d) answers (a), 
+
+(b), and (c) 
+
+228. High-level languages are converted to machine level 
+
+language through 
+
+(a) an assembler 
+
+(b) a debugger 
+
+(c) a compiler 
+
+(d) a translator 
+
+đáp án là (c) a compiler 
+
+229. A computer program is a list of 
+
+(a) memory addresses that contain data to be used in 
+
+an operation 
+
+(b) addresses that contain instructions to be used in 
+
+an operation 
+
+(c) instructions arranged to produce a specific result 
+
+đáp án là (c) instructions 
+
+arranged to produce a 
+
+specific result 
+
+230. A type of assembly language instruction that alters 
+
+the course of the program is called a 
+
+(a) loop 
+
+(b) jump 
+
+(c) both of the above 
+
+(d) none of the above 
+
+đáp án là (c) both of the 
+
+above 
+
+231. A wait state 
+
+(a) postpones a bus cycle 
+
+(b) halts the processor clock for one period 
+
+(c) places the microprocessor in a low-power mode 
+
+(a) postpones a bus cycle 
+
+47 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(d) always consists of a bus cycle plus one processor 
+
+clock 
+
+232. A bus request differs from an interrupt in that 
+
+(a) an interrupt requires an external bus master to 
+
+complete the operation 
+
+(b) a bus request will interrupt current instruction cy
+
+cle 
+
+(c) an interrupt cannot be masked 
+
+(d) a bus request does not expect a response from the 
+
+processor 
+
+(d) a bus request does not 
+
+expect a response from 
+
+the processor 
+
+233. An operating system 
+
+(a) schedules and allocates system resources 
+
+(b) manages the system processes and resources 
+
+(c) provides system services 
+
+(d) answers (a), (b), and (c) 
+
+đáp án là (d) answers (a), 
+
+(b), and (c) 
+
+234. When the frequency of the input signal to a CMOS 
+
+gate is increased, the average power dissipation 
+
+(a) decreases 
+
+(b) increases 
+
+(c) does not change 
+
+(d) decreases exponentially 
+
+đáp án là (b) increases 
+
+235. CMOS operates more reliably than TTL in a high-noise 
+
+environment because of its 
+
+(a) lower noise margin 
+
+(b) input capacitance 
+
+(c) higher noise margin 
+
+(d) smaller power dissipation 
+
+đáp án là (c) higher noise 
+
+margin 
+
+236. 
+
+48 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+Proper handling of a CMOS device is necessary be
+
+cause of its 
+
+(a) fragile construction 
+
+(b) high-noise immunity 
+
+(c) susceptibility to electrostatic discharge 
+
+(d) low power dissipation 
+
+đáp án là (c) susceptibility 
+
+to electrostatic discharge 
+
+237. Which of the following is not a TTL circuit? 
+
+(a) 74F00 
+
+(b) 74AS00 
+
+(c) 74HC00 
+
+(d) 74ALS00 
+
+đáp án là (c) 74HC00 
+
+238. An open TTL NOR gate input 
+
+(a) acts as a LOW 
+
+(b) acts as a HIGH 
+
+(c) should be grounded 
+
+(d) should be connected to VCC through a resistor 
+
+(e) answers (b) and (c) 
+
+(f) answers (a) and (c) 
+
+đáp án là (e) answers (b) 
+
+and (c) 
+
+239. An LS TTL gate can drive a maximum of 
+
+(a) 20 unit loads 
+
+(b) 10 unit loads 
+
+(c) 40 unit loads 
+
+(d) unlimited unit loads 
+
+(b) 10 unit loads 
+
+240. If two unused inputs of a LS TTL gate are connected to 
+
+an input being driven by another LS TTL gate, the total 
+
+number of remaining unit loads that can be driven by 
+
+this gate is 
+
+(a) seven 
+
+(b) eight 
+
+(b) eight 
+
+49 / 50DIC201-FE 
+
+Hoc trực tuyến tại https://quizlet.com/_ib7vu0  
+
+(c) seventeen 
+
+(d) unlimited 
+
+241. The main advantage of ECL over TTL or CMOS is 
+
+(a) ECL is less expensive 
+
+(b) ECL consumes less power 
+
+(c) ECL is available in a greater variety of circuit types 
+
+(d) ECL is faster 
+
+đáp án là (d) ECL is faster 
+
+242. ECL cannot be used in 
+
+(a) high-noise environments 
+
+(b) damp environments 
+
+(c) high-frequency applications 
+
+đáp án là (a) high-noise 
+
+environments 
+
+243. The basic mechanism for storing a data bit in an E²C
+
+MOS cell is 
+
+(a) control gate 
+
+(b) floating drain 
+
+(c) floating gate 
+
+(d) cell current 
+
+đáp án là (c) floating gate 
+
+50 / 50
+
+
+
