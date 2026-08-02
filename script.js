@@ -356,6 +356,7 @@ document.addEventListener('keydown', (e) => {
 // Admin Logic
 window.showAdminPanel = function() {
     document.getElementById('main-content').classList.add('hidden');
+      const hero = document.getElementById('hero-section'); if(hero) hero.classList.add('hidden');
     document.getElementById('admin-dashboard').classList.remove('hidden');
     window.loadUsersForAdmin();
 };
@@ -363,6 +364,7 @@ window.showAdminPanel = function() {
 window.hideAdminPanel = function() {
     document.getElementById('admin-dashboard').classList.add('hidden');
     document.getElementById('main-content').classList.remove('hidden');
+      const hero = document.getElementById('hero-section'); if(hero) hero.classList.remove('hidden');
 };
 
 window.loadUsersForAdmin = async function() {
