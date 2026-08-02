@@ -373,3 +373,26 @@ body {
 
 .quiz-reveal-answer { padding: 30px; border-radius: 16px; margin-bottom: 30px; border-left: 4px solid var(--primary-color); }
 .quiz-actions { text-align: right; }
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .navbar { padding: 15px 20px; flex-direction: column; gap: 15px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+    
+    .hero-section { flex-direction: column; padding: 40px 20px; text-align: center; }
+    .hero-content { max-width: 100%; }
+    .hero-title { font-size: 2.2rem; }
+    .hero-actions { flex-direction: column; }
+    .hero-widget { width: 100%; margin-top: 30px; }
+    .search-box { width: 100%; }
+    
+    .grid-section { padding: 30px 20px; }
+    .section-header h2 { font-size: 1.8rem; }
+    .subject-grid { grid-template-columns: 1fr; }
+    
+    .study-container { padding: 20px 10px; }
+    .tab-btn { padding: 10px; font-size: 0.9rem; }
+    .scene { height: 350px; }
+    .card__face { padding: 20px; }
+    .term-content { font-size: 1.2rem; }
+}

@@ -65,6 +65,7 @@ onAuthStateChanged(auth, async (user) => {
     const topLoginBtn = document.getElementById('btn-login'); // if it still exists
     
     if (user) {
+        window.currentUser = user;
         // Validate admin login attempt
         if (window.intendedRole === 'admin' && user.email !== ADMIN_EMAIL) {
             alert("🔒 Từ chối truy cập: Tài khoản của bạn không có quyền Quản trị viên.");
@@ -102,7 +103,10 @@ onAuthStateChanged(auth, async (user) => {
             window.applyPermissions();
         }
         
-        if(topLoginBtn) topLoginBtn.classList.add('hidden');
+        const authUnlogged = document.getElementById('auth-unlogged');
+        if(authUnlogged) authUnlogged.classList.add('hidden');
+        const loginSug = document.getElementById('login-suggestion');
+        if(loginSug) loginSug.classList.add('hidden');
         if(userProfile) {
             userProfile.classList.remove('hidden');
             document.getElementById('user-name').innerText = user.displayName;
@@ -144,12 +148,10 @@ onAuthStateChanged(auth, async (user) => {
         window.currentUser = null;
         window.userPermissions = [];
         window.isAdmin = false;
-        if(loginBtn) {
-            loginBtn.classList.remove('hidden');
-            loginBtn.innerHTML = "Đăng nhập Google";
-            loginBtn.disabled = false;
-            loginBtn.style.opacity = '1';
-        }
+        const authUnlogged = document.getElementById('auth-unlogged');
+        if(authUnlogged) authUnlogged.classList.remove('hidden');
+        const loginSug = document.getElementById('login-suggestion');
+        if(loginSug) loginSug.classList.remove('hidden');
         if(userProfile) userProfile.classList.add('hidden');
         if(mainContent) mainContent.classList.add('hidden');
         if(loginPrompt) loginPrompt.classList.remove('hidden');
