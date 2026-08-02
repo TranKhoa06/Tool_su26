@@ -106,12 +106,14 @@ function loadFlashcard() {
         document.getElementById('fc3d-term').innerHTML = termHTML;
         const optionsList = document.getElementById('fc3d-options');
         optionsList.innerHTML = '';
-        currentQ.options.forEach(opt => {
-            const div = document.createElement('div');
-            div.className = 'fc-option';
-            div.innerText = opt;
-            optionsList.appendChild(div);
-        });
+        if (currentQ.type !== 'image') {
+            currentQ.options.forEach(opt => {
+                const div = document.createElement('div');
+                div.className = 'fc-option';
+                div.innerText = opt;
+                optionsList.appendChild(div);
+            });
+        }
         document.getElementById('fc3d-definition').innerHTML = defHTML;
         
         // Đóng thẻ nếu đang mở
@@ -123,12 +125,14 @@ function loadFlashcard() {
         document.getElementById('fcrev-term').innerHTML = termHTML;
         const optionsList = document.getElementById('fcrev-options');
         optionsList.innerHTML = '';
-        currentQ.options.forEach(opt => {
-            const div = document.createElement('div');
-            div.className = 'fc-option';
-            div.innerText = opt;
-            optionsList.appendChild(div);
-        });
+        if (currentQ.type !== 'image') {
+            currentQ.options.forEach(opt => {
+                const div = document.createElement('div');
+                div.className = 'fc-option';
+                div.innerText = opt;
+                optionsList.appendChild(div);
+            });
+        }
         document.getElementById('fcrev-definition').innerHTML = defHTML;
         
         // Ẩn đáp án
