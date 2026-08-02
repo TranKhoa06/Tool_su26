@@ -1,10 +1,13 @@
-﻿const express = require('express');
+﻿require('dotenv').config();
+const { GoogleGenAI } = require('@google/genai');
+const express = require('express');
 const multer = require('multer');
 const fs = require('fs');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 const { exec } = require('child_process');
 
+const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
 const app = express();
 app.use(express.json());
 app.use(express.static('public'));
@@ -63,41 +66,21 @@ app.post('/api/upload-text', upload.single('txtFile'), async (req, res) => {
     
     // Thuật toán parse TXT siêu cấp
     // Giả sử mỗi câu hỏi có dạng: "Câu X: [Nội dung]\nA. [..]\nB. [..]\nC. [..]\nD. [..]\nĐáp án: A"
-    const questions = [];
-    const blocks = content.split(/Câu \d+:/i).filter(b => b.trim().length > 0);
-    
-    for (let block of blocks) {
-        // Tách dòng
-        const lines = block.split('\n').map(l => l.trim()).filter(l => l.length > 0);
-        let qText = lines[0];
-        let options = [];
-        let correctIndex = 0;
-        
-        for (let i = 1; i < lines.length; i++) {
-            let line = lines[i];
-            if(line.match(/^[A-D][\.\:]/i)) {
-                options.push(line.replace(/^[A-D][\.\:]\s*/i, ''));
-            } else if(line.toLowerCase().includes('đáp án')) {
-                let ans = line.toLowerCase();
-                if(ans.includes('b')) correctIndex = 1;
-                else if(ans.includes('c')) correctIndex = 2;
-                else if(ans.includes('d')) correctIndex = 3;
-                else correctIndex = 0;
-            } else {
-                if(options.length === 0) qText += "\n" + line; // Nối câu hỏi
-            }
-        }
-        
-        // Đảm bảo đủ 4 options
-        while(options.length < 4) options.push("N/A");
-        
-        questions.push({
-            type: 'text',
-            term: qText,
-            definition: options[correctIndex],
-            options: options,
-            correctIndex: correctIndex
+    let questions = [];
+    try {
+        const prompt = `Đọc đoạn đề thi trắc nghiệm lộn xộn dưới đây và trả về một mảng JSON nguyên chất. Không giải thích gì thêm, KHÔNG dùng markdown ```json. Format mỗi object trong mảng: { "type": "text", "term": "Nội dung câu hỏi", "definition": "Nội dung đáp án đúng", "options": ["Đáp án A", "Đáp án B", "Đáp án C", "Đáp án D"], "correctIndex": số nguyên (0 đến 3) }. Nội dung đề:\n${content}`;
+        const response = await ai.models.generateContent({
+            model: 'gemini-2.5-flash',
+            contents: prompt,
         });
+        let jsonText = response.text.trim();
+        if (jsonText.startsWith('```json')) jsonText = jsonText.replace(/^```json/, '');
+        if (jsonText.startsWith('```')) jsonText = jsonText.replace(/^```/, '');
+        jsonText = jsonText.replace(/```$/, '').trim();
+        questions = JSON.parse(jsonText);
+    } catch (err) {
+        console.error(err);
+        return res.status(500).json({error: 'AI Error: ' + err.message});
     }
     
     // Lưu file js
