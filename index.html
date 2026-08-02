@@ -30,7 +30,7 @@
                 </div>
                 
                 <div class="auth-section">
-                    <button id="btn-login" class="btn-glass btn-login" onclick="loginWithGoogle()">
+                    <button id="btn-login" class="btn-glass btn-login" onclick="loginAsUser()">
                         <i class='bx bxl-google'></i> Đăng nhập
                     </button>
                     <div id="user-profile" class="user-profile hidden">
@@ -39,6 +39,7 @@
                             <span id="user-name"></span>
                             <span class="user-badge">Học viên</span>
                         </div>
+                        <button id="btn-admin-panel" onclick="showAdminPanel()" class="btn-glass hidden" style="margin-left: 5px;" title="Quản lý"><i class='bx bx-shield-quarter'></i></button>
                         <button onclick="logout()" class="btn-logout" title="Đăng xuất"><i class='bx bx-log-out'></i></button>
                     </div>
                 </div>
@@ -73,8 +74,38 @@
             </div>
             
             <div id="login-prompt" class="welcome-text">
-                <h2>Vui lòng đăng nhập</h2>
-                <p>Bạn cần đăng nhập bằng Google để tiếp tục sử dụng hệ thống và lưu điểm số.</p>
+                <h2>Cổng đăng nhập hệ thống</h2>
+                <p>Vui lòng chọn cổng đăng nhập phù hợp với vai trò của bạn.</p>
+                <div class="login-options" style="display: flex; justify-content: center; gap: 20px; margin-top: 30px;">
+                    <button id="btn-login-user" class="btn-primary" onclick="loginAsUser()" style="padding: 15px 30px; font-size: 1.1rem; border-radius: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class='bx bxs-user-detail'></i> Đăng nhập Học viên
+                    </button>
+                    <button id="btn-login-admin" class="btn-primary" onclick="loginAsAdmin()" style="background: linear-gradient(135deg, #ef4444, #b91c1c); padding: 15px 30px; font-size: 1.1rem; border-radius: 12px; display: flex; align-items: center; gap: 10px;">
+                        <i class='bx bxs-shield'></i> Đăng nhập Admin
+                    </button>
+                </div>
+            </div>
+
+            <!-- ADMIN DASHBOARD -->
+            <div id="admin-dashboard" class="hidden" style="margin-top: 20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                    <h3 style="margin: 0; font-size: 1.5rem; font-weight: 700;">Quản lý Quyền Người dùng</h3>
+                    <button onclick="hideAdminPanel()" class="btn-glass"><i class='bx bx-home'></i> Về ôn tập</button>
+                </div>
+                
+                <table style="width: 100%; border-collapse: collapse; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+                    <thead>
+                        <tr style="background: #f8fafc;">
+                            <th style="padding: 15px; text-align: left; font-weight: 600; border-bottom: 1px solid #e2e8f0;">Người dùng</th>
+                            <th style="padding: 15px; text-align: left; font-weight: 600; border-bottom: 1px solid #e2e8f0;">Email</th>
+                            <th style="padding: 15px; text-align: left; font-weight: 600; border-bottom: 1px solid #e2e8f0;">Quyền truy cập</th>
+                            <th style="padding: 15px; text-align: left; font-weight: 600; border-bottom: 1px solid #e2e8f0;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="users-table-body">
+                        <!-- Users injected here -->
+                    </tbody>
+                </table>
             </div>
         </div>
 

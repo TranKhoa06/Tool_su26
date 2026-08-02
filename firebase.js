@@ -29,22 +29,25 @@ window.getDocs = getDocs;
 const ADMIN_EMAIL = 'azultruong@gmail.com';
 
 // Attach to window so standard HTML buttons can call them
-window.loginWithGoogle = () => {
-    const loginBtn = document.getElementById('btn-login');
-    if (loginBtn) {
-        loginBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang kết nối...";
-        loginBtn.disabled = true;
-        loginBtn.style.opacity = '0.7';
-    }
+window.loginAsUser = () => {
+    window.intendedRole = 'user';
+    const btn = document.getElementById('btn-login-user');
+    if(btn) { btn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang kết nối..."; btn.disabled = true; }
     
     signInWithPopup(auth, provider).catch(error => {
-        console.error("Login failed", error);
         alert("Đăng nhập thất bại: " + error.message);
-        if (loginBtn) {
-            loginBtn.innerHTML = "Đăng nhập Google";
-            loginBtn.disabled = false;
-            loginBtn.style.opacity = '1';
-        }
+        if(btn) { btn.innerHTML = "<i class='bx bxs-user-detail'></i> Đang nhập Học viên"; btn.disabled = false; }
+    });
+};
+
+window.loginAsAdmin = () => {
+    window.intendedRole = 'admin';
+    const btn = document.getElementById('btn-login-admin');
+    if(btn) { btn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang kết nối..."; btn.disabled = true; }
+    
+    signInWithPopup(auth, provider).catch(error => {
+        alert("Đăng nhập thất bại: " + error.message);
+        if(btn) { btn.innerHTML = "<i class='bx bxs-shield'></i> Đăng nhập Admin"; btn.disabled = false; }
     });
 };
 
@@ -54,17 +57,20 @@ window.logout = () => {
 
 // Listen for auth state changes
 onAuthStateChanged(auth, async (user) => {
-    const loginBtn = document.getElementById('btn-login');
     const userProfile = document.getElementById('user-profile');
     const mainContent = document.getElementById('main-content');
     const loginPrompt = document.getElementById('login-prompt');
+    const btnUser = document.getElementById('btn-login-user');
+    const btnAdmin = document.getElementById('btn-login-admin');
+    const topLoginBtn = document.getElementById('btn-login'); // if it still exists
     
     if (user) {
-        if (loginBtn) {
-            loginBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang tải dữ liệu...";
-            loginBtn.disabled = true;
+        // Validate admin login attempt
+        if (window.intendedRole === 'admin' && user.email !== ADMIN_EMAIL) {
+            alert("🔒 Từ chối truy cập: Tài khoản của bạn không có quyền Quản trị viên.");
+            signOut(auth);
+            return;
         }
-        window.currentUser = user;
         
         // Save user to Firestore if not exists, default permission: dic201
         let permissions = ['dic201']; // default
@@ -96,37 +102,43 @@ onAuthStateChanged(auth, async (user) => {
             window.applyPermissions();
         }
         
-        if(loginBtn) loginBtn.classList.add('hidden');
+        if(topLoginBtn) topLoginBtn.classList.add('hidden');
         if(userProfile) {
             userProfile.classList.remove('hidden');
             document.getElementById('user-name').innerText = user.displayName;
             document.getElementById('user-avatar').src = user.photoURL;
             
             const badge = document.querySelector('.user-badge');
+            const adminPanelBtn = document.getElementById('btn-admin-panel');
+            
             if (badge) {
                 if (window.isAdmin) {
                     badge.innerText = 'Admin';
                     badge.style.background = '#fecaca';
                     badge.style.color = '#b91c1c';
+                    if(adminPanelBtn) adminPanelBtn.classList.remove('hidden');
                 } else {
                     badge.innerText = 'Học viên';
                     badge.style.background = 'var(--primary-light)';
                     badge.style.color = 'var(--primary)';
+                    if(adminPanelBtn) adminPanelBtn.classList.add('hidden');
                 }
             }
         }
-        if(mainContent) mainContent.classList.remove('hidden');
-        if(loginPrompt) loginPrompt.classList.add('hidden');
         
-        // If on admin page, check if admin
-        if(window.location.pathname.includes('admin.html')) {
-            if(!window.isAdmin) {
-                alert('Bạn không có quyền truy cập trang này!');
-                window.location.href = 'index.html';
-            } else {
-                if(typeof window.loadAdminData === 'function') window.loadAdminData();
-            }
+        // Show correct dashboard based on intended role if applicable
+        const adminDashboard = document.getElementById('admin-dashboard');
+        if (window.isAdmin && window.intendedRole === 'admin') {
+            if(mainContent) mainContent.classList.add('hidden');
+            if(adminDashboard) adminDashboard.classList.remove('hidden');
+            // load admin users here
+            if(window.loadUsersForAdmin) window.loadUsersForAdmin();
+        } else {
+            if(mainContent) mainContent.classList.remove('hidden');
+            if(adminDashboard) adminDashboard.classList.add('hidden');
         }
+        
+        if(loginPrompt) loginPrompt.classList.add('hidden');
         
     } else {
         window.currentUser = null;
