@@ -1,19 +1,19 @@
-let quizData = [];
+﻿let quizData = [];
 let currentIndex = 0;
 let quizScore = 0;
 let currentTab = 'flashcard-3d';
 let answeredQuiz = false;
 let currentSubjectId = '';
 
-// Khởi tạo
+// Khá»Ÿi táº¡o
 document.addEventListener('DOMContentLoaded', () => {
-    // Không load ngay, đợi user chọn môn
+    // KhĂ´ng load ngay, Ä‘á»£i user chá»n mĂ´n
 });
 
-// Áp dụng quyền truy cập
+// Ăp dá»¥ng quyá»n truy cáº­p
 window.applyPermissions = function() {
     const perms = window.userPermissions || [];
-    ['dic201', 'mcp201', 'csd202'].forEach(subId => {
+    window.subjectRegistry.map(s => s.id).forEach(subId => {
         const btn = document.querySelector(`.subject-card[onclick*='${subId}']`);
         if(btn) {
             if(perms.includes(subId)) {
@@ -33,9 +33,9 @@ window.applyPermissions = function() {
 };
 
 function loadSubject(subjectId, subjectName) {
-    // Kiểm tra quyền
+    // Kiá»ƒm tra quyá»n
     if (window.userPermissions && !window.userPermissions.includes(subjectId)) {
-        alert("🔒 Bạn chưa được cấp quyền truy cập môn học này. Vui lòng liên hệ Admin!");
+        alert("đŸ”’ Báº¡n chÆ°a Ä‘Æ°á»£c cáº¥p quyá»n truy cáº­p mĂ´n há»c nĂ y. Vui lĂ²ng liĂªn há»‡ Admin!");
         return;
     }
 
@@ -49,17 +49,17 @@ function loadSubject(subjectId, subjectName) {
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('study-view').classList.remove('hidden');
             
-            // Xáo trộn dữ liệu
+            // XĂ¡o trá»™n dá»¯ liá»‡u
             quizData = quizData.sort(() => Math.random() - 0.5);
             
             currentIndex = 0;
             quizScore = 0;
             switchTab('flashcard-3d');
         } else {
-            alert('Lỗi tải dữ liệu!');
+            alert('Lá»—i táº£i dá»¯ liá»‡u!');
         }
     };
-    script.onerror = () => alert(`Không tìm thấy file data/${subjectId}.js`);
+    script.onerror = () => alert(`KhĂ´ng tĂ¬m tháº¥y file data/${subjectId}.js`);
     document.body.appendChild(script);
 }
 
@@ -72,15 +72,15 @@ function goHome() {
 function switchTab(tabId) {
     currentTab = tabId;
     
-    // Ẩn tất cả nội dung
+    // áº¨n táº¥t cáº£ ná»™i dung
     document.getElementById('view-flashcard-3d').classList.add('hidden');
     document.getElementById('view-flashcard-reveal').classList.add('hidden');
     document.getElementById('view-quiz').classList.add('hidden');
 
-    // Hiện nội dung tương ứng
+    // Hiá»‡n ná»™i dung tÆ°Æ¡ng á»©ng
     document.getElementById(`view-${tabId}`).classList.remove('hidden');
     
-    // Cập nhật trạng thái nút tab
+    // Cáº­p nháº­t tráº¡ng thĂ¡i nĂºt tab
     const tabs = ['flashcard-3d', 'flashcard-reveal', 'quiz'];
     const tabPrefix = { 'flashcard-3d': 'fc3d', 'flashcard-reveal': 'fcrev', 'quiz': 'quiz' };
     
@@ -89,7 +89,7 @@ function switchTab(tabId) {
         if (btn) {
             if (tab === tabId) {
                 btn.classList.add('active');
-                // Cập nhật vị trí slider (chỉ chạy trên Desktop nếu màn hình to)
+                // Cáº­p nháº­t vá»‹ trĂ­ slider (chá»‰ cháº¡y trĂªn Desktop náº¿u mĂ n hĂ¬nh to)
                 const slider = document.getElementById('tab-slider');
                 if(slider) {
                     slider.style.transform = `translateX(${index * 100}%)`;
@@ -119,12 +119,12 @@ function loadFlashcard() {
     if (quizData.length === 0) return;
     const currentQ = quizData[currentIndex];
     
-    // Xử lý tạo nội dung cho Câu hỏi (có thể là Chữ hoặc Ảnh)
+    // Xá»­ lĂ½ táº¡o ná»™i dung cho CĂ¢u há»i (cĂ³ thá»ƒ lĂ  Chá»¯ hoáº·c áº¢nh)
     let termHTML = currentQ.type === 'image' && currentQ.question_img 
         ? `<img src="${currentQ.question_img}" alt="Question Image" class="question-img" />`
         : currentQ.term;
         
-    // Xử lý tạo nội dung cho Đáp án (có thể là Chữ hoặc Ảnh)
+    // Xá»­ lĂ½ táº¡o ná»™i dung cho ÄĂ¡p Ă¡n (cĂ³ thá»ƒ lĂ  Chá»¯ hoáº·c áº¢nh)
     let defHTML = currentQ.type === 'image' && currentQ.answer_img
         ? `<img src="${currentQ.answer_img}" alt="Answer Image" class="answer-img" />`
         : currentQ.definition;
@@ -144,7 +144,7 @@ function loadFlashcard() {
         }
         document.getElementById('fc3d-definition').innerHTML = defHTML;
         
-        // Đóng thẻ nếu đang mở
+        // ÄĂ³ng tháº» náº¿u Ä‘ang má»Ÿ
         const card = document.getElementById('flashcard-3d');
         card.classList.remove('is-flipped');
     } 
@@ -163,7 +163,7 @@ function loadFlashcard() {
         }
         document.getElementById('fcrev-definition').innerHTML = defHTML;
         
-        // Ẩn đáp án
+        // áº¨n Ä‘Ă¡p Ă¡n
         document.getElementById('fcrev-answer').classList.add('hidden');
         document.getElementById('fcrev-hint').classList.remove('hidden');
     }
@@ -188,7 +188,7 @@ function toggleFlashcard3D() {
     card.classList.toggle('is-flipped');
 }
 
-// Click vào thẻ 3D để lật
+// Click vĂ o tháº» 3D Ä‘á»ƒ láº­t
 document.getElementById('flashcard-3d')?.addEventListener('click', toggleFlashcard3D);
 
 // --- Quiz ---
@@ -197,8 +197,8 @@ function loadQuiz() {
     const currentQ = quizData[currentIndex];
     answeredQuiz = false;
 
-    document.getElementById('quiz-counter').innerText = `Câu: ${currentIndex + 1}/${quizData.length}`;
-    document.getElementById('quiz-score').innerText = `Điểm: ${quizScore}`;
+    document.getElementById('quiz-counter').innerText = `CĂ¢u: ${currentIndex + 1}/${quizData.length}`;
+    document.getElementById('quiz-score').innerText = `Äiá»ƒm: ${quizScore}`;
     
     let termHTML = currentQ.type === 'image' && currentQ.question_img 
         ? `<img src="${currentQ.question_img}" alt="Question Image" class="question-img" />`
@@ -231,21 +231,21 @@ function selectAnswer(selectedIndex, btn) {
     if (isCorrect) {
         btn.classList.add('correct');
         quizScore++;
-        document.getElementById('quiz-score').innerText = `Điểm: ${quizScore}`;
+        document.getElementById('quiz-score').innerText = `Äiá»ƒm: ${quizScore}`;
     } else {
         btn.classList.add('incorrect');
-        // Highlight câu đúng
+        // Highlight cĂ¢u Ä‘Ăºng
         const allBtns = document.getElementById('quiz-options').querySelectorAll('button');
         if(allBtns[currentQ.answerIndex]) {
             allBtns[currentQ.answerIndex].classList.add('correct');
         }
     }
 
-    // Vô hiệu hóa nút
+    // VĂ´ hiá»‡u hĂ³a nĂºt
     document.getElementById('quiz-options').querySelectorAll('button').forEach(b => b.disabled = true);
     document.getElementById('btn-next-quiz').classList.remove('hidden');
     
-    // Hiện giải thích (bằng ảnh hoặc chữ)
+    // Hiá»‡n giáº£i thĂ­ch (báº±ng áº£nh hoáº·c chá»¯)
     document.getElementById('quiz-reveal-answer').classList.remove('hidden');
     let defHTML = currentQ.type === 'image' && currentQ.answer_img
         ? `<img src="${currentQ.answer_img}" alt="Answer Image" class="answer-img" />`
@@ -258,7 +258,7 @@ function nextQuiz() {
         currentIndex++;
         loadQuiz();
     } else {
-        alert(`Bạn đã hoàn thành bài thi! Điểm của bạn: ${quizScore}/${quizData.length}`);
+        alert(`Báº¡n Ä‘Ă£ hoĂ n thĂ nh bĂ i thi! Äiá»ƒm cá»§a báº¡n: ${quizScore}/${quizData.length}`);
         if (window.saveScoreToCloud) {
             window.saveScoreToCloud(currentSubjectId, quizScore, quizData.length);
         }
@@ -272,12 +272,12 @@ function prevQuiz() {
     }
 }
 
-// --- Bắt sự kiện phím tắt ---
+// --- Báº¯t sá»± kiá»‡n phĂ­m táº¯t ---
 document.addEventListener('keydown', (e) => {
-    // Chỉ hoạt động khi đang ở màn hình học tập
+    // Chá»‰ hoáº¡t Ä‘á»™ng khi Ä‘ang á»Ÿ mĂ n hĂ¬nh há»c táº­p
     if (document.getElementById('study-view').classList.contains('hidden')) return;
 
-    // Phím Space để lật thẻ / xem giải thích
+    // PhĂ­m Space Ä‘á»ƒ láº­t tháº» / xem giáº£i thĂ­ch
     if (e.code === 'Space') {
         e.preventDefault();
         if (currentTab === 'flashcard-3d') {
@@ -286,10 +286,10 @@ document.addEventListener('keydown', (e) => {
             revealAnswer();
         }
     } 
-    // Phím Mũi tên Phải (Next)
+    // PhĂ­m MÅ©i tĂªn Pháº£i (Next)
     else if (e.code === 'ArrowRight') {
         if (currentTab === 'quiz') {
-            // Trong quiz chỉ cho qua bài nếu nút next đang hiện (đã trả lời)
+            // Trong quiz chá»‰ cho qua bĂ i náº¿u nĂºt next Ä‘ang hiá»‡n (Ä‘Ă£ tráº£ lá»i)
             if(!document.getElementById('btn-next-quiz').classList.contains('hidden')) {
                 nextQuiz();
             }
@@ -297,7 +297,7 @@ document.addEventListener('keydown', (e) => {
             nextCard();
         }
     } 
-    // Phím Mũi tên Trái (Prev)
+    // PhĂ­m MÅ©i tĂªn TrĂ¡i (Prev)
     else if (e.code === 'ArrowLeft') {
         if (currentTab === 'quiz') {
             prevQuiz();
@@ -324,7 +324,7 @@ window.loadUsersForAdmin = async function() {
     if (!window.isAdmin) return;
     const tbody = document.getElementById('users-table-body');
     if(!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="4">�ang t?i d? li?u...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4">Đang t?i d? li?u...</td></tr>';
     
     try {
         const usersSnap = await window.getDocs(window.collection(window.db, "users"));
@@ -333,7 +333,7 @@ window.loadUsersForAdmin = async function() {
             const data = doc.data();
             const perms = data.permissions || ['dic201'];
             const tr = document.createElement('tr');
-            tr.innerHTML = "<td><img src='" + data.avatar + "' style='width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:10px;' alt=''><strong>" + data.name + "</strong></td><td>" + data.email + "</td><td><div style='display:flex;gap:15px;'><label><input type='checkbox' id='perm-dic201-" + data.uid + "' checked disabled> DIC201 (M?c �?nh)</label><label><input type='checkbox' id='perm-mcp201-" + data.uid + "' " + (perms.includes('mcp201') ? 'checked' : '') + "> MCP201</label><label><input type='checkbox' id='perm-csd202-" + data.uid + "' " + (perms.includes('csd202') ? 'checked' : '') + "> CSD202</label></div></td><td><button class='btn-inline' onclick='savePermissions(\"" + data.uid + "\")'>L�u Quy?n</button></td>";
+            tr.innerHTML = "<td><img src='" + data.avatar + "' style='width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:10px;' alt=''><strong>" + data.name + "</strong></td><td>" + data.email + "</td><td><div style='display:flex;gap:15px;'><label><input type='checkbox' id='perm-dic201-" + data.uid + "' checked disabled> DIC201 (M?c đ?nh)</label><label><input type='checkbox' id='perm-mcp201-" + data.uid + "' " + (perms.includes('mcp201') ? 'checked' : '') + "> MCP201</label><label><input type='checkbox' id='perm-csd202-" + data.uid + "' " + (perms.includes('csd202') ? 'checked' : '') + "> CSD202</label></div></td><td><button class='btn-inline' onclick='savePermissions(\"" + data.uid + "\")'>Lưu Quy?n</button></td>";
             tbody.appendChild(tr);
         });
     } catch(e) {
@@ -342,15 +342,17 @@ window.loadUsersForAdmin = async function() {
 };
 
 window.savePermissions = async function(uid) {
-    const isMcp201 = document.getElementById('perm-mcp201-' + uid).checked;
-    const isCsd202 = document.getElementById('perm-csd202-' + uid).checked;
-    const newPerms = ['dic201'];
-    if(isMcp201) newPerms.push('mcp201');
-    if(isCsd202) newPerms.push('csd202');
+    const newPerms = window.subjectRegistry.filter(s => s.isDefault).map(s => s.id);
+    window.subjectRegistry.forEach(sub => {
+        if(!sub.isDefault) {
+            const cb = document.getElementById('perm-' + sub.id + '-' + uid);
+            if(cb && cb.checked) newPerms.push(sub.id);
+        }
+    });
     try {
         const userRef = window.doc(window.db, "users", uid);
         await window.updateDoc(userRef, { permissions: newPerms });
-        alert('C?p nh?t quy?n th�nh c�ng!');
+        alert('C?p nh?t quy?n thành công!');
     } catch(e) {
         alert('L?i c?p nh?t: ' + e.message);
     }

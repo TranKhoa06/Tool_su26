@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tool Tạo Đề - Auto Github</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Outfit', sans-serif; background: #0f172a; color: white; margin: 0; padding: 20px; display: flex; justify-content: center; }
+        .container { background: #1e293b; padding: 30px; border-radius: 15px; width: 600px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        h1 { text-align: center; color: #38bdf8; }
+        .tab-buttons { display: flex; gap: 10px; margin-bottom: 20px; }
+        .tab-btn { flex: 1; padding: 10px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; background: #334155; color: white; }
+        .tab-btn.active { background: #38bdf8; color: #0f172a; }
+        .tab-content { display: none; }
+        .tab-content.active { display: block; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; color: #94a3b8; }
+        input[type="text"], input[type="file"] { width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: white; box-sizing: border-box; }
+        button.submit-btn { width: 100%; padding: 15px; border: none; border-radius: 8px; background: #ec4899; color: white; font-size: 16px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        #status { margin-top: 15px; text-align: center; color: #34d399; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Static CMS Builder</h1>
+        
+        <div class="tab-buttons">
+            <button class="tab-btn active" onclick="switchTab('txt')">Tạo bằng File Text</button>
+            <button class="tab-btn" onclick="switchTab('img')">Tạo bằng Folder Ảnh (OCR)</button>
+        </div>
+        
+        <!-- Form Text -->
+        <div id="tab-txt" class="tab-content active">
+            <form id="form-txt" onsubmit="submitTxt(event)">
+                <div class="form-group">
+                    <label>Mã môn học (VD: prj301):</label>
+                    <input type="text" id="txt-id" required>
+                </div>
+                <div class="form-group">
+                    <label>Tên môn học (VD: Java Web):</label>
+                    <input type="text" id="txt-name" required>
+                </div>
+                <div class="form-group">
+                    <label>File .txt chứa câu hỏi và đáp án:</label>
+                    <input type="file" id="txt-file" accept=".txt" required>
+                </div>
+                <button type="submit" class="submit-btn" id="btn-txt">Phân tích & Tải lên Web</button>
+            </form>
+        </div>
+        
+        <!-- Form Image -->
+        <div id="tab-img" class="tab-content">
+            <form id="form-img" onsubmit="submitImg(event)">
+                <div class="form-group">
+                    <label>Mã môn học (VD: prj301):</label>
+                    <input type="text" id="img-id" required>
+                </div>
+                <div class="form-group">
+                    <label>Tên môn học (VD: Java Web):</label>
+                    <input type="text" id="img-name" required>
+                </div>
+                <div class="form-group">
+                    <label>Thư mục Ảnh Đề (de_...):</label>
+                    <input type="file" id="img-de" webkitdirectory directory multiple required>
+                </div>
+                <div class="form-group">
+                    <label>Thư mục Ảnh Đáp Án (dapan_...):</label>
+                    <input type="file" id="img-dapan" webkitdirectory directory multiple required>
+                </div>
+                <button type="submit" class="submit-btn" id="btn-img">Quét OCR & Tải lên Web</button>
+            </form>
+        </div>
+        
+        <div id="status"></div>
+    </div>
+    
+    <script>
+        function switchTab(tab) {
+            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+            document.getElementById('tab-' + tab).classList.add('active');
+            event.target.classList.add('active');
+        }
+        
+        async function submitTxt(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-txt');
+            const status = document.getElementById('status');
+            btn.disabled = true;
+            btn.innerText = "Đang xử lý...";
+            status.innerText = "Đang đọc file và đồng bộ lên Github (Mất khoảng 15-30s)...";
+            
+            const formData = new FormData();
+            formData.append('subjectId', document.getElementById('txt-id').value);
+            formData.append('subjectName', document.getElementById('txt-name').value);
+            formData.append('txtFile', document.getElementById('txt-file').files[0]);
+            
+            try {
+                let res = await fetch('/api/upload-text', { method: 'POST', body: formData });
+                let data = await res.json();
+                status.innerText = data.message;
+            } catch(e) {
+                status.innerText = "Lỗi: " + e.message;
+                status.style.color = "red";
+            }
+            btn.disabled = false;
+            btn.innerText = "Phân tích & Tải lên Web";
+        }
+        
+        async function submitImg(e) {
+            e.preventDefault();
+            const btn = document.getElementById('btn-img');
+            const status = document.getElementById('status');
+            btn.disabled = true;
+            btn.innerText = "Đang xử lý...";
+            status.innerText = "Đang chạy AI quét ảnh và đồng bộ lên Github (Có thể mất vài phút)...";
+            
+            const formData = new FormData();
+            formData.append('subjectId', document.getElementById('img-id').value);
+            formData.append('subjectName', document.getElementById('img-name').value);
+            
+            const deFiles = document.getElementById('img-de').files;
+            for(let i=0; i<deFiles.length; i++) formData.append('deFiles', deFiles[i]);
+            
+            const dapanFiles = document.getElementById('img-dapan').files;
+            for(let i=0; i<dapanFiles.length; i++) formData.append('dapanFiles', dapanFiles[i]);
+            
+            try {
+                let res = await fetch('/api/upload-images', { method: 'POST', body: formData });
+                let data = await res.json();
+                status.innerText = data.message;
+            } catch(e) {
+                status.innerText = "Lỗi: " + e.message;
+                status.style.color = "red";
+            }
+            btn.disabled = false;
+            btn.innerText = "Quét OCR & Tải lên Web";
+        }
+    </script>
+</body>
+</html>
