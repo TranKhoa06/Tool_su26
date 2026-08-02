@@ -4,7 +4,6 @@ const fs = require('fs');
 const path = require('path');
 const Tesseract = require('tesseract.js');
 const { exec } = require('child_process');
-const open = require('open');
 
 const app = express();
 app.use(express.json());
@@ -154,5 +153,5 @@ app.post('/api/upload-images', upload.fields([{name:'deFiles'}, {name:'dapanFile
 
 app.listen(3000, () => {
     console.log('Builder Tool running at http://localhost:3000');
-    open('http://localhost:3000');
+    exec('start http://localhost:3000');
 });
