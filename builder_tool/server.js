@@ -59,7 +59,8 @@ function pushToGit() {
 }
 
 app.post('/api/upload-text', upload.single('txtFile'), async (req, res) => {
-    const { subjectId, subjectName } = req.body;
+    let { subjectId, subjectName } = req.body;
+    subjectId = subjectId.replace(/[^a-zA-Z0-9_-]/g, ''); // Fix Path Traversal
     if(!req.file) return res.status(400).json({error: 'Missing file'});
     
     const content = fs.readFileSync(req.file.path, 'utf8');
@@ -94,7 +95,8 @@ app.post('/api/upload-text', upload.single('txtFile'), async (req, res) => {
 });
 
 app.post('/api/upload-images', upload.fields([{name:'deFiles'}, {name:'dapanFiles'}]), async (req, res) => {
-    const { subjectId, subjectName } = req.body;
+    let { subjectId, subjectName } = req.body;
+    subjectId = subjectId.replace(/[^a-zA-Z0-9_-]/g, ''); // Fix Path Traversal
     
     const deFiles = req.files['deFiles'] || [];
     const dapanFiles = req.files['dapanFiles'] || [];
