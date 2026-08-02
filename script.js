@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if(window.renderSubjects) window.renderSubjects();
 });
 
-// Ă p dá»¥ng quyá» n truy cáº­p
+// Áp dụng quyền truy cập
 window.applyPermissions = function() {
     const perms = window.userPermissions || [];
     window.subjectRegistry.map(s => s.id).forEach(subId => {
@@ -94,7 +94,7 @@ function loadSubject(subjectId, subjectName) {
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('study-view').classList.remove('hidden');
             
-            // XĂ¡o trá»™n dá»¯ liá»‡u
+            // Xáo trộn dữ liệu
             quizData = quizData.sort(() => Math.random() - 0.5);
             
             currentIndex = 0;
@@ -117,15 +117,15 @@ function goHome() {
 function switchTab(tabId) {
     currentTab = tabId;
     
-    // áº¨n táº¥t cáº£ ná»™i dung
+    // Ẩn tất cả nội dung
     document.getElementById('view-flashcard-3d').classList.add('hidden');
     document.getElementById('view-flashcard-reveal').classList.add('hidden');
     document.getElementById('view-quiz').classList.add('hidden');
 
-    // Hiá»‡n ná»™i dung tÆ°Æ¡ng á»©ng
+    // Hiện nội dung tương ứng
     document.getElementById(`view-${tabId}`).classList.remove('hidden');
     
-    // Cáº­p nháº­t tráº¡ng thĂ¡i nĂºt tab
+    // Cập nhật trạng thái nút tab
     const tabs = ['flashcard-3d', 'flashcard-reveal', 'quiz'];
     const tabPrefix = { 'flashcard-3d': 'fc3d', 'flashcard-reveal': 'fcrev', 'quiz': 'quiz' };
     
@@ -208,7 +208,7 @@ function loadFlashcard() {
         }
         document.getElementById('fcrev-definition').innerHTML = defHTML;
         
-        // áº¨n Ä‘Ă¡p Ă¡n
+        // Ẩn đáp án
         document.getElementById('fcrev-answer').classList.add('hidden');
         document.getElementById('fcrev-hint').classList.remove('hidden');
     }
@@ -242,7 +242,7 @@ function loadQuiz() {
     const currentQ = quizData[currentIndex];
     answeredQuiz = false;
 
-    document.getElementById('quiz-counter').innerText = `CĂ¢u: ${currentIndex + 1}/${quizData.length}`;
+    document.getElementById('quiz-counter').innerText = `Câu: ${currentIndex + 1}/${quizData.length}`;
     document.getElementById('quiz-score').innerText = `Äiá»ƒm: ${quizScore}`;
     
     let termHTML = currentQ.type === 'image' && currentQ.question_img 
@@ -286,11 +286,11 @@ function selectAnswer(selectedIndex, btn) {
         }
     }
 
-    // VĂ´ hiá»‡u hĂ³a nĂºt
+    // Vô hiệu hóa nút
     document.getElementById('quiz-options').querySelectorAll('button').forEach(b => b.disabled = true);
     document.getElementById('btn-next-quiz').classList.remove('hidden');
     
-    // Hiá»‡n giáº£i thĂ­ch (báº±ng áº£nh hoáº·c chá»¯)
+    // Hiện giải thích (bằng ảnh hoặc chữ)
     document.getElementById('quiz-reveal-answer').classList.remove('hidden');
     let defHTML = currentQ.type === 'image' && currentQ.answer_img
         ? `<img src="${currentQ.answer_img}" alt="Answer Image" class="answer-img" />`
@@ -317,12 +317,12 @@ function prevQuiz() {
     }
 }
 
-// --- Báº¯t sá»± kiá»‡n phĂ­m táº¯t ---
+// --- Bắt sự kiện phím tắt ---
 document.addEventListener('keydown', (e) => {
     // Chá»‰ hoáº¡t Ä‘á»™ng khi Ä‘ang á»Ÿ mĂ n hĂ¬nh há»c táº­p
     if (document.getElementById('study-view').classList.contains('hidden')) return;
 
-    // PhĂ­m Space Ä‘á»ƒ láº­t tháº» / xem giáº£i thĂ­ch
+    // Phím Space để lật thẻ / xem giải thích
     if (e.code === 'Space') {
         e.preventDefault();
         if (currentTab === 'flashcard-3d') {
@@ -331,7 +331,7 @@ document.addEventListener('keydown', (e) => {
             revealAnswer();
         }
     } 
-    // PhĂ­m MÅ©i tĂªn Pháº£i (Next)
+    // Phím Mũi tên Phải (Next)
     else if (e.code === 'ArrowRight') {
         if (currentTab === 'quiz') {
             // Trong quiz chá»‰ cho qua bĂ i náº¿u nĂºt next Ä‘ang hiá»‡n (Ä‘Ă£ tráº£ lá»i)
@@ -342,7 +342,7 @@ document.addEventListener('keydown', (e) => {
             nextCard();
         }
     } 
-    // PhĂ­m MÅ©i tĂªn TrĂ¡i (Prev)
+    // Phím Mũi tên Trái (Prev)
     else if (e.code === 'ArrowLeft') {
         if (currentTab === 'quiz') {
             prevQuiz();
@@ -371,7 +371,7 @@ window.loadUsersForAdmin = async function() {
     if (!window.isAdmin) return;
     const tbody = document.getElementById('users-table-body');
     if(!tbody) return;
-    tbody.innerHTML = '<tr><td colspan="4">Đang t?i d? li?u...</td></tr>';
+    tbody.innerHTML = '<tr><td colspan="4">Đang tải dữ liệu...</td></tr>';
     
     try {
         const usersSnap = await window.getDocs(window.collection(window.db, "users"));
@@ -384,7 +384,7 @@ window.loadUsersForAdmin = async function() {
             tbody.appendChild(tr);
         });
     } catch(e) {
-        tbody.innerHTML = "<tr><td colspan='4' style='color:red'>L?i t?i d? li?u: " + e.message + "</td></tr>";
+        tbody.innerHTML = "<tr><td colspan='4' style='color:red'>Lỗi tải dữ liệu: " + e.message + "</td></tr>";
     }
 };
 
