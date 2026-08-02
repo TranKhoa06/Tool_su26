@@ -101,6 +101,19 @@ onAuthStateChanged(auth, async (user) => {
             userProfile.classList.remove('hidden');
             document.getElementById('user-name').innerText = user.displayName;
             document.getElementById('user-avatar').src = user.photoURL;
+            
+            const badge = document.querySelector('.user-badge');
+            if (badge) {
+                if (window.isAdmin) {
+                    badge.innerText = 'Admin';
+                    badge.style.background = '#fecaca';
+                    badge.style.color = '#b91c1c';
+                } else {
+                    badge.innerText = 'Học viên';
+                    badge.style.background = 'var(--primary-light)';
+                    badge.style.color = 'var(--primary)';
+                }
+            }
         }
         if(mainContent) mainContent.classList.remove('hidden');
         if(loginPrompt) loginPrompt.classList.add('hidden');
