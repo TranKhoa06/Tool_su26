@@ -3,6 +3,7 @@ let currentIndex = 0;
 let quizScore = 0;
 let currentTab = 'flashcard-3d';
 let answeredQuiz = false;
+let currentSubjectId = '';
 
 // Khởi tạo
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,6 +16,7 @@ function loadSubject(subjectId, subjectName) {
     script.onload = () => {
         if (window.studyData && window.studyData[subjectId]) {
             quizData = window.studyData[subjectId];
+            currentSubjectId = subjectId;
             document.getElementById('current-subject-title').innerText = subjectName;
             document.getElementById('home-view').classList.add('hidden');
             document.getElementById('study-view').classList.remove('hidden');
@@ -183,6 +185,9 @@ function nextQuiz() {
         loadQuiz();
     } else {
         alert(`Bạn đã hoàn thành bài thi! Điểm của bạn: ${quizScore}/${quizData.length}`);
+        if (window.saveScoreToCloud) {
+            window.saveScoreToCloud(currentSubjectId, quizScore, quizData.length);
+        }
     }
 }
 

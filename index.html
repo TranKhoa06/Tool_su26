@@ -9,9 +9,18 @@
 </head>
 <body>
     <div class="app-container">
-        <!-- Trang chọn môn -->
         <div id="home-view">
-            <h1>📚 Chọn Môn Học</h1>
+            <div class="home-header">
+                <h1>📚 Chọn Môn Học</h1>
+                <div class="auth-section">
+                    <button id="btn-login" class="btn-control btn-login" onclick="loginWithGoogle()">Đăng nhập bằng Google</button>
+                    <div id="user-profile" class="user-profile hidden">
+                        <img id="user-avatar" src="" alt="Avatar">
+                        <span id="user-name"></span>
+                        <button onclick="logout()" class="btn-logout">Đăng xuất</button>
+                    </div>
+                </div>
+            </div>
             <div id="subject-list" class="subject-grid">
                 <button class="subject-btn" onclick="loadSubject('dic201', 'DIC201 (Lý Thuyết)')">DIC201 (Lý Thuyết)</button>
                 <button class="subject-btn" onclick="loadSubject('mcp201', 'MCP201 (Lý Thuyết)')">MCP201 (Lý Thuyết)</button>
@@ -114,5 +123,6 @@
 
     <!-- Script loading handler -->
     <script src="script.js"></script>
+    <script type="module" src="firebase.js"></script>
 </body>
 </html>
