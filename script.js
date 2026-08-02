@@ -357,3 +357,18 @@ window.savePermissions = async function(uid) {
         alert('L?i c?p nh?t: ' + e.message);
     }
 };
+
+
+window.renderSubjects = function() {
+    const list = document.getElementById('subject-list');
+    if(!list || !window.subjectRegistry) return;
+    list.innerHTML = '';
+    window.subjectRegistry.forEach(sub => {
+        const btn = document.createElement('button');
+        btn.className = 'subject-card';
+        btn.onclick = () => loadSubject(sub.id, sub.name);
+        btn.innerHTML = `<div class='card-icon ${sub.iconClass}'><i class='bx ${sub.icon}'></i></div><h3>${sub.id.toUpperCase()}</h3><p>${sub.name}</p><div class='card-arrow'><i class='bx bx-right-arrow-alt'></i></div>`;
+        list.appendChild(btn);
+    });
+    if(window.userPermissions) window.applyPermissions();
+};
