@@ -3,12 +3,13 @@ import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChang
 import { getFirestore, doc, setDoc, getDoc, updateDoc, collection, getDocs, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC7_oM4JM2LRPPdnMy8uDn7ScXKSZEMIVc",
+    apiKey: "AIzaSyC7_oM4JM2LRPPdnMy8uDn7ScXKSZEMIvc",
     authDomain: "tool-su26.firebaseapp.com",
     projectId: "tool-su26",
     storageBucket: "tool-su26.firebasestorage.app",
     messagingSenderId: "156291821622",
-    appId: "1:156291821622:web:ceaca22eca799df0a4e897"
+    appId: "1:156291821622:web:ceaca22eca799df0a4e897",
+    measurementId: "G-Q5Z0RYB6W0"
 };
 
 // Initialize Firebase
