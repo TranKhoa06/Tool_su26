@@ -20,7 +20,7 @@ body {
     line-height: 1.6;
 }
 
-.hidden { display: none !important; }
+.hidden { display: none !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; }
 
 /* Preloader */
 #preloader {
@@ -417,4 +417,29 @@ body {
     .scene { height: 350px; }
     .card__face { padding: 20px; }
     .term-content { font-size: 1.2rem; }
+}
+
+
+/* Flashcard Options Styling */
+.fc-options-list {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+.fc-option {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 14px 20px;
+    border-radius: 12px;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    text-align: left;
+}
+.fc-option:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(8px);
+    border-color: var(--primary-light);
 }
