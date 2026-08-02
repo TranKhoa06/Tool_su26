@@ -80,7 +80,7 @@ window.applyPermissions = function() {
 function loadSubject(subjectId, subjectName) {
     // Kiá»ƒm tra quyá»n
     if (window.userPermissions && !window.userPermissions.includes(subjectId)) {
-        alert("đŸ”’ Báº¡n chÆ°a Ä‘Æ°á»£c cáº¥p quyá»n truy cáº­p mĂ´n há»c nĂ y. Vui lĂ²ng liĂªn há»‡ Admin!");
+        alert("Bạn chưa được cấp quyền truy cập môn học này. Vui lòng liên hệ Admin!");
         return;
     }
 
@@ -101,10 +101,10 @@ function loadSubject(subjectId, subjectName) {
             quizScore = 0;
             switchTab('flashcard-3d');
         } else {
-            alert('Lá»—i táº£i dá»¯ liá»‡u!');
+            alert('Lỗi tải dữ liệu!');
         }
     };
-    script.onerror = () => alert(`KhĂ´ng tĂ¬m tháº¥y file data/${subjectId}.js`);
+    script.onerror = () => alert(`Không tìm thấy file data/${subjectId}.js`);
     document.body.appendChild(script);
 }
 
