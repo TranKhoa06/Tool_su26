@@ -3,122 +3,171 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hệ Thống Ôn Tập Đa Môn</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <title>Hệ thống Học tập Thông minh</title>
+    <!-- Google Fonts: Outfit -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Styles -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="app-container">
-        <div id="home-view">
+    <!-- Background Decorators -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+    <div class="bg-shape shape-3"></div>
+
+    <div class="app-container glass-panel">
+        
+        <!-- TRANG CHỦ (CHỌN MÔN) -->
+        <div id="home-view" class="view-section">
             <div class="home-header">
-                <h1>📚 Chọn Môn Học</h1>
+                <div class="brand">
+                    <div class="brand-icon"><i class='bx bx-book-reader'></i></div>
+                    <h1>Cyber Learn</h1>
+                </div>
+                
                 <div class="auth-section">
-                    <button id="btn-login" class="btn-control btn-login" onclick="loginWithGoogle()">Đăng nhập bằng Google</button>
+                    <button id="btn-login" class="btn-glass btn-login" onclick="loginWithGoogle()">
+                        <i class='bx bxl-google'></i> Đăng nhập
+                    </button>
                     <div id="user-profile" class="user-profile hidden">
                         <img id="user-avatar" src="" alt="Avatar">
-                        <span id="user-name"></span>
-                        <button onclick="logout()" class="btn-logout">Đăng xuất</button>
+                        <div class="user-info">
+                            <span id="user-name"></span>
+                            <span class="user-badge">Học viên</span>
+                        </div>
+                        <button onclick="logout()" class="btn-logout" title="Đăng xuất"><i class='bx bx-log-out'></i></button>
                     </div>
                 </div>
             </div>
+
+            <div class="welcome-text">
+                <h2>Khám phá không gian học tập mới</h2>
+                <p>Chọn môn học bên dưới để bắt đầu ôn tập với các chế độ thông minh.</p>
+            </div>
+
             <div id="subject-list" class="subject-grid">
-                <button class="subject-btn" onclick="loadSubject('dic201', 'DIC201')">DIC201</button>
-                <button class="subject-btn" onclick="loadSubject('mcp201', 'MCP201')">MCP201</button>
-                <button class="subject-btn" onclick="loadSubject('csd202', 'CSD202')">CSD202</button>
+                <button class="subject-card" onclick="loadSubject('dic201', 'DIC201')">
+                    <div class="card-icon dic-icon"><i class='bx bx-code-alt'></i></div>
+                    <h3>DIC201</h3>
+                    <p>Lý thuyết cốt lõi</p>
+                    <div class="card-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                </button>
+                <button class="subject-card" onclick="loadSubject('mcp201', 'MCP201')">
+                    <div class="card-icon mcp-icon"><i class='bx bx-chip'></i></div>
+                    <h3>MCP201</h3>
+                    <p>Vi điều khiển & Phần cứng</p>
+                    <div class="card-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                </button>
+                <button class="subject-card" onclick="loadSubject('csd202', 'CSD202')">
+                    <div class="card-icon csd-icon"><i class='bx bx-images'></i></div>
+                    <h3>CSD202</h3>
+                    <p>Đề thi trắc nghiệm Hình ảnh</p>
+                    <div class="card-arrow"><i class='bx bx-right-arrow-alt'></i></div>
+                </button>
             </div>
         </div>
 
-        <!-- Giao diện Học -->
-        <div id="study-view" class="hidden">
-            <header>
-                <div class="header-top">
-                    <button id="btn-back-home" class="btn-control" onclick="goHome()">🏠 Quay lại</button>
-                    <h2 id="current-subject-title">Môn Học</h2>
+        <!-- TRANG HỌC TẬP -->
+        <div id="study-view" class="view-section hidden">
+            <div class="header-top">
+                <button onclick="goHome()" class="btn-glass btn-back">
+                    <i class='bx bx-arrow-back'></i> Quay lại
+                </button>
+                <h2 id="current-subject-title" class="subject-title">Môn Học</h2>
+            </div>
+
+            <!-- Segmented Control -->
+            <div class="segmented-control">
+                <div class="slider" id="tab-slider"></div>
+                <button id="tab-fc3d" class="tab-btn active" onclick="switchTab('flashcard-3d')">
+                    <i class='bx bx-carousel'></i> Flashcard 3D
+                </button>
+                <button id="tab-fcrev" class="tab-btn" onclick="switchTab('flashcard-reveal')">
+                    <i class='bx bx-layer'></i> Flashcard Trải
+                </button>
+                <button id="tab-quiz" class="tab-btn" onclick="switchTab('quiz')">
+                    <i class='bx bx-task'></i> Trắc nghiệm
+                </button>
+            </div>
+
+            <!-- 1. Flashcard 3D -->
+            <div id="view-flashcard-3d" class="study-mode">
+                <div class="progress-badge"><i class='bx bx-bar-chart-alt-2'></i> <span id="fc3d-counter"></span></div>
+                <div class="scene">
+                    <div class="card" id="flashcard-3d" onclick="this.classList.toggle('is-flipped')">
+                        <div class="card__face card__face--front">
+                            <div class="label-badge label-question">Câu hỏi</div>
+                            <div class="card-content">
+                                <div id="fc3d-term" class="term-content"></div>
+                                <div id="fc3d-options" class="fc-options-list"></div>
+                            </div>
+                            <div class="card-hint"><i class='bx bx-tap'></i> Chạm để xem giải thích</div>
+                        </div>
+                        <div class="card__face card__face--back">
+                            <div class="label-badge label-answer">Giải thích</div>
+                            <div class="card-content">
+                                <div id="fc3d-definition" class="def-content"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <nav class="mode-selector">
-                    <button id="btn-flashcard-3d" class="active" onclick="switchTab('flashcard-3d')">Flashcard (3D)</button>
-                    <button id="btn-flashcard-reveal" onclick="switchTab('flashcard-reveal')">Flashcard (Hiện Đáp Án)</button>
-                    <button id="btn-quiz" onclick="switchTab('quiz')">Trắc Nghiệm</button>
-                </nav>
-            </header>
+                <div class="controls">
+                    <button class="btn-glass btn-nav" onclick="prevCard()"><i class='bx bx-chevron-left'></i> Trước</button>
+                    <button class="btn-primary btn-nav" onclick="nextCard()">Tiếp theo <i class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
 
-            <main>
-                <!-- Flashcard 3D Section -->
-                <section id="section-flashcard-3d" class="active">
-                    <div class="progress-container"><span id="fc3d-counter">1 / 10</span></div>
-                    <div class="scene scene--card">
-                        <div class="card" id="flashcard-3d">
-                            <div class="card__face card__face--front">
-                                <div class="card-content">
-                                    <span class="label">Câu hỏi</span>
-                                    <p id="fc3d-term">Loading...</p>
-                                    <div id="fc3d-options" class="fc-options-list"></div>
-                                </div>
-                                <div class="card-hint">Nhấn Space để lật</div>
-                            </div>
-                            <div class="card__face card__face--back">
-                                <div class="card-content">
-                                    <span class="label">Đáp án & Giải thích</span>
-                                    <p id="fc3d-definition">Loading...</p>
-                                </div>
-                            </div>
-                        </div>
+            <!-- 2. Flashcard Reveal -->
+            <div id="view-flashcard-reveal" class="study-mode hidden">
+                <div class="progress-badge"><i class='bx bx-bar-chart-alt-2'></i> <span id="fcrev-counter"></span></div>
+                <div class="card-reveal-container">
+                    <div class="card-reveal-question">
+                        <div class="label-badge label-question mb-15">Câu hỏi</div>
+                        <div id="fcrev-term" class="term-content"></div>
+                        <div id="fcrev-options" class="fc-options-list"></div>
                     </div>
-                    <div class="controls">
-                        <button onclick="prevCard('fc3d')" class="btn-control">← Trước (Phím ⬅)</button>
-                        <button onclick="nextCard('fc3d')" class="btn-control">Tiếp → (Phím ➡)</button>
+                    <div class="card-reveal-hint" id="fcrev-hint">
+                        Nhấn <span>SPACE</span> hoặc <button class="btn-inline" onclick="revealAnswer()">Bấm vào đây</button> để xem giải thích
                     </div>
-                </section>
+                    <div class="card-reveal-answer hidden" id="fcrev-answer">
+                        <div class="label-badge label-answer mb-15">Giải thích chi tiết</div>
+                        <div id="fcrev-definition" class="def-content"></div>
+                    </div>
+                </div>
+                <div class="controls">
+                    <button class="btn-glass btn-nav" onclick="prevCard()"><i class='bx bx-chevron-left'></i> Trước</button>
+                    <button class="btn-primary btn-nav" onclick="nextCard()">Tiếp theo <i class='bx bx-chevron-right'></i></button>
+                </div>
+            </div>
 
-                <!-- Flashcard Reveal Section -->
-                <section id="section-flashcard-reveal" class="hidden">
-                    <div class="progress-container"><span id="fcrev-counter">1 / 10</span></div>
-                    
-                    <div class="card-reveal-container">
-                        <div class="card-reveal-question">
-                            <span class="label">Câu hỏi</span>
-                            <p id="fcrev-term">Loading...</p>
-                            <div id="fcrev-options" class="fc-options-list"></div>
-                        </div>
-                        <div class="card-reveal-hint" id="fcrev-hint">Nhấn Space để hiện đáp án ↓</div>
-                        <div class="card-reveal-answer hidden" id="fcrev-answer">
-                            <span class="label">Đáp án & Giải thích</span>
-                            <p id="fcrev-definition">Loading...</p>
-                        </div>
-                    </div>
+            <!-- 3. Quiz Mode -->
+            <div id="view-quiz" class="study-mode hidden">
+                <div class="quiz-header">
+                    <div class="progress-badge"><i class='bx bx-bar-chart-alt-2'></i> <span id="quiz-counter"></span></div>
+                    <div class="score-badge"><i class='bx bx-medal'></i> <span id="quiz-score">Điểm: 0</span></div>
+                </div>
+                
+                <div class="quiz-question-container">
+                    <div id="quiz-question" class="term-content"></div>
+                </div>
+                
+                <div class="quiz-options" id="quiz-options">
+                    <!-- Options go here -->
+                </div>
 
-                    <div class="controls">
-                        <button onclick="prevCard('fcrev')" class="btn-control">← Trước (Phím ⬅)</button>
-                        <button onclick="nextCard('fcrev')" class="btn-control">Tiếp → (Phím ➡)</button>
-                    </div>
-                </section>
+                <div id="quiz-reveal-answer" class="quiz-reveal-answer hidden">
+                    <div class="label-badge label-answer mb-15"><i class='bx bx-bulb'></i> Giải thích chi tiết</div>
+                    <div id="quiz-explanation" class="def-content"></div>
+                </div>
 
-                <!-- Quiz Section -->
-                <section id="section-quiz" class="hidden">
-                    <div class="quiz-header">
-                        <span id="quiz-counter">Câu: 1/10</span>
-                        <span id="quiz-score">Điểm: 0</span>
-                    </div>
-                    
-                    <div class="quiz-question-container">
-                        <h2 id="quiz-question">Loading question...</h2>
-                    </div>
-                    
-                    <div class="quiz-options" id="quiz-options">
-                        <!-- Options will be generated here -->
-                    </div>
-                    
-                    <!-- Phần hiện giải thích khi chọn xong đáp án -->
-                    <div class="quiz-reveal-answer hidden" id="quiz-reveal-answer">
-                        <span class="label" style="color: #007bff;">Giải thích (Tự đối chiếu)</span>
-                        <p id="quiz-explanation"></p>
-                    </div>
-
-                    <div class="quiz-actions">
-                        <button id="btn-next-quiz" class="btn-control hidden" onclick="nextQuiz()">Câu tiếp theo →</button>
-                    </div>
-                </section>
-            </main>
+                <div class="quiz-actions">
+                    <button id="btn-next-quiz" class="btn-primary btn-large hidden" onclick="nextQuiz()">Câu tiếp theo <i class='bx bx-right-arrow-alt'></i></button>
+                </div>
+            </div>
         </div>
     </div>
 

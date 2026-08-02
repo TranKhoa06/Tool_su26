@@ -44,18 +44,45 @@ function goHome() {
 function switchTab(tabId) {
     currentTab = tabId;
     
-    // Đổi active class cho nav buttons
-    document.querySelectorAll('.mode-selector button').forEach(btn => btn.classList.remove('active'));
-    document.getElementById(`btn-${tabId}`).classList.add('active');
+    // Ẩn tất cả nội dung
+    document.getElementById('view-flashcard-3d').classList.add('hidden');
+    document.getElementById('view-flashcard-reveal').classList.add('hidden');
+    document.getElementById('view-quiz').classList.add('hidden');
 
-    // Đổi section
-    document.querySelectorAll('main section').forEach(sec => sec.classList.add('hidden'));
-    document.getElementById(`section-${tabId}`).classList.remove('hidden');
+    // Hiện nội dung tương ứng
+    document.getElementById(`view-${tabId}`).classList.remove('hidden');
+    
+    // Cập nhật trạng thái nút tab
+    const tabs = ['flashcard-3d', 'flashcard-reveal', 'quiz'];
+    const tabPrefix = { 'flashcard-3d': 'fc3d', 'flashcard-reveal': 'fcrev', 'quiz': 'quiz' };
+    
+    tabs.forEach((tab, index) => {
+        const btn = document.getElementById(`tab-${tabPrefix[tab]}`);
+        if (btn) {
+            if (tab === tabId) {
+                btn.classList.add('active');
+                // Cập nhật vị trí slider (chỉ chạy trên Desktop nếu màn hình to)
+                const slider = document.getElementById('tab-slider');
+                if(slider) {
+                    slider.style.transform = `translateX(${index * 100}%)`;
+                }
+            } else {
+                btn.classList.remove('active');
+            }
+        }
+    });
 
-    if (tabId === 'flashcard-3d' || tabId === 'flashcard-reveal') {
-        loadFlashcard();
-    } else if (tabId === 'quiz') {
+    if (tabId === 'quiz') {
         loadQuiz();
+    } else {
+        loadFlashcard();
+    }
+}
+
+function revealAnswer() {
+    if (currentTab === 'flashcard-reveal') {
+        document.getElementById('fcrev-answer').classList.remove('hidden');
+        document.getElementById('fcrev-hint').classList.add('hidden');
     }
 }
 
@@ -127,11 +154,6 @@ function prevCard(type) {
 function toggleFlashcard3D() {
     const card = document.getElementById('flashcard-3d');
     card.classList.toggle('is-flipped');
-}
-
-function revealFlashcard() {
-    document.getElementById('fcrev-answer').classList.remove('hidden');
-    document.getElementById('fcrev-hint').classList.add('hidden');
 }
 
 // Click vào thẻ 3D để lật
