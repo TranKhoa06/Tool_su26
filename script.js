@@ -63,12 +63,12 @@ window.applyPermissions = function() {
         if(btn) {
             if(perms.includes(subId)) {
                 btn.style.opacity = '1';
-                btn.style.cursor = 'pointer';
+                btn.style.cursor = 'pointer'; btn.style.pointerEvents = 'auto';
                 const lockIcon = btn.querySelector('.lock-icon');
                 if(lockIcon) lockIcon.remove();
             } else {
                 btn.style.opacity = '0.5';
-                btn.style.cursor = 'not-allowed';
+                btn.style.cursor = 'not-allowed'; btn.style.pointerEvents = 'none';
                 if(!btn.querySelector('.lock-icon')) {
                     if(!btn.querySelector('.lock-icon')) btn.innerHTML += `<div class="lock-icon" style="position:absolute; top:15px; right:15px; color:#ef4444; font-size:1.5rem;"><i class='bx bxs-lock'></i></div>`;
                 }
