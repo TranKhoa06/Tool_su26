@@ -333,7 +333,7 @@ window.loadUsersForAdmin = async function() {
             const data = doc.data();
             const perms = data.permissions || ['dic201'];
             const tr = document.createElement('tr');
-            tr.innerHTML = "<td><img src='" + data.avatar + "' style='width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:10px;' alt=''><strong>" + data.name + "</strong></td><td>" + data.email + "</td><td><div style='display:flex;gap:15px;'><label><input type='checkbox' id='perm-dic201-" + data.uid + "' checked disabled> DIC201 (M?c đ?nh)</label><label><input type='checkbox' id='perm-mcp201-" + data.uid + "' " + (perms.includes('mcp201') ? 'checked' : '') + "> MCP201</label><label><input type='checkbox' id='perm-csd202-" + data.uid + "' " + (perms.includes('csd202') ? 'checked' : '') + "> CSD202</label></div></td><td><button class='btn-inline' onclick='savePermissions(\"" + data.uid + "\")'>Lưu Quy?n</button></td>";
+            tr.innerHTML = "<td><img src='" + data.avatar + "' style='width:32px;height:32px;border-radius:50%;vertical-align:middle;margin-right:10px;' alt=''><strong>" + data.name + "</strong></td><td>" + data.email + "</td><td><div style='display:flex;gap:15px;'><label><input type='checkbox' id='perm-dic201-" + data.uid + "' checked disabled> DIC201 (Mặc định)</label><label><input type='checkbox' id='perm-mcp201-" + data.uid + "' " + (perms.includes('mcp201') ? 'checked' : '') + "> MCP201</label><label><input type='checkbox' id='perm-csd202-" + data.uid + "' " + (perms.includes('csd202') ? 'checked' : '') + "> CSD202</label></div></td><td><button class='btn-inline' onclick='savePermissions(\"" + data.uid + "\")'>Lưu Quyền</button></td>";
             tbody.appendChild(tr);
         });
     } catch(e) {
@@ -352,9 +352,9 @@ window.savePermissions = async function(uid) {
     try {
         const userRef = window.doc(window.db, "users", uid);
         await window.updateDoc(userRef, { permissions: newPerms });
-        alert('C?p nh?t quy?n thành công!');
+        alert('Cập nhật quyền thành công!');
     } catch(e) {
-        alert('L?i c?p nh?t: ' + e.message);
+        alert('Lỗi cập nhật: ' + e.message);
     }
 };
 
