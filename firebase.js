@@ -33,6 +33,8 @@ window.logout = () => {
 onAuthStateChanged(auth, (user) => {
     const loginBtn = document.getElementById('btn-login');
     const userProfile = document.getElementById('user-profile');
+    const mainContent = document.getElementById('main-content');
+    const loginPrompt = document.getElementById('login-prompt');
     
     if (user) {
         window.currentUser = user;
@@ -42,10 +44,14 @@ onAuthStateChanged(auth, (user) => {
             document.getElementById('user-name').innerText = user.displayName;
             document.getElementById('user-avatar').src = user.photoURL;
         }
+        if(mainContent) mainContent.classList.remove('hidden');
+        if(loginPrompt) loginPrompt.classList.add('hidden');
     } else {
         window.currentUser = null;
         if(loginBtn) loginBtn.classList.remove('hidden');
         if(userProfile) userProfile.classList.add('hidden');
+        if(mainContent) mainContent.classList.add('hidden');
+        if(loginPrompt) loginPrompt.classList.remove('hidden');
     }
 });
 
