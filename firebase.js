@@ -73,7 +73,7 @@ onAuthStateChanged(auth, async (user) => {
         }
         
         // Save user to Firestore if not exists, default permission: dic201
-        let permissions = ['dic201']; // default
+        let permissions = window.subjectRegistry ? window.subjectRegistry.filter(s => s.isDefault).map(s => s.id) : ['dic201'];
         try {
             const userRef = doc(db, 'users', user.uid);
             const userSnap = await getDoc(userRef);
@@ -88,7 +88,7 @@ onAuthStateChanged(auth, async (user) => {
                     createdAt: serverTimestamp()
                 });
             } else {
-                permissions = userSnap.data().permissions || ['dic201'];
+                permissions = userSnap.data().permissions || (window.subjectRegistry ? window.subjectRegistry.filter(s => s.isDefault).map(s => s.id) : ['dic201']);
             }
         } catch (error) {
             console.error("Firestore error:", error);
