@@ -1,16 +1,16 @@
-﻿let quizData = [];
+let quizData = [];
 let currentIndex = 0;
 let quizScore = 0;
 let currentTab = 'flashcard-3d';
 let answeredQuiz = false;
 let currentSubjectId = '';
 
-// Khá»Ÿi táº¡o
+// Khởi tạo
 document.addEventListener('DOMContentLoaded', () => {
-    // KhĂ´ng load ngay, Ä‘á»£i user chá»n mĂ´n
+    if(window.renderSubjects) window.renderSubjects();
 });
 
-// Ăp dá»¥ng quyá»n truy cáº­p
+// Ă p dá»¥ng quyá» n truy cáº­p
 window.applyPermissions = function() {
     const perms = window.userPermissions || [];
     window.subjectRegistry.map(s => s.id).forEach(subId => {
