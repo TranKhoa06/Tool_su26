@@ -1,3 +1,48 @@
+
+// Hiệu ứng Typewriter cho Màn hình chờ
+function typeWriter(elementId, text, i, cb) {
+    if (i < text.length) {
+        document.getElementById(elementId).innerHTML = text.substring(0, i+1) + '<span style="opacity: 0.5;">_</span>';
+        setTimeout(function() { typeWriter(elementId, text, i + 1, cb) }, 20);
+    } else {
+        document.getElementById(elementId).innerHTML = text;
+        if(cb) cb();
+    }
+}
+
+window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader');
+    if(preloader) {
+        const twText = document.getElementById('typewriter-text');
+        const text = "> Khởi tạo hệ thống học tập...\n> Tải dữ liệu môn học [OK]\n> Thiết lập kết nối bảo mật [OK]\n> Chuẩn bị không gian mạng...";
+        twText.innerHTML = '';
+        setTimeout(() => {
+            typeWriter('typewriter-text', text, 0, () => {
+                setTimeout(() => {
+                    preloader.style.opacity = '0';
+                    setTimeout(() => preloader.style.display = 'none', 500);
+                }, 800);
+            });
+        }, 300);
+    }
+});
+
+function scrollToGrid() {
+    const grid = document.getElementById('main-content');
+    if(grid) grid.scrollIntoView({ behavior: 'smooth' });
+}
+
+function filterSubjects(val) {
+    val = val.toLowerCase();
+    document.querySelectorAll('.subject-card').forEach(card => {
+        if (card.innerText.toLowerCase().includes(val)) {
+            card.style.display = 'flex';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+}
+
 let quizData = [];
 let currentIndex = 0;
 let quizScore = 0;
@@ -25,7 +70,7 @@ window.applyPermissions = function() {
                 btn.style.opacity = '0.5';
                 btn.style.cursor = 'not-allowed';
                 if(!btn.querySelector('.lock-icon')) {
-                    btn.innerHTML += `<div class="lock-icon" style="position:absolute; top:15px; right:15px; color:#ef4444; font-size:1.5rem;"><i class='bx bxs-lock'></i></div>`;
+                    if(!btn.querySelector('.lock-icon')) btn.innerHTML += `<div class="lock-icon" style="position:absolute; top:15px; right:15px; color:#ef4444; font-size:1.5rem;"><i class='bx bxs-lock'></i></div>`;
                 }
             }
         }
