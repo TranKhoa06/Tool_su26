@@ -10,7 +10,35 @@ document.addEventListener('DOMContentLoaded', () => {
     // Không load ngay, đợi user chọn môn
 });
 
+// Áp dụng quyền truy cập
+window.applyPermissions = function() {
+    const perms = window.userPermissions || [];
+    ['dic201', 'mcp201', 'csd202'].forEach(subId => {
+        const btn = document.querySelector(`.subject-card[onclick*='${subId}']`);
+        if(btn) {
+            if(perms.includes(subId)) {
+                btn.style.opacity = '1';
+                btn.style.cursor = 'pointer';
+                const lockIcon = btn.querySelector('.lock-icon');
+                if(lockIcon) lockIcon.remove();
+            } else {
+                btn.style.opacity = '0.5';
+                btn.style.cursor = 'not-allowed';
+                if(!btn.querySelector('.lock-icon')) {
+                    btn.innerHTML += `<div class="lock-icon" style="position:absolute; top:15px; right:15px; color:#ef4444; font-size:1.5rem;"><i class='bx bxs-lock'></i></div>`;
+                }
+            }
+        }
+    });
+};
+
 function loadSubject(subjectId, subjectName) {
+    // Kiểm tra quyền
+    if (window.userPermissions && !window.userPermissions.includes(subjectId)) {
+        alert("🔒 Bạn chưa được cấp quyền truy cập môn học này. Vui lòng liên hệ Admin!");
+        return;
+    }
+
     const script = document.createElement('script');
     script.src = `data/${subjectId}.js`;
     script.onload = () => {

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <!-- Google Fonts: Outfit -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+    <!-- Boxicons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 40px auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background: #f8fafc;
+            font-weight: 600;
+        }
+        .user-avatar-small {
+            width: 32px; height: 32px;
+            border-radius: 50%;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+        .checkbox-container {
+            display: flex;
+            gap: 15px;
+        }
+        .checkbox-container label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="app-container glass-panel admin-container">
+        
+        <!-- Auth Header -->
+        <div class="home-header">
+            <div class="brand">
+                <div class="brand-icon" style="background: #ef4444;"><i class='bx bx-shield-quarter'></i></div>
+                <h1 style="background: #ef4444; -webkit-text-fill-color: transparent; -webkit-background-clip: text;">Admin Panel</h1>
+            </div>
+            
+            <div class="auth-section">
+                <button id="btn-login" class="btn-primary" onclick="loginWithGoogle()">
+                    Đăng nhập Google
+                </button>
+                <div id="user-profile" class="user-profile hidden">
+                    <img id="user-avatar" src="" alt="Avatar">
+                    <div class="user-info">
+                        <span id="user-name"></span>
+                        <span class="user-badge" style="background: #fecaca; color: #b91c1c;">Admin</span>
+                    </div>
+                    <button onclick="logout()" class="btn-logout"><i class='bx bx-log-out'></i></button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Login Prompt -->
+        <div id="admin-login-prompt" class="welcome-text">
+            <h2>Vui lòng đăng nhập bằng tài khoản Admin</h2>
+            <p>Hệ thống chỉ cho phép Admin có quyền truy cập.</p>
+        </div>
+
+        <!-- Admin Content -->
+        <div id="admin-content" class="hidden">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+                <h3>Quản lý Quyền Người dùng</h3>
+                <a href="index.html" class="btn-glass"><i class='bx bx-home'></i> Về trang chủ</a>
+            </div>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Người dùng</th>
+                        <th>Email</th>
+                        <th>Quyền truy cập</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="users-table-body">
+                    <!-- Users injected here -->
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+
+    <script type="module" src="firebase.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>
