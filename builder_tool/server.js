@@ -92,7 +92,9 @@ app.post('/api/upload-text', upload.single('txtFile'), async (req, res) => {
         while(options.length < 4) options.push("N/A");
         
         questions.push({
-            question: qText,
+            type: 'text',
+            term: qText,
+            definition: options[correctIndex],
             options: options,
             correctIndex: correctIndex
         });
@@ -135,7 +137,9 @@ app.post('/api/upload-images', upload.fields([{name:'deFiles'}, {name:'dapanFile
         }
         
         questions.push({
-            image: `images/${subjectId}_${originalName}`,
+            type: 'image',
+            question_img: `images/${subjectId}_${originalName}`,
+            definition: ['A', 'B', 'C', 'D'][correctIndex],
             options: ['A', 'B', 'C', 'D'],
             correctIndex: correctIndex
         });
