@@ -237,28 +237,44 @@ function nextQuiz() {
     }
 }
 
+function prevQuiz() {
+    if (currentIndex > 0) {
+        currentIndex--;
+        loadQuiz();
+    }
+}
+
 // --- Bắt sự kiện phím tắt ---
 document.addEventListener('keydown', (e) => {
+    // Chỉ hoạt động khi đang ở màn hình học tập
     if (document.getElementById('study-view').classList.contains('hidden')) return;
 
-    if (currentTab === 'flashcard-3d') {
-        if (e.code === 'Space') {
-            e.preventDefault();
-            toggleFlashcard3D();
-        } else if (e.code === 'ArrowRight') {
-            nextCard('fc3d');
-        } else if (e.code === 'ArrowLeft') {
-            prevCard('fc3d');
+    // Phím Space để lật thẻ / xem giải thích
+    if (e.code === 'Space') {
+        e.preventDefault();
+        if (currentTab === 'flashcard-3d') {
+            document.getElementById('flashcard-3d').classList.toggle('is-flipped');
+        } else if (currentTab === 'flashcard-reveal') {
+            revealAnswer();
         }
     } 
-    else if (currentTab === 'flashcard-reveal') {
-        if (e.code === 'Space') {
-            e.preventDefault();
-            revealFlashcard();
-        } else if (e.code === 'ArrowRight') {
-            nextCard('fcrev');
-        } else if (e.code === 'ArrowLeft') {
-            prevCard('fcrev');
+    // Phím Mũi tên Phải (Next)
+    else if (e.code === 'ArrowRight') {
+        if (currentTab === 'quiz') {
+            // Trong quiz chỉ cho qua bài nếu nút next đang hiện (đã trả lời)
+            if(!document.getElementById('btn-next-quiz').classList.contains('hidden')) {
+                nextQuiz();
+            }
+        } else {
+            nextCard();
+        }
+    } 
+    // Phím Mũi tên Trái (Prev)
+    else if (e.code === 'ArrowLeft') {
+        if (currentTab === 'quiz') {
+            prevQuiz();
+        } else {
+            prevCard();
         }
     }
 });
