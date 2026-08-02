@@ -173,6 +173,17 @@ body {
     background-color: #f1f5f9;
 }
 
+/* Image Styles */
+.question-img, .answer-img {
+    max-width: 100%;
+    max-height: 300px;
+    object-fit: contain;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    margin: 10px auto;
+    display: block;
+}
+
 /* Flashcard 3D */
 .scene {
     width: 100%;
@@ -203,6 +214,7 @@ body {
     padding: 30px;
     box-sizing: border-box;
     border: 1px solid var(--border-color);
+    overflow-y: auto; /* allow scroll for large images */
 }
 .card__face--back {
     transform: rotateY(180deg);

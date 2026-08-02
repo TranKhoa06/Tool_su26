@@ -63,10 +63,20 @@ function switchTab(tabId) {
 function loadFlashcard() {
     if (quizData.length === 0) return;
     const currentQ = quizData[currentIndex];
+    
+    // Xử lý tạo nội dung cho Câu hỏi (có thể là Chữ hoặc Ảnh)
+    let termHTML = currentQ.type === 'image' && currentQ.question_img 
+        ? `<img src="${currentQ.question_img}" alt="Question Image" class="question-img" />`
+        : currentQ.term;
+        
+    // Xử lý tạo nội dung cho Đáp án (có thể là Chữ hoặc Ảnh)
+    let defHTML = currentQ.type === 'image' && currentQ.answer_img
+        ? `<img src="${currentQ.answer_img}" alt="Answer Image" class="answer-img" />`
+        : currentQ.definition;
 
     if (currentTab === 'flashcard-3d') {
         document.getElementById('fc3d-counter').innerText = `${currentIndex + 1} / ${quizData.length}`;
-        document.getElementById('fc3d-term').innerText = currentQ.term;
+        document.getElementById('fc3d-term').innerHTML = termHTML;
         const optionsList = document.getElementById('fc3d-options');
         optionsList.innerHTML = '';
         currentQ.options.forEach(opt => {
@@ -75,7 +85,7 @@ function loadFlashcard() {
             div.innerText = opt;
             optionsList.appendChild(div);
         });
-        document.getElementById('fc3d-definition').innerText = currentQ.definition;
+        document.getElementById('fc3d-definition').innerHTML = defHTML;
         
         // Đóng thẻ nếu đang mở
         const card = document.getElementById('flashcard-3d');
@@ -83,7 +93,7 @@ function loadFlashcard() {
     } 
     else if (currentTab === 'flashcard-reveal') {
         document.getElementById('fcrev-counter').innerText = `${currentIndex + 1} / ${quizData.length}`;
-        document.getElementById('fcrev-term').innerText = currentQ.term;
+        document.getElementById('fcrev-term').innerHTML = termHTML;
         const optionsList = document.getElementById('fcrev-options');
         optionsList.innerHTML = '';
         currentQ.options.forEach(opt => {
@@ -92,7 +102,7 @@ function loadFlashcard() {
             div.innerText = opt;
             optionsList.appendChild(div);
         });
-        document.getElementById('fcrev-definition').innerText = currentQ.definition;
+        document.getElementById('fcrev-definition').innerHTML = defHTML;
         
         // Ẩn đáp án
         document.getElementById('fcrev-answer').classList.add('hidden');
@@ -135,7 +145,12 @@ function loadQuiz() {
 
     document.getElementById('quiz-counter').innerText = `Câu: ${currentIndex + 1}/${quizData.length}`;
     document.getElementById('quiz-score').innerText = `Điểm: ${quizScore}`;
-    document.getElementById('quiz-question').innerText = currentQ.term;
+    
+    let termHTML = currentQ.type === 'image' && currentQ.question_img 
+        ? `<img src="${currentQ.question_img}" alt="Question Image" class="question-img" />`
+        : currentQ.term;
+        
+    document.getElementById('quiz-question').innerHTML = termHTML;
 
     const optionsContainer = document.getElementById('quiz-options');
     optionsContainer.innerHTML = '';
@@ -167,16 +182,21 @@ function selectAnswer(selectedIndex, btn) {
         btn.classList.add('incorrect');
         // Highlight câu đúng
         const allBtns = document.getElementById('quiz-options').querySelectorAll('button');
-        allBtns[currentQ.answerIndex].classList.add('correct');
+        if(allBtns[currentQ.answerIndex]) {
+            allBtns[currentQ.answerIndex].classList.add('correct');
+        }
     }
 
     // Vô hiệu hóa nút
     document.getElementById('quiz-options').querySelectorAll('button').forEach(b => b.disabled = true);
     document.getElementById('btn-next-quiz').classList.remove('hidden');
     
-    // Hiện giải thích
+    // Hiện giải thích (bằng ảnh hoặc chữ)
     document.getElementById('quiz-reveal-answer').classList.remove('hidden');
-    document.getElementById('quiz-explanation').innerText = currentQ.definition;
+    let defHTML = currentQ.type === 'image' && currentQ.answer_img
+        ? `<img src="${currentQ.answer_img}" alt="Answer Image" class="answer-img" />`
+        : currentQ.definition;
+    document.getElementById('quiz-explanation').innerHTML = defHTML;
 }
 
 function nextQuiz() {
