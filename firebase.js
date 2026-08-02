@@ -30,9 +30,21 @@ const ADMIN_EMAIL = 'azultruong@gmail.com';
 
 // Attach to window so standard HTML buttons can call them
 window.loginWithGoogle = () => {
+    const loginBtn = document.getElementById('btn-login');
+    if (loginBtn) {
+        loginBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang kết nối...";
+        loginBtn.disabled = true;
+        loginBtn.style.opacity = '0.7';
+    }
+    
     signInWithPopup(auth, provider).catch(error => {
         console.error("Login failed", error);
         alert("Đăng nhập thất bại: " + error.message);
+        if (loginBtn) {
+            loginBtn.innerHTML = "Đăng nhập Google";
+            loginBtn.disabled = false;
+            loginBtn.style.opacity = '1';
+        }
     });
 };
 
@@ -48,6 +60,10 @@ onAuthStateChanged(auth, async (user) => {
     const loginPrompt = document.getElementById('login-prompt');
     
     if (user) {
+        if (loginBtn) {
+            loginBtn.innerHTML = "<i class='bx bx-loader-alt bx-spin'></i> Đang tải dữ liệu...";
+            loginBtn.disabled = true;
+        }
         window.currentUser = user;
         
         // Save user to Firestore if not exists, default permission: dic201
@@ -103,7 +119,12 @@ onAuthStateChanged(auth, async (user) => {
         window.currentUser = null;
         window.userPermissions = [];
         window.isAdmin = false;
-        if(loginBtn) loginBtn.classList.remove('hidden');
+        if(loginBtn) {
+            loginBtn.classList.remove('hidden');
+            loginBtn.innerHTML = "Đăng nhập Google";
+            loginBtn.disabled = false;
+            loginBtn.style.opacity = '1';
+        }
         if(userProfile) userProfile.classList.add('hidden');
         if(mainContent) mainContent.classList.add('hidden');
         if(loginPrompt) loginPrompt.classList.remove('hidden');
