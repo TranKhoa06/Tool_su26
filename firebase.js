@@ -51,22 +51,28 @@ onAuthStateChanged(auth, async (user) => {
         window.currentUser = user;
         
         // Save user to Firestore if not exists, default permission: dic201
-        const userRef = doc(db, 'users', user.uid);
-        const userSnap = await getDoc(userRef);
-        
         let permissions = ['dic201']; // default
-        if (!userSnap.exists()) {
-            await setDoc(userRef, {
-                uid: user.uid,
-                email: user.email,
-                name: user.displayName,
-                avatar: user.photoURL,
-                permissions: permissions,
-                createdAt: serverTimestamp()
-            });
-        } else {
-            permissions = userSnap.data().permissions || ['dic201'];
+        try {
+            const userRef = doc(db, 'users', user.uid);
+            const userSnap = await getDoc(userRef);
+            
+            if (!userSnap.exists()) {
+                await setDoc(userRef, {
+                    uid: user.uid,
+                    email: user.email,
+                    name: user.displayName,
+                    avatar: user.photoURL,
+                    permissions: permissions,
+                    createdAt: serverTimestamp()
+                });
+            } else {
+                permissions = userSnap.data().permissions || ['dic201'];
+            }
+        } catch (error) {
+            console.error("Firestore error:", error);
+            alert("Lỗi cơ sở dữ liệu: " + error.message + ". Vui lòng liên hệ Admin bật Cloud Firestore.");
         }
+        
         window.userPermissions = permissions;
         window.isAdmin = user.email === ADMIN_EMAIL;
         
