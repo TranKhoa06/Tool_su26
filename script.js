@@ -14,16 +14,39 @@ window.addEventListener('load', () => {
     const preloader = document.getElementById('preloader');
     if(preloader) {
         const twText = document.getElementById('typewriter-text');
-        const text = "> Khởi tạo hệ thống học tập...\n> Tải dữ liệu môn học [OK]\n> Thiết lập kết nối bảo mật [OK]\n> Chuẩn bị không gian mạng...";
-        twText.innerHTML = '';
-        setTimeout(() => {
-            typeWriter('typewriter-text', text, 0, () => {
+        const lines = [
+            "> Khởi tạo hệ thống học tập...",
+            "> Tải dữ liệu môn học [OK]",
+            "> Thiết lập kết nối bảo mật [OK]",
+            "> Chuẩn bị không gian mạng..."
+        ];
+        let lineIndex = 0;
+        function typeLine() {
+            if (lineIndex >= lines.length) {
                 setTimeout(() => {
                     preloader.style.opacity = '0';
-                    setTimeout(() => preloader.style.display = 'none', 800);
-                }, 1500);
-            });
-        }, 300);
+                    preloader.style.transition = 'opacity 0.8s ease';
+                    setTimeout(() => { preloader.style.display = 'none'; }, 800);
+                }, 1200);
+                return;
+            }
+            const line = lines[lineIndex];
+            let charIdx = 0;
+            function typeChar() {
+                if (charIdx <= line.length) {
+                    twText.innerHTML = lines.slice(0, lineIndex).join('<br>') + (lineIndex > 0 ? '<br>' : '') + line.substring(0, charIdx) + '<span style="opacity:0.6;">_</span>';
+                    charIdx++;
+                    setTimeout(typeChar, 25);
+                } else {
+                    twText.innerHTML = lines.slice(0, lineIndex + 1).join('<br>');
+                    lineIndex++;
+                    setTimeout(typeLine, 200);
+                }
+            }
+            typeChar();
+        }
+        twText.innerHTML = '';
+        setTimeout(typeLine, 400);
     }
 });
 
