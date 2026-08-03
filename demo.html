@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultimate IT Professional Demo</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&family=Outfit:wght@400;700;900&display=swap');
+        
+        /* THEME: IDE Dark (VS Code / Dracula inspired) */
+        :root {
+            --bg: #1e293b;
+            --text: #c9d1d9;
+            --keyword: #ff7b72;
+            --string: #a5d6ff;
+            --func: #d2a8ff;
+            --comment: #8b949e;
+            --accent: #58a6ff;
+            --line-num: #484f58;
+        }
+
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            font-family: 'Outfit', sans-serif; 
+            background: var(--bg); color: var(--text); 
+            overflow-x: hidden; cursor: crosshair;
+        }
+
+        /* 1. CODE EDITOR THEME: Line Numbers */
+        
+        
+        .main-content {
+            margin-left: 0px; /* Nhường chỗ cho Line numbers */
+            position: relative;
+            z-index: 10;
+        }
+
+        /* CANVAS BACKGROUND (Particles & Warp Speed) */
+        #canvas-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1; pointer-events: auto; opacity: 0.8;
+        }
+
+        /* MÔ PHỎNG HERO SECTION */
+        .hero-section {
+            height: 100vh; display: flex; flex-direction: column; 
+            align-items: center; justify-content: center; position: relative;
+            z-index: 2; pointer-events: none;
+        }
+
+        /* Hiệu ứng Glitch */
+        .glitch-wrapper { font-size: 5rem; font-weight: 900; position: relative; letter-spacing: 2px; }
+        .glitch { position: relative; color: white; }
+        .glitch::before, .glitch::after { 
+            content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%; 
+        }
+        .glitch::before { 
+            left: 3px; text-shadow: -2px 0 var(--keyword); clip-path: inset(45% 0 35% 0); 
+            animation: glitch-anim 2s infinite linear alternate-reverse; 
+        }
+        .glitch::after { 
+            left: -3px; text-shadow: -2px 0 var(--accent); clip-path: inset(15% 0 85% 0); 
+            animation: glitch-anim 3s infinite linear alternate-reverse; 
+        }
+        @keyframes glitch-anim {
+            0% { clip-path: inset(20% 0 80% 0); }
+            20% { clip-path: inset(60% 0 10% 0); }
+            40% { clip-path: inset(40% 0 50% 0); }
+            60% { clip-path: inset(80% 0 5% 0); }
+            80% { clip-path: inset(10% 0 70% 0); }
+            100% { clip-path: inset(30% 0 20% 0); }
+        }
+
+        /* Code Syntax Header */
+        .code-header {
+            font-family: 'Fira Code', monospace; font-size: 1.5rem; margin-top: 1rem;
+            background: rgba(13, 17, 23, 0.7); padding: 15px 30px; border-radius: 8px;
+            border: 1px solid #30363d; pointer-events: auto; backdrop-filter: blur(5px);
+        }
+        .code-header .kw { color: var(--keyword); }
+        .code-header .func { color: var(--func); }
+        .code-header .str { color: var(--string); cursor: pointer; }
+        .code-header .comment { color: var(--comment); display: block; font-size: 1rem; margin-bottom: 10px; }
+
+        /* MÔ PHỎNG GRID MÔN HỌC */
+        .subject-grid-section {
+            min-height: 100vh; padding: 5rem 2rem; position: relative; z-index: 2;
+            display: flex; flex-direction: column; align-items: center; pointer-events: auto;
+        }
+        .section-title {
+            font-family: 'Fira Code', monospace; color: var(--accent); font-size: 2rem; margin-bottom: 3rem;
+        }
+        .grid-container {
+            display: flex; gap: 2rem; flex-wrap: wrap; justify-content: center;
+        }
+        .card {
+            width: 300px; height: 180px; background: rgba(22, 27, 34, 0.8);
+            border: 1px solid #30363d; border-radius: 12px; backdrop-filter: blur(10px);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: 0.3s;
+            position: relative; overflow: hidden;
+        }
+        
+        /* Hiệu ứng Đèn Pin (Spotlight) trên Card */
+        .card::before {
+            content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(800px circle at var(--x) var(--y), rgba(88, 166, 255, 0.15), transparent 40%);
+            opacity: 0; transition: opacity 0.3s; z-index: 1; pointer-events: none;
+        }
+        .card:hover::before { opacity: 1; }
+        .card:hover { transform: translateY(-10px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(88, 166, 255, 0.1); }
+        .card span { position: relative; z-index: 2; pointer-events: none; }
+
+        /* Matrix Overlay */
+        #matrix-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: black; z-index: 9999; display: none;
+            color: #0F0; font-family: monospace; overflow: hidden;
+        }
+        .hacker-alert {
+            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 3rem; color: #0F0; text-shadow: 0 0 10px #0F0; z-index: 10000;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Giao diện Code Editor (Cột Line Numbers) -->
+    
+
+    <!-- Nền Canvas Lưới tia Laser / Warp Speed -->
+    <canvas id="canvas-bg"></canvas>
+
+    <div class="main-content">
+        <!-- HERO SECTION -->
+        <div class="hero-section">
+            <div class="glitch-wrapper">
+                <div class="glitch" data-text="CYBERLEARN">CYBERLEARN</div>
+            </div>
+            
+            <div class="code-header interactive-audio">
+                <span class="comment">// Hover vào dòng string bên dưới để giải mã</span><br>
+                <span class="kw">const</span> <span class="func">system</span> = <span class="str" id="decode-text">"Hệ thống Học tập Bảo mật FPT"</span>;
+            </div>
+            
+            <div style="margin-top: 3rem; color: var(--comment); font-family: 'Fira Code', monospace; pointer-events: auto;" class="interactive-audio">
+                > Cuộn chuột xuống để trải nghiệm Warp Speed<br>
+                > Bí mật: Gõ phím "H A C K E R" để kích hoạt Easter Egg
+            </div>
+        </div>
+
+        <!-- SUBJECT GRID -->
+        <div class="subject-grid-section">
+            <div class="section-title"><span class="kw">export default</span> Môn_Học;</div>
+            <div class="grid-container">
+                <div class="card interactive-audio"><span><span class="kw">import</span> PRJ301</span></div>
+                <div class="card interactive-audio"><span><span class="kw">import</span> CSD202</span></div>
+                <div class="card interactive-audio"><span><span class="kw">import</span> IOT102</span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Màn hình Matrix ẩn -->
+    <canvas id="matrix-overlay"></canvas>
+    <div id="matrix-text" class="hacker-alert" style="display:none;">SYSTEM OVERRIDE SUCCESSFUL</div>
+
+    <!-- SCRIPT XỬ LÝ TOÀN BỘ HIỆU ỨNG -->
+    <script>
+        // 1. TẠO DÒNG SỐ (LINE NUMBERS) ĐỂ GIẢ LẬP IDE
+        const linesEl = document.getElementById('lines');
+        for(let i = 1; i <= 50; i++) {
+            linesEl.innerHTML += `<div>${i}</div>`;
+        }
+
+        // ==========================================
+        // 2. AUDIO FEEDBACK (Tổng hợp âm thanh bằng Web Audio API - Không cần file)
+        // ==========================================
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        function playSciFiHover() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(800, audioCtx.currentTime); // Pitch cao
+            osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.05);
+            gainNode.gain.setValueAtTime(0.02, audioCtx.currentTime); // Volume cực nhỏ 2%
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.05);
+        }
+        function playSciFiClick() {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.type = 'square';
+            osc.frequency.setValueAtTime(150, audioCtx.currentTime); 
+            osc.frequency.exponentialRampToValueAtTime(40, audioCtx.currentTime + 0.1);
+            gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime); 
+            gainNode.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+            osc.start();
+            osc.stop(audioCtx.currentTime + 0.1);
+        }
+        
+        // Gắn sự kiện âm thanh cho các phần tử có class interactive-audio
+        document.querySelectorAll('.interactive-audio').forEach(el => {
+            el.addEventListener('mouseenter', playSciFiHover);
+            el.addEventListener('click', playSciFiClick);
+        });
+
+        // ==========================================
+        // 3. TEXT DECODE EFFECT
+        // ==========================================
+        const decodeEl = document.getElementById('decode-text');
+        const originalText = '"Hệ thống Học tập Bảo mật FPT"';
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!<>-_\\\\/[]{}—=+*^?#";
+        decodeEl.addEventListener('mouseenter', () => {
+            let iteration = 0;
+            clearInterval(decodeEl.interval);
+            decodeEl.interval = setInterval(() => {
+                decodeEl.innerText = originalText.split("").map((letter, index) => {
+                    if(index < iteration) return letter;
+                    return chars[Math.floor(Math.random() * chars.length)];
+                }).join("");
+                if(iteration >= originalText.length) clearInterval(decodeEl.interval);
+                iteration += 1 / 3;
+            }, 30);
+        });
+
+        // ==========================================
+        // 4. HIỆU ỨNG SPOTLIGHT CHO CARD (ĐÈN PIN)
+        // ==========================================
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--x', x + 'px');
+                card.style.setProperty('--y', y + 'px');
+            });
+        });
+
+        // ==========================================
+        // 5. DATA GRID & WARP SPEED SCROLL (CANVAS)
+        // ==========================================
+        const canvas = document.getElementById('canvas-bg');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        let particlesArray = [];
+        let scrollSpeed = 0;
+        let lastScrollTop = 0;
+        
+        window.addEventListener('scroll', () => {
+            let st = window.pageYOffset || document.documentElement.scrollTop;
+            scrollSpeed = Math.abs(st - lastScrollTop);
+            lastScrollTop = st;
+        });
+
+        let mouse = { x: null, y: null, radius: 100 };
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX; mouse.y = e.clientY;
+        });
+
+        class Particle {
+            constructor(x, y, size) {
+                this.x = x; this.y = y; 
+                this.baseX = x; this.baseY = y;
+                this.size = size;
+                this.vx = (Math.random() - 0.5) * 1;
+                this.vy = (Math.random() - 0.5) * 1;
+                // Warp metrics
+                this.z = Math.random() * 1000;
+            }
+            update() {
+                // Hiệu ứng Warp Speed khi cuộn trang
+                if (scrollSpeed > 0) {
+                    this.z -= scrollSpeed * 2;
+                    if (this.z <= 0) {
+                        this.z = 1000;
+                        this.x = Math.random() * canvas.width;
+                        this.y = Math.random() * canvas.height;
+                    }
+                    scrollSpeed *= 0.95; // Giảm tốc dần
+                } else {
+                    // Chuyển động bình thường
+                    this.x += this.vx; this.y += this.vy;
+                    if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                    if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+                }
+
+                // Tương tác chuột né tránh
+                let dx = mouse.x - this.x;
+                let dy = mouse.y - this.y;
+                let distance = Math.sqrt(dx*dx + dy*dy);
+                if (distance < mouse.radius) {
+                    this.x -= dx/10;
+                    this.y -= dy/10;
+                }
+
+                // Warp scale dựa trên Z
+                let warpScale = 1000 / (this.z || 1000);
+                let x2 = (this.x - canvas.width/2) * warpScale + canvas.width/2;
+                let y2 = (this.y - canvas.height/2) * warpScale + canvas.height/2;
+                let currentSize = this.size * warpScale;
+
+                ctx.beginPath();
+                ctx.arc(x2, y2, currentSize, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(56, 189, 248, 1)';
+                ctx.fill();
+            }
+        }
+        
+        function initParticles() {
+            particlesArray = [];
+            for (let i = 0; i < 150; i++) {
+                particlesArray.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 2));
+            }
+        }
+        
+        function animateParticles() {
+            if(!isMatrixMode) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                }
+                // Nối Laser
+                for (let a = 0; a < particlesArray.length; a++) {
+                    for (let b = a; b < particlesArray.length; b++) {
+                        let dx = particlesArray[a].x - particlesArray[b].x;
+                        let dy = particlesArray[a].y - particlesArray[b].y;
+                        let distance = dx*dx + dy*dy;
+                        if (distance < 15000) {
+                            ctx.strokeStyle = `rgba(125, 211, 252, ${1 - distance/20000})`;
+                            ctx.lineWidth = 1.0;
+                            ctx.beginPath();
+                            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+            requestAnimationFrame(animateParticles);
+        }
+        initParticles(); animateParticles();
+
+        // ==========================================
+        // 6. EASTER EGG (GÕ H A C K E R)
+        // ==========================================
+        let secretCode = ['h', 'a', 'c', 'k', 'e', 'r'];
+        let currentKey = 0;
+        let isMatrixMode = false;
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === secretCode[currentKey]) {
+                currentKey++;
+                if (currentKey === secretCode.length) {
+                    triggerMatrixMode();
+                    currentKey = 0;
+                }
+            } else {
+                currentKey = 0;
+            }
+        });
+
+        function triggerMatrixMode() {
+            if(isMatrixMode) return;
+            isMatrixMode = true;
+            playSciFiClick();
+            
+            const matrixCanvas = document.getElementById('matrix-overlay');
+            const textAlert = document.getElementById('matrix-text');
+            matrixCanvas.style.display = 'block';
+            textAlert.style.display = 'block';
+            
+            const mCtx = matrixCanvas.getContext('2d');
+            matrixCanvas.width = window.innerWidth;
+            matrixCanvas.height = window.innerHeight;
+
+            const katakana = 'アァカサタナハマヤャラワガザダバパイィキシチニヒミリヰギジヂビピウゥクスツヌフムユュルグズブヅプエェケセテネヘメレゲゼデベペオォコソトノホモヨョロゴゾドボポヴッン';
+            const latin = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            const nums = '0123456789';
+            const alphabet = katakana + latin + nums;
+            
+            const fontSize = 16;
+            const columns = matrixCanvas.width / fontSize;
+            const drops = [];
+            for(let x = 0; x < columns; x++) drops[x] = 1;
+            
+            function drawMatrix() {
+                mCtx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                mCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+                mCtx.fillStyle = '#0F0';
+                mCtx.font = fontSize + 'px monospace';
+                
+                for(let i = 0; i < drops.length; i++) {
+                    const text = alphabet.charAt(Math.floor(Math.random() * alphabet.length));
+                    mCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if(drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) drops[i] = 0;
+                    drops[i]++;
+                }
+                if(isMatrixMode) requestAnimationFrame(drawMatrix);
+            }
+            drawMatrix();
+            
+            // Tắt sau 5 giây
+            setTimeout(() => {
+                isMatrixMode = false;
+                matrixCanvas.style.display = 'none';
+                textAlert.style.display = 'none';
+            }, 6000);
+        }
+
+    </script>
+</body>
+</html>
