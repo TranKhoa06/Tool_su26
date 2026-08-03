@@ -1,12 +1,12 @@
 :root {
-    --bg-dark: #0B1120;
+    --bg-dark: #121A20;
     --bg-card: #1F2937;
     --text-main: #F3F4F6;
     --text-muted: #9CA3AF;
     --primary-color: #10B981;
     --secondary-color: #06B6D4;
-    --glass-bg: rgba(31, 41, 55, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.05);
+    --glass-bg: rgba(22, 30, 39, 0.9);
+    --glass-border: rgba(255, 255, 255, 0.08);
     --red-danger: #EF4444;
     --primary-light: #34d399;
 }
@@ -89,9 +89,10 @@ body {
 
 /* Typography Gradient */
 .text-gradient {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: linear-gradient(90deg, #10B981 0%, #06B6D4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    font-weight: 800;
 }
 
 /* Navbar */
@@ -151,29 +152,33 @@ body {
 }
 
 .btn-glass {
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-main);
+    background: #1E293B;
+    color: white;
     padding: 12px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 8px;
-    font-weight: 500;
+    font-weight: 600;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 .btn-glass:hover { background: rgba(255, 255, 255, 0.1); }
 .mb-15 { margin-bottom: 15px; }
 
 .btn-solid {
-    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    background: #10B981;
+    color: white;
+    padding: 12px 24px;
     border: none;
-    color: #fff;
-    padding: 8px 20px;
-    border-radius: 6px;
-    cursor: pointer;
+    border-radius: 8px;
     font-weight: 600;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
 }
 .btn-solid:hover {
     transform: translateY(-2px);
@@ -234,11 +239,7 @@ body {
     color: var(--text-muted);
     margin-bottom: 20px;
 }
-.hero-title {
-    font-size: 3.5rem;
-    line-height: 1.1;
-    margin: 0 0 20px 0;
-}
+.hero-title { font-size: 3.5rem; font-weight: 800; margin-bottom: 20px; line-height: 1.1; letter-spacing: -1px; }
 .hero-subtitle {
     color: var(--text-muted);
     font-size: 1.1rem;
@@ -247,10 +248,12 @@ body {
 .search-box {
     display: flex;
     align-items: center;
-    background: var(--bg-card);
+    background: #1A242B;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
     padding: 10px 20px;
-    border-radius: 8px;
-    border: 1px solid var(--glass-border);
+    width: 100%;
+    max-width: 500px;
     margin-bottom: 30px;
 }
 .search-box i { font-size: 20px; color: var(--text-muted); margin-right: 10px; }
@@ -266,12 +269,12 @@ body {
 
 /* Hero Widget */
 .hero-widget { width: 350px; }
-.widget-card { padding: 20px; border-radius: 12px; }
+.widget-card { background: rgba(26, 36, 43, 0.95); border-radius: 16px; padding: 25px; width: 350px; border: 1px solid rgba(255, 255, 255, 0.05); }
 .widget-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
 .w-icon { background: rgba(16, 185, 129, 0.1); color: var(--primary-color); padding: 10px; border-radius: 8px; }
 .live-dot { display: inline-block; width: 8px; height: 8px; background: var(--primary-color); border-radius: 50%; margin-left: 10px; }
 .live-text { color: var(--primary-color); font-size: 12px; margin-left: 5px; }
-.w-list-item { display: flex; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--glass-border); cursor: pointer; transition: 0.3s; }
+.w-list-item { display: flex; align-items: center; gap: 15px; padding: 12px 15px; border-radius: 10px; background: rgba(255, 255, 255, 0.02); transition: 0.3s; margin-bottom: 10px; border: 1px solid transparent; }
 .w-list-item:hover { transform: translateX(5px); }
 .hash { color: var(--text-muted); font-weight: bold; margin-right: 15px; }
 .w-text-small h5 { margin: 0; font-size: 14px; }
@@ -532,3 +535,17 @@ body {
     pointer-events: none; /* Không cản trở click chuột */
     opacity: 0.4; /* Làm chìm background để nổi bật nội dung */
 }
+
+/* Aurora Glow Backgrounds */
+.aurora-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(40px);
+}
+.aurora-1 { top: -200px; left: -200px; }
+.aurora-2 { bottom: -200px; right: -100px; background: radial-gradient(circle, rgba(6, 182, 212, 0.15) 0%, transparent 60%); }
