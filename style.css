@@ -104,7 +104,7 @@
         /* --------------------------
            2. DANH SÁCH MÔN HỌC (3D TILT & SPOTLIGHT)
            -------------------------- */
-        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; }
+        .subject-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 30px; margin-top: 30px; }
         .subject-card { 
             background: var(--glass-bg); backdrop-filter: blur(10px); border: 1px solid var(--glass-border); 
             border-radius: 16px; padding: 30px; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
@@ -240,3 +240,14 @@
     font-size: 1.1rem; font-weight: 600; cursor: pointer; z-index: 1; transition: 0.3s;
 }
 .tab-btn.active { color: #F3F4F6; }
+
+
+/* Section Headers */
+.section-header { margin-bottom: 40px; }
+.section-badge { color: var(--primary); font-weight: bold; letter-spacing: 1px; }
+.section-header h2 { 
+    font-size: 2.5rem; margin: 10px 0; font-weight: 700; letter-spacing: -0.5px;
+    background: linear-gradient(90deg, var(--text-main), var(--primary)); 
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; 
+}
+.section-header p { color: var(--text-muted); font-size: 1.1rem; }
