@@ -125,7 +125,12 @@ app.post('/api/upload-images', upload.fields([{ name: 'deFiles' }, { name: 'dapa
         const questions = [];
         for (let deFile of deFiles) {
             let originalName = path.basename(deFile.originalname.replace(/\\/g, '/'));
-            let dapanFile = dapanFiles.find(f => path.basename(f.originalname.replace(/\\/g, '/')) === originalName);
+            let qBase = originalName.replace(/\.[^/.]+$/, "");
+            let dapanFile = dapanFiles.find(f => {
+                let fName = path.basename(f.originalname.replace(/\\/g, '/'));
+                let ansBase = fName.replace(/\.[^/.]+$/, "");
+                return fName === originalName || ansBase === qBase || ansBase === ('dapan' + qBase) || ansBase === ('dapan_' + qBase);
+            });
 
             let newImgPath = path.join(imagesDir, `${subjectId}_${originalName}`);
             fs.copyFileSync(deFile.path, newImgPath);
