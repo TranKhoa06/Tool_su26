@@ -74,7 +74,7 @@ onAuthStateChanged(auth, async (user) => {
         }
         
         // Save user to Firestore if not exists, default permission: dic201
-        let permissions = window.subjectRegistry ? window.subjectRegistry.filter(s => s.isDefault).map(s => s.id) : ['dic201'];
+        let permissions = ['dic201']; // FIX: Hardcoded to prevent client-side bypass
         try {
             const userRef = doc(db, 'users', user.uid);
             const userSnap = await getDoc(userRef);
@@ -104,12 +104,13 @@ onAuthStateChanged(auth, async (user) => {
         }
         
         const authUnlogged = document.getElementById('auth-unlogged');
+    const heroSection = document.getElementById('hero-section');
         if(authUnlogged) authUnlogged.classList.add('hidden');
         const loginSug = document.getElementById('login-suggestion');
         if(loginSug) loginSug.classList.add('hidden');
         if(userProfile) {
             userProfile.classList.remove('hidden');
-            document.getElementById('user-name').innerText = user.displayName;
+            if (document.getElementById('user-name')) document.getElementById('user-name').innerText = user.displayName;
             document.getElementById('user-avatar').src = user.photoURL;
             
             const badge = document.querySelector('.user-badge');
@@ -157,7 +158,7 @@ onAuthStateChanged(auth, async (user) => {
         if(loginPrompt) loginPrompt.classList.remove('hidden');
         
         if(window.location.pathname.includes('admin.html')) {
-            document.getElementById('admin-content').classList.add('hidden');
+            if (document.getElementById('admin-content')) document.getElementById('admin-content').classList.add('hidden');
             document.getElementById('admin-login-prompt').classList.remove('hidden');
         }
     }

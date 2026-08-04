@@ -126,7 +126,7 @@
         /* --------------------------
            3. GIAO DIỆN FLASHCARD (QUIZLET STYLE - MINIMAL)
            -------------------------- */
-        .flashcard-container { perspective: 1000px; width: 700px; height: 400px; margin: 0 auto; cursor: pointer; }
+        .flashcard-container { perspective: 1000px; width: 100%; max-width: 700px; height: 400px; margin: 0 auto; cursor: pointer; }
         .flashcard { width: 100%; height: 100%; position: relative; transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1); transform-style: preserve-3d; }
         .flashcard.flipped { transform: rotateY(180deg); }
         .fc-face { 
@@ -293,3 +293,20 @@
 .quiz-actions { margin-top: 20px; text-align: right; }
 .quiz-reveal-answer { padding: 30px; margin-top: 20px; border-left: 4px solid var(--primary); }
 .btn-large { font-size: 1.1rem; padding: 15px 35px; }
+
+
+/* -------------------------------------
+   MOBILE RESPONSIVENESS
+   ------------------------------------- */
+@media (max-width: 768px) {
+    .hero { flex-direction: column; padding: 100px 20px; text-align: center; }
+    .hero-text { max-width: 100%; align-items: center; }
+    .glitch-wrapper { font-size: 3.5rem; }
+    .widget-mock { width: 100%; margin-top: 40px; }
+    .navbar { padding: 15px 20px; }
+    .flashcard-container { height: 350px; }
+    .fc-face { font-size: 1.5rem; padding: 20px; }
+    .segmented-control { flex-direction: column; }
+    .slider { display: none; } /* Disable slider on mobile for simplicity */
+    .tab-btn { border-bottom: 1px solid var(--glass-border); border-radius: 0; }
+}
