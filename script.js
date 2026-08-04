@@ -202,7 +202,7 @@ function loadFlashcard() {
         document.getElementById('fc3d-term').innerHTML = termHTML;
         const optionsList = document.getElementById('fc3d-options');
         optionsList.innerHTML = '';
-        if (currentQ.type !== 'image') {
+        if (currentQ.type !== 'image' && currentQ.options) {
             currentQ.options.forEach(opt => {
                 const div = document.createElement('div');
                 div.className = 'fc-option';
@@ -212,8 +212,8 @@ function loadFlashcard() {
         }
         document.getElementById('fc3d-definition').innerHTML = defHTML;
         
-        // ÄĂ³ng tháº» náº¿u Ä‘ang má»Ÿ
-        const card = document.getElementById('flashcard-3d');
+        const card = document.querySelector('.flashcard');
+        if(card) card.classList.remove('flipped');
         card.classList.remove('is-flipped');
     } 
     else if (currentTab === 'flashcard-reveal') {
@@ -252,12 +252,12 @@ function prevCard(type) {
 }
 
 function toggleFlashcard3D() {
-    const card = document.getElementById('flashcard-3d');
-    card.classList.toggle('is-flipped');
+    const card = document.querySelector('.flashcard');
+    if(card) card.classList.toggle('flipped');
 }
 
 // Click vĂ o tháº» 3D Ä‘á»ƒ láº­t
-document.getElementById('flashcard-3d')?.addEventListener('click', toggleFlashcard3D);
+// Flashcard click is handled inline in HTML onclick="this.querySelector('.flashcard').classList.toggle('flipped')"
 
 // --- Quiz ---
 function loadQuiz() {
@@ -280,8 +280,10 @@ function loadQuiz() {
     currentQ.options.forEach((opt, idx) => {
         const btn = document.createElement('div');
         btn.innerText = opt;
-        btn.className = 'quiz-option-btn';
+        btn.className = 'option';
         btn.onclick = () => selectAnswer(idx, btn);
+        const letters = ['A','B','C','D','E','F'];
+        btn.innerHTML = `<div class="opt-letter">${letters[idx] || '-'}</div> ${opt}`;
         optionsContainer.appendChild(btn);
     });
 
@@ -349,7 +351,7 @@ document.addEventListener('keydown', (e) => {
     if (e.code === 'Space') {
         e.preventDefault();
         if (currentTab === 'flashcard-3d') {
-            document.getElementById('flashcard-3d').classList.toggle('is-flipped');
+            document.querySelector('.flashcard').classList.toggle('flipped');
         } else if (currentTab === 'flashcard-reveal') {
             revealAnswer();
         }
@@ -437,81 +439,102 @@ window.renderSubjects = function() {
         const btn = document.createElement('div');
         btn.className = 'subject-card';
         btn.onclick = () => loadSubject(sub.id, sub.name);
-        btn.innerHTML = `<div class='card-icon ${sub.iconClass}'><i class='bx ${sub.icon}'></i></div><h3>${sub.id.toUpperCase()}</h3><p>${sub.name}</p><div class='card-arrow'><i class='bx bx-right-arrow-alt'></i></div>`;
-        list.appendChild(btn);
+        btn.innerHTML = `<h3 style="color:var(--primary);">${sub.id.toUpperCase()}</h3>
+    <p>${sub.name}</p>
+    <div class="card-actions">
+        <button class="btn-solid" onclick="event.stopPropagation(); loadSubject('${sub.id}', '${sub.name}')">Vào Học</button>
+        <button class="btn-outline" onclick="event.stopPropagation(); loadSubject('${sub.id}', '${sub.name}')">Thi Thử</button>
+    </div>`;
+        btn.addEventListener('mousemove', e => {
+        const rect = btn.getBoundingClientRect();
+        btn.style.setProperty('--x', (e.clientX - rect.left) + 'px');
+        btn.style.setProperty('--y', (e.clientY - rect.top) + 'px');
+    });
+    list.appendChild(btn);
     });
     if(window.userPermissions) window.applyPermissions();
 };
 
 
 // ==========================================
-// BACKGROUND PARTICLE NETWORK
+// BACKGROUND PARTICLE NETWORK (WARP SPEED)
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     const canvas = document.getElementById('canvas-bg');
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
     
-    // Đảm bảo canvas chiếm toàn bộ hero section
     function resizeCanvas() {
-        const hero = document.getElementById('hero-section');
-        if(hero) {
-            canvas.width = hero.offsetWidth;
-            canvas.height = hero.offsetHeight;
-        } else {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-        }
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
     }
     resizeCanvas();
     window.addEventListener('resize', resizeCanvas);
     
     let particlesArray = [];
+    let scrollSpeed = 0;
+    let lastScrollTop = 0;
+    
+    window.addEventListener('scroll', () => {
+        let st = window.pageYOffset || document.documentElement.scrollTop;
+        scrollSpeed = Math.abs(st - lastScrollTop);
+        lastScrollTop = st;
+    });
+
     class Particle {
-        constructor() {
-            this.x = Math.random() * canvas.width;
-            this.y = Math.random() * canvas.height;
-            this.size = Math.random() * 1.5 + 0.5;
-            this.vx = (Math.random() - 0.5) * 0.5; // Chuyển động siêu chậm
-            this.vy = (Math.random() - 0.5) * 0.5;
+        constructor(x, y, size) {
+            this.x = x; this.y = y; 
+            this.size = size;
+            this.vx = (Math.random() - 0.5) * 1;
+            this.vy = (Math.random() - 0.5) * 1;
+            this.z = Math.random() * 1000;
         }
         update() {
-            this.x += this.vx;
-            this.y += this.vy;
-            if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
-            if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+            if (scrollSpeed > 0) {
+                this.z -= scrollSpeed * 2.5;
+                if (this.z <= 0) {
+                    this.z = 1000;
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                }
+                scrollSpeed *= 0.95;
+            } else {
+                this.x += this.vx; this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+            }
             
+            let warpScale = 1000 / (this.z || 1000);
+            let x2 = (this.x - canvas.width/2) * warpScale + canvas.width/2;
+            let y2 = (this.y - canvas.height/2) * warpScale + canvas.height/2;
+            let currentSize = this.size * warpScale;
+
             ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.fillStyle = 'rgba(56, 189, 248, 0.5)';
+            ctx.arc(x2, y2, currentSize, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(16, 185, 129, 0.6)';
             ctx.fill();
         }
     }
     
     function initParticles() {
         particlesArray = [];
-        let num = (canvas.width * canvas.height) / 12000; // Mật độ thưa hơn
-        for (let i = 0; i < num; i++) {
-            particlesArray.push(new Particle());
+        for (let i = 0; i < (canvas.width*canvas.height)/10000; i++) {
+            particlesArray.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height, Math.random() * 2));
         }
     }
     
     function animateParticles() {
-        requestAnimationFrame(animateParticles);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
         for (let i = 0; i < particlesArray.length; i++) {
             particlesArray[i].update();
         }
-        
-        // Nối Laser mờ
         for (let a = 0; a < particlesArray.length; a++) {
             for (let b = a; b < particlesArray.length; b++) {
                 let dx = particlesArray[a].x - particlesArray[b].x;
                 let dy = particlesArray[a].y - particlesArray[b].y;
                 let distance = dx*dx + dy*dy;
-                if (distance < 12000) { // Khoảng cách nối ngắn hơn
-                    ctx.strokeStyle = `rgba(56, 189, 248, ${0.15 - distance/80000})`;
+                if (distance < 20000) {
+                    ctx.strokeStyle = `rgba(6, 182, 212, ${0.15 - distance/150000})`;
                     ctx.lineWidth = 0.5;
                     ctx.beginPath();
                     ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
@@ -520,8 +543,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         }
+        requestAnimationFrame(animateParticles);
     }
     
-    initParticles();
-    animateParticles();
+    initParticles(); animateParticles();
 });

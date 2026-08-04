@@ -7,7 +7,7 @@
     <!-- Google Fonts: Outfit -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <!-- Data Registry -->
@@ -71,75 +71,41 @@
     <div id="home-view" class="view-section">
         
         <!-- HERO SECTION -->
+        
         <section id="hero-section" class="hero unlogged-only">
-            <div class="aurora-glow aurora-1"></div>
-            <div class="aurora-glow aurora-2"></div>
-            <!-- Hình động Nền Công nghệ (Particle Grid) -->
-            <canvas id="canvas-bg" class="canvas-bg"></canvas>
-            <div class="hero-content">
-                <div class="hero-badge">NỀN TẢNG HỌC TẬP - DÀNH CHO BẠN</div>
-                <h1 class="hero-title">Học nhanh hơn.<br><span class="text-gradient">Không còn mất giờ</span> tìm tài liệu.</h1>
-                <p class="hero-subtitle">Kho tài liệu, thi thử, flashcard AI và diễn đàn cộng đồng — <strong>tất cả trong một nơi</strong> dành cho sinh viên.</p>
-                
-                <div class="search-box">
-                    <i class='bx bx-search'></i>
-                    <input type="text" placeholder="Tìm môn học, mã môn... (ví dụ: PRF192)" onkeyup="filterSubjects(this.value)">
-                    <span class="shortcut-key">↵</span>
+            
+            <div class="aurora aurora-1"></div>
+            <div class="aurora aurora-2"></div>
+            
+            <!-- FLEX COLUMN CONTAINER FOR TEXT -->
+            <div class="hero-text">
+                <div class="glitch-wrapper">
+                    <div class="glitch" data-text="CYBERLEARN">CYBERLEARN</div>
                 </div>
-
-                <div class="hero-actions">
-                    <button class="btn-solid btn-large" onclick="scrollToGrid()">Bắt đầu học ngay <i class='bx bx-right-arrow-alt'></i></button>
-                    <button class="btn-glass btn-large"><i class='bx bx-task'></i> Thi thử miễn phí</button>
-                </div>
-                
-                <div class="hero-features">
-                    <span><i class='bx bx-check-circle'></i> Miễn phí tạo tài khoản</span>
-                    <span><i class='bx bx-check-circle'></i> Không cần cài app</span>
-                    <span><i class='bx bx-check-circle'></i> Cập nhật mỗi ngày</span>
-                </div>
+                <div class="hero-desc" id="typewriter-text"></div>
+                <button class="btn-solid" style="font-size: 1.3rem; padding: 18px 40px; margin-top: 10px;">Truy cập ngay →</button>
             </div>
             
-            <div class="hero-widget">
-                <div class="widget-card glass-panel" data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
-                    <div class="widget-item">
-                        <div class="w-icon"><i class='bx bx-message-rounded-dots'></i></div>
-                        <div class="w-text">
-                            <h4>Phòng chat <span class="live-dot"></span><span class="live-text">Live</span></h4>
-                            <p>Trò chuyện realtime cùng cộng đồng</p>
-                        </div>
+            <div class="widget-mock" data-tilt data-tilt-max="15" data-tilt-speed="400" data-tilt-glare="true" data-tilt-max-glare="0.2">
+                <h3 style="margin-top:0; color:var(--primary); font-size: 1.5rem; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px;">Phòng Chat Live</h3>
+                <div class="w-item">
+                    <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:var(--accent);">#</div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 1.1rem;">Góc Kỹ Thuật</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Thảo luận Code...</div>
                     </div>
-                    <div class="widget-list">
-                        <div class="w-list-item">
-                            <span class="hash">#</span>
-                            <div class="w-text-small">
-                                <h5>Tán gẫu linh tinh</h5>
-                                <p>Nói gì cũng được, miễn là vui</p>
-                            </div>
-                            <i class='bx bx-chevron-right'></i>
-                        </div>
-                        <div class="w-list-item">
-                            <span class="hash">#</span>
-                            <div class="w-text-small">
-                                <h5>Campus HCM giao lưu</h5>
-                                <p>Giao lưu là chính, tìm người yêu là mười</p>
-                            </div>
-                            <i class='bx bx-chevron-right'></i>
-                        </div>
-                        <div class="w-list-item">
-                            <span class="hash">#</span>
-                            <div class="w-text-small">
-                                <h5>Campus HN giao lưu</h5>
-                                <p>Cộng đồng sinh viên cơ sở Hà Nội</p>
-                            </div>
-                            <i class='bx bx-chevron-right'></i>
-                        </div>
-                    </div>
-                    <div class="widget-footer">
-                        <i class='bx bx-headphone'></i> Chat với Admin <i class='bx bx-right-arrow-alt'></i>
+                </div>
+                <div class="w-item">
+                    <div style="width: 50px; height: 50px; background: rgba(255,255,255,0.1); border-radius: 12px; display:flex; align-items:center; justify-content:center; font-weight:bold; color:var(--primary);">@</div>
+                    <div>
+                        <div style="font-weight: 800; font-size: 1.1rem;">Tài liệu VIP</div>
+                        <div style="font-size: 0.9rem; color: var(--text-muted);">Chia sẻ đề thi...</div>
                     </div>
                 </div>
             </div>
+        
         </section>
+    
 
         <!-- LOGIN SUGGESTION -->
         <div id="login-suggestion" class="login-suggestion">
@@ -217,32 +183,36 @@
 
             <!-- 1. Flashcard 3D -->
             <div id="view-flashcard-3d" class="study-mode">
-                <div class="progress-badge"><i class='bx bx-bar-chart-alt-2'></i> <span id="fc3d-counter"></span></div>
-                <div class="scene">
-                    <div class="card" id="flashcard-3d">
-                        <div class="card__face card__face--front glass-panel">
-                            <div class="label-badge label-question">Câu hỏi</div>
-                            <div class="card-content">
-                                <div id="fc3d-term" class="term-content"></div>
-                                <div id="fc3d-options" class="fc-options-list"></div>
-                            </div>
-                            <div class="card-hint"><i class='bx bx-tap'></i> Chạm để xem giải thích</div>
-                        </div>
-                        <div class="card__face card__face--back glass-panel">
-                            <div class="label-badge label-answer">Giải thích</div>
-                            <div class="card-content">
-                                <div id="fc3d-definition" class="def-content"></div>
-                            </div>
-                        </div>
-                    </div>
+        
+        <div class="progress-badge" style="margin-bottom: 20px;"><i class='bx bx-bar-chart-alt-2'></i> <span id="fc3d-counter"></span></div>
+        <div class="flashcard-container" onclick="this.querySelector('.flashcard').classList.toggle('flipped')">
+            <div class="flashcard">
+                <div class="fc-face fc-front">
+                    <div class="fc-hint">Thuật ngữ</div>
+                    <div class="fc-icon">↺</div>
+                    Tính Kế Thừa (Inheritance)
                 </div>
-                <div class="controls">
-                    <button class="btn-outline btn-nav" onclick="prevCard()"><i class='bx bx-chevron-left'></i> Trước</button>
-                    <button class="btn-solid btn-nav" onclick="nextCard()">Tiếp theo <i class='bx bx-chevron-right'></i></button>
+                <div class="fc-face fc-back">
+                    <div class="fc-hint" style="color: var(--primary);">Định nghĩa</div>
+                    <div class="fc-icon">↺</div>
+                    Khả năng một lớp (Class) có thể kế thừa các thuộc tính và phương thức từ một lớp khác bằng từ khóa <code style="background: rgba(255,255,255,0.1); padding: 4px 8px; border-radius: 4px;">extends</code>.
                 </div>
             </div>
-
-            <!-- 2. Flashcard Reveal -->
+        </div>
+        
+        <div class="fc-controls">
+            <button class="btn-minimal">← Quay lại</button>
+            <div class="fc-progress">1 / 20</div>
+            <button class="btn-minimal">Tiếp theo →</button>
+        </div>
+        </div>
+        <div class="controls" style="margin-top: 40px;">
+            <button class="btn-outline btn-nav" onclick="prevCard()"><i class='bx bx-chevron-left'></i> Trước</button>
+            <button class="btn-solid btn-nav" onclick="nextCard()">Tiếp theo <i class='bx bx-chevron-right'></i></button>
+        </div>
+    
+    </div>
+    <!-- 2. Flashcard Reveal -->
             <div id="view-flashcard-reveal" class="study-mode hidden">
                 <div class="progress-badge"><i class='bx bx-bar-chart-alt-2'></i> <span id="fcrev-counter"></span></div>
                 <div class="card-reveal-container glass-panel">
